@@ -2,7 +2,9 @@
 
 <img src="assets/logo.png" width="96" alt="钙钛矿器件模拟工作台图标">
 
-Python / Windows 桌面工具，将能带分析和器件性能模拟整合到两个独立页面。能带页查看真空参考排列、自洽热平衡能带、电场与载流子浓度；性能页用 SimSS 计算均匀或渐变器件的稳态 J–V、Jsc、Voc、FF、PCE。版本 **1.3.8**。
+Python / Windows 桌面工具，将能带分析和器件性能模拟整合到两个独立页面。能带页查看真空参考排列、自洽热平衡能带、电场与载流子浓度；性能页用 SimSS 计算均匀或渐变器件的稳态 J–V、Jsc、Voc、FF、PCE。版本 **1.3.9**。
+
+1.3.9 更新：窗口标题添加签名「MK Design」。
 
 1.3.8 更新：性能页均匀模式禁用 Eg / Nd / Na 的右端输入，仅使用材料页数值；χ 独立右端与 α 按当前模式启用，未参与计算的输入不再触发解析错误。切换层、打开项目及运行结束后保持正确状态。下拉栏映射显示后在空闲阶段刷新文字绑定，改善隐藏页签首次显示时的空白问题，不改变选项值或结果。整体检查另修复能带页同类输入状态、参数文件打开失败却部分替换器件，以及保存 / 导出的错误提示，详见 [检查记录](docs/verification-1.3.8.md)。
 
@@ -18,9 +20,9 @@ Python / Windows 桌面工具，将能带分析和器件性能模拟整合到两
 
 双击 `start.bat`，或执行 `python run.py`。依赖：`pip install -r requirements.txt`。
 
-Windows 打包版：双击 `dist/1.3.8/PerovskiteDeviceStudio.exe`，无需安装 Python 或 SimSS。可单独复制 EXE 到其他 Windows 64 位电脑运行。历史文件按版本目录归档，未标注版本的早期文件在 `dist/legacy-unversioned/`。
+Windows 打包版：双击 `dist/1.3.9/PerovskiteDeviceStudio.exe`，无需安装 Python 或 SimSS。可单独复制 EXE 到其他 Windows 64 位电脑运行。历史文件按版本目录归档，未标注版本的早期文件在 `dist/legacy-unversioned/`。
 
-[下载 Windows 1.3.8 单文件版](https://github.com/mumium/perovskite-device-studio/releases/download/v1.3.8/PerovskiteDeviceStudio.exe) · [下载文件夹版 ZIP](https://github.com/mumium/perovskite-device-studio/releases/download/v1.3.8/PerovskiteDeviceStudio-1.3.8-portable.zip) · [版本发布页](https://github.com/mumium/perovskite-device-studio/releases/tag/v1.3.8)
+[下载 Windows 1.3.9 单文件版](https://github.com/mumium/perovskite-device-studio/releases/download/v1.3.9/PerovskiteDeviceStudio.exe) · [下载文件夹版 ZIP](https://github.com/mumium/perovskite-device-studio/releases/download/v1.3.9/PerovskiteDeviceStudio-1.3.9-portable.zip) · [版本发布页](https://github.com/mumium/perovskite-device-studio/releases/tag/v1.3.9)
 
 重新打包：安装项目依赖及 `pyinstaller`，再运行 `build_exe.bat`。程序为单文件无控制台版本，首次启动需要解压运行依赖，可能稍慢。
 

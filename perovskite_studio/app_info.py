@@ -1,5 +1,6 @@
 """Shared product identity."""
 APP_NAME = '钙钛矿器件模拟工作台'
 APP_ENGLISH_NAME = 'Perovskite Device Studio'
-APP_VERSION = '1.3.8'
+APP_VERSION = '1.3.9'
+APP_SIGNATURE = 'MK Design'
 APP_ID = 'mumium.PerovskiteDeviceStudio'
