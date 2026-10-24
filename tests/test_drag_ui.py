@@ -92,6 +92,30 @@ class DragUI(unittest.TestCase):
         self.assertIsNone(a.drag)
         a.toolbar.pan()
 
+    def test_themed_toolbar_toggle_history_and_resize(self):
+        a=self.app;t=a.toolbar
+        saved=deepcopy(a.layers)
+        for tool in ('Pan','Zoom'):
+            button=t._buttons[tool]
+            initial=(button.winfo_reqwidth(),button.winfo_reqheight())
+            button.invoke();a.update()
+            self.assertTrue(t.mode)
+            self.assertTrue(button.instate(('selected',)))
+            self.assertEqual(button.var.get(),1)
+            button.invoke();a.update()
+            self.assertFalse(t.mode)
+            self.assertFalse(button.instate(('selected',)))
+            self.assertEqual(button.var.get(),0)
+            self.assertEqual(initial,(button.winfo_reqwidth(),button.winfo_reqheight()))
+        t.push_current();original=a.ax.get_xlim()
+        a.ax.set_xlim(100,300);t.push_current()
+        t.back();np.testing.assert_allclose(a.ax.get_xlim(),original)
+        t.forward();np.testing.assert_allclose(a.ax.get_xlim(),(100,300))
+        t.home();np.testing.assert_allclose(a.ax.get_xlim(),original)
+        t._rescale();a.update()
+        self.assertEqual(a.layers,saved)
+        self.assertTrue(t._buttons['Pan'].winfo_viewable())
+
     def test_equilibrium_recompute_and_failure_rollback(self):
         a=self.app;a.mode.set('热平衡弯曲能带');a.calculate();a.update()
         self.drag('Ec','right',.1)

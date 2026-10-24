@@ -18,12 +18,12 @@ class DeviceStructure(ttk.Frame):
         super().__init__(parent, padding=(6, 0))
         header = ttk.Frame(self)
         header.pack(fill='x')
-        ttk.Label(header, text='当前器件结构（示意）', font=('Microsoft YaHei', 10, 'bold')).pack(side='left')
+        ttk.Label(header, text='当前器件结构（示意）', font=('Microsoft YaHei UI', 10, 'bold')).pack(side='left')
         self.light_text = tk.StringVar(value='→  入射光：左 → 右')
-        self.light_label = ttk.Label(self, textvariable=self.light_text, foreground='#94671d',
-                                    font=('Microsoft YaHei', 9), anchor='w')
+        self.light_label = ttk.Label(self, textvariable=self.light_text, foreground='#c77700',
+                                    font=('Microsoft YaHei UI', 9), anchor='w')
         self.light_label.pack(fill='x',padx=6,pady=(0,2))
-        self.name_font = Font(self, family='Microsoft YaHei', size=9)
+        self.name_font = Font(self, family='Microsoft YaHei UI', size=9)
         self.canvas = tk.Canvas(self, height=58, bg='white', highlightthickness=0)
         self.canvas.pack(fill='x')
         self.scrollbar = ttk.Scrollbar(self, orient='horizontal', command=self.canvas.xview)
@@ -83,14 +83,17 @@ class DeviceStructure(ttk.Frame):
             c.xview_moveto(0)
         c.configure(scrollregion=(0, 0, width, 40 if self.compact else 58))
         if not self.layers:
-            c.create_text(12, 20, text='请先添加功能层', anchor='w', fill='#617580')
+            c.create_text(12, 20, text='请先添加功能层', anchor='w', fill='#6e6e73')
             return
         # The single illumination line stays visible while layers scroll.
         cell = (width-20)/len(self.layers)
         for i, layer in enumerate(self.layers):
             x0, x1 = 10+i*cell, 10+(i+1)*cell-4
-            c.create_rectangle(x0, 1, x1, 39 if self.compact else 55, fill=self.COLORS[i % len(self.COLORS)],
-                               outline='#087e8b' if i == self.selected else '#cbd9e2',
+            y0,y1,r=1,39 if self.compact else 55,7
+            c.create_polygon(x0+r,y0,x1-r,y0,x1,y0,x1,y0+r,x1,y1-r,x1,y1,
+                               x1-r,y1,x0+r,y1,x0,y1,x0,y1-r,x0,y0+r,x0,y0,
+                               smooth=True,splinesteps=16,fill=self.COLORS[i % len(self.COLORS)],
+                               outline='#007aff' if i == self.selected else '#cbd9e2',
                                width=2 if i == self.selected else 1, tags=f'layer-{i}')
             # Names wrap within their own cell; never overlap the adjacent layer.
             name = str(layer.get('name', '')).strip() or '未命名层'
@@ -106,9 +109,9 @@ class DeviceStructure(ttk.Frame):
                     lines.append('')
                 lines[-1]+=character
             c.create_text((x0+x1)/2, 11 if self.compact else 18, text='\n'.join(lines), justify='center',
-                          font=self.name_font, fill='#223b4b', tags='layer-name')
+                          font=self.name_font, fill='#1d1d1f', tags='layer-name')
             c.create_text((x0+x1)/2, 29 if self.compact else 45, text=self.thickness_text(layer.get('thickness')),
-                          font=('Microsoft YaHei', 9, 'bold'), fill='#245565', tags='layer-thickness')
+                          font=('Microsoft YaHei UI', 9, 'bold'), fill='#1d1d1f', tags='layer-thickness')
 
 
 def preview_layers(layers, index, variables):

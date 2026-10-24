@@ -10,10 +10,10 @@ import numpy as np
 import matplotlib
 matplotlib.use('TkAgg')
 from matplotlib import rcParams
-rcParams['font.sans-serif']=['Microsoft YaHei','SimHei','DejaVu Sans']
+rcParams['font.sans-serif']=['Microsoft YaHei UI','SimHei','DejaVu Sans']
 rcParams['axes.unicode_minus']=False
 from matplotlib.figure import Figure
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from .physics import (FIELDS, example, layer, solve, validate, normalize, alignment,
                      profile, shift_band)
 from .analysis_views import analysis_segments, interface_offsets, sample_position
@@ -22,6 +22,8 @@ from .app_info import APP_NAME, APP_ENGLISH_NAME, APP_ID, APP_SIGNATURE
 from .ui_helpers import ScrollableFrame, FlowToolbar, configure_theme, active_grading_inputs
 from .device_structure import DeviceStructure, preview_layers
 from .paths import RESOURCE_ROOT
+from .plot_toolbar import PlotToolbar
+from .theme import style_layer_list
 from .windows_icon import install_taskbar_icon
 
 class App(tk.Tk):
@@ -65,10 +67,11 @@ class App(tk.Tk):
             body.unbind('<Map>')
             self.after_idle(lambda:body.sashpos(0,350))
         body.bind('<Map>',initial_split)
-        ttk.Label(left,text='材料层（从左电极到右电极）',font=('Microsoft YaHei',11,'bold')).pack(anchor='w')
-        self.listbox=tk.Listbox(left,height=5,exportselection=False,font=('Microsoft YaHei',10),
-                                bg='#f6f9fc',fg='#223b4b',selectbackground='#087e8b',selectforeground='white',
-                                relief='flat',highlightthickness=1,highlightbackground='#dce5ec')
+        ttk.Label(left,text='材料层（从左电极到右电极）',font=('Microsoft YaHei UI',11,'bold')).pack(anchor='w')
+        self.listbox=tk.Listbox(left,height=5,exportselection=False,font=('Microsoft YaHei UI',10),
+                                bg='#ffffff',fg='#1d1d1f',selectbackground='#007aff',selectforeground='white',
+                                relief='flat',highlightthickness=1,highlightbackground='#e5e5ea')
+        style_layer_list(self.listbox)
         self.listbox.pack(fill='x',pady=6); self.listbox.bind('<<ListboxSelect>>',self.select)
         buttons=ttk.Frame(left); buttons.pack(fill='x')
         for text,cmd in [('添加',self.add),('删除',self.remove),('上移',lambda:self.move(-1)),('下移',lambda:self.move(1))]:
@@ -112,7 +115,7 @@ class App(tk.Tk):
         fraction.trace_add('write',self.schedule)
         ttk.Label(box,text='0：固定电子亲和能，只改变价带\n1：固定真空参考价带，只改变导带\n0.5：带隙变化由两条带边均分',justify='left').pack(anchor='w')
         ttk.Label(grading,text='拖动会切换到「独立端点」，同步 Eg、χ。\n掺杂线性允许零浓度；对数两端须为正。',justify='left').pack(anchor='w',pady=6)
-        note=ttk.Label(left,text='迁移率与寿命用于性能页，热平衡页只保存。\n示例参数仅用于演示。',foreground='#805c16')
+        note=ttk.Label(left,text='迁移率与寿命用于性能页，热平衡页只保存。\n示例参数仅用于演示。',foreground='#6e6e73')
         note.pack(side='bottom',anchor='w',pady=4,before=notebook)
         self.structure=DeviceStructure(body)
         self.structure.pack(in_=right,fill='x',pady=(0,4))
@@ -145,13 +148,13 @@ class App(tk.Tk):
         plot_row.pack(fill='both',expand=True)
         self.band_readings=ScrollableFrame(plot_row,width=165,height=100)
         self.band_readings.pack(side='right',fill='y',padx=(8,0))
-        ttk.Label(self.band_readings.content,text='鼠标位置与数值',font=('Microsoft YaHei',9,'bold')).pack(anchor='w',pady=(0,6))
+        ttk.Label(self.band_readings.content,text='鼠标位置与数值',font=('Microsoft YaHei UI',9,'bold')).pack(anchor='w',pady=(0,6))
         self.hover_text=tk.StringVar(value='将鼠标移到图中查看该位置的数值。\n')
-        hover_label=ttk.Label(self.band_readings.content,textvariable=self.hover_text,foreground='#245565',wraplength=150,justify='left',font=('Microsoft YaHei',9))
+        hover_label=ttk.Label(self.band_readings.content,textvariable=self.hover_text,foreground='#1d1d1f',wraplength=150,justify='left',font=('Microsoft YaHei UI',9))
         hover_label.pack(fill='x',pady=(0,8))
         ttk.Separator(self.band_readings.content).pack(fill='x',pady=5)
-        ttk.Label(self.band_readings.content,text='当前层端点',font=('Microsoft YaHei',9,'bold')).pack(anchor='w',pady=(0,4))
-        drag_label=ttk.Label(self.band_readings.content,textvariable=self.drag_summary,foreground='#245565',wraplength=150,justify='left',font=('Microsoft YaHei',9))
+        ttk.Label(self.band_readings.content,text='当前层端点',font=('Microsoft YaHei UI',9,'bold')).pack(anchor='w',pady=(0,4))
+        drag_label=ttk.Label(self.band_readings.content,textvariable=self.drag_summary,foreground='#1d1d1f',wraplength=150,justify='left',font=('Microsoft YaHei UI',9))
         drag_label.pack(fill='x')
         def resize_readings(event):
             for widget in (hover_label,drag_label):
@@ -165,7 +168,7 @@ class App(tk.Tk):
         self.ax=self.fig.add_subplot(111)
         self.canvas=FigureCanvasTkAgg(self.fig,master=chart)
         self.canvas.get_tk_widget().configure(width=250,height=140)
-        self.toolbar=NavigationToolbar2Tk(self.canvas,chart,pack_toolbar=False)
+        self.toolbar=PlotToolbar(self.canvas,chart,pack_toolbar=False)
         self.toolbar.pack(side='bottom',fill='x')
         self.canvas.get_tk_widget().pack(fill='both',expand=True)
         self.canvas.mpl_connect('button_press_event',self.drag_press)
@@ -175,7 +178,7 @@ class App(tk.Tk):
         self.canvas.mpl_connect('button_release_event',self.drag_release)
         self.bind('<Escape>',self.cancel_drag)
         self.status=tk.StringVar(value='')
-        status_label=ttk.Label(band_page,textvariable=self.status,wraplength=1250,padding=6,foreground='#245565')
+        status_label=ttk.Label(band_page,textvariable=self.status,wraplength=1250,padding=6,foreground='#1d1d1f')
         status_label.pack(side='bottom',fill='x',before=body)
         band_page.bind('<Configure>',lambda e:status_label.configure(wraplength=max(300,e.width-24)))
         self.refresh_list(); self.show_fields(); self.calculate()
@@ -260,7 +263,7 @@ class App(tk.Tk):
             self.status.set(note+'  模型：一维、暗态、零外加偏压；不含离子、陷阱、界面偶极。')
             return True
         except Exception as e:
-            self.result=None;self.clear_hover(); self.ax.set_title('当前输入无有效结果 · 图中保留上一次曲线',color='#bd452c'); self.canvas.draw_idle()
+            self.result=None;self.clear_hover(); self.ax.set_title('当前输入无有效结果 · 图中保留上一次曲线',color='#c9342b'); self.canvas.draw_idle()
             self.status.set('未更新：'+str(e)); return False
 
     def plot(self):
@@ -274,7 +277,7 @@ class App(tk.Tk):
         for i,a in enumerate(self.layers):
             end=pos+a['thickness']; ax.axvspan(pos,end,color=colors[i%4],alpha=.7)
             ax.text((pos+end)/2,1.015,a['name'],ha='center',transform=ax.get_xaxis_transform(),fontsize=9,rotation=15)
-            ax.axvline(end,color='#aab4bd',lw=.7); pos=end
+            ax.axvline(end,color='#d1d1d6',lw=.7); pos=end
         # Draw each layer separately to avoid interpolating interface discontinuities.
         self.segments=analysis_segments(self.layers,r,r['temperature'],r['left'],r['right'])
         self.offsets=interface_offsets(self.layers,self.segments)
@@ -283,7 +286,7 @@ class App(tk.Tk):
             self.finish_plot(pos)
             return
         for i,segment in enumerate(self.segments):
-            for key,color in [('Ec','#2279b5'),('Ev','#cd6930')]:
+            for key,color in [('Ec','#007aff'),('Ev','#cd6930')]:
                 line,=ax.plot(segment['x'],segment[key],color=color,lw=2,
                               marker='o',markevery=[0,-1],markersize=6 if i==self.index else 4,
                               markerfacecolor='white',clip_on=False,label=key if i==0 else None)
@@ -291,7 +294,7 @@ class App(tk.Tk):
         if r['mode']=='热平衡弯曲能带':ax.axhline(0,color='#537357',ls='--',label='EF = 0 eV')
         else:ax.axhline(0,color='#537357',ls='--',label='真空能级 = 0 eV')
         if self.snapshot and self.snapshot['mode']==r['mode']:
-            for key,color in [('Ec','#2279b5'),('Ev','#cd6930')]:
+            for key,color in [('Ec','#007aff'),('Ev','#cd6930')]:
                 for i,s in enumerate(self.snapshot['segments']):
                     ax.plot(s['x'],s[key],color=color,ls=':',alpha=.65,label=key+' 对照' if i==0 else None)
         ax.set(xlabel='位置 x (nm)',ylabel='能量 (eV)',xlim=(0,pos))
@@ -302,7 +305,7 @@ class App(tk.Tk):
         margin=max(.15,.12*(high-low));ax.set_ylim(low-margin,high+margin)
         if self.show_offsets.get():
             for i,offset in enumerate(self.offsets):
-                for key,color,dy in [('Ec','#2279b5',14),('Ev','#cd6930',-30)]:
+                for key,color,dy in [('Ec','#007aff',14),('Ev','#cd6930',-30)]:
                     y=self.segments[i+1][key][0]
                     near_right=offset['x']>.75*pos
                     artist=ax.annotate(f"Δ{key} {offset[key]:+.3f} eV",xy=(offset['x'],y),
@@ -323,8 +326,8 @@ class App(tk.Tk):
     def plot_diagnostic(self):
         ax=self.ax;view=self.view.get()
         choices={'电势': [('phi','φ','#5267ad')],
-                 '电场': [('field','E','#9755b3')],
-                 '载流子浓度': [('n','电子 n','#2279b5'),('p','空穴 p','#cd6930')]}
+                 '电场': [('field','E','#af52de')],
+                 '载流子浓度': [('n','电子 n','#007aff'),('p','空穴 p','#cd6930')]}
         for key,label,color in choices[view]:
             for i,s in enumerate(self.segments):
                 ax.plot(s['x'],s[key],color=color,lw=2,label=label if i==0 else None)
@@ -338,7 +341,7 @@ class App(tk.Tk):
         ax.set_ylabel({'电势':'电势 φ (V)','电场':'电场 E (V/cm)',
                        '载流子浓度':r'载流子浓度 (cm$^{-3}$)'}[view])
         if view=='载流子浓度':ax.set_yscale('log')
-        else:ax.axhline(0,color='#87929b',lw=.7,ls='--')
+        else:ax.axhline(0,color='#aeaeb2',lw=.7,ls='--')
         ax.set_title('热平衡 · E = −dφ/dx（分层求导）' if view=='电场' else '热平衡 · '+view,
                      fontsize=10,y=1.13,pad=6)
 

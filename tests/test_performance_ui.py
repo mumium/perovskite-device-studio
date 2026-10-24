@@ -385,6 +385,23 @@ class PerformanceUI(unittest.TestCase):
             self.assertEqual(size, (b.winfo_reqwidth(), b.winfo_reqheight()))
             b.state(('!'+state,))
 
+    def test_themed_scrollbar_thumb_remains_draggable(self):
+        p=self.page
+        p.layer_tabs.select(0)
+        self.app.geometry('1024x650');self.app.update()
+        scroll=p.parameter_scroll;bar=scroll.scrollbar
+        scroll.canvas.yview_moveto(0);self.app.update()
+        x=bar.winfo_width()//2
+        ys=[y for y in range(bar.winfo_height()) if bar.identify(x,y).endswith('thumb')]
+        self.assertTrue(ys)
+        y=(ys[0]+ys[-1])//2
+        before=scroll.canvas.yview()[0]
+        bar.event_generate('<ButtonPress-1>',x=x,y=y)
+        bar.event_generate('<B1-Motion>',x=x,y=min(bar.winfo_height()-2,y+80),state=0x100)
+        bar.event_generate('<ButtonRelease-1>',x=x,y=min(bar.winfo_height()-2,y+80))
+        self.app.update()
+        self.assertGreater(scroll.canvas.yview()[0],before)
+
     def test_single_illumination_line_survives_compact_layout_and_direction_change(self):
         a=self.app;p=self.page
         self.assertFalse(hasattr(a,'structure_direction'))

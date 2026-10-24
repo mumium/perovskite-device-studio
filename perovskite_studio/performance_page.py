@@ -10,9 +10,11 @@ from tkinter import ttk, filedialog, messagebox
 
 import numpy as np
 from matplotlib.figure import Figure
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 from .physics import FIELDS, layer
+from .plot_toolbar import PlotToolbar
+from .theme import style_layer_list
 from .ui_helpers import ScrollableFrame, FlowToolbar, active_grading_inputs
 from .device_structure import DeviceStructure, preview_layers, STRUCTURES_DIR
 from .optics import (NK_LIBRARY, OPTICS_DEFAULTS, get_optics, default_nk,
@@ -26,19 +28,19 @@ from .performance import (DEFAULT_SETTINGS, EXTRA_FIELDS, ENGINE_VERSION,
 def jv_export_figure(result, previous=None, limits=None):
     """A fixed-size report whose four metrics belong to the exported solid curve."""
     fig = Figure(figsize=(8.4, 6.4), facecolor='white')
-    fig.text(.12, .945, 'J–V 模拟结果', fontsize=16, fontweight='bold', color='#223b4b')
+    fig.text(.12, .945, 'J–V 模拟结果', fontsize=16, fontweight='bold', color='#1d1d1f')
     specs = [('Jsc', 'mA/cm²', 3), ('Voc', 'V', 4), ('FF', '%', 3), ('PCE', '%', 3)]
     for x, (key, unit, decimals) in zip((.12, .335, .55, .765), specs):
         value = result['metrics'][key]
-        fig.text(x, .875, key, fontsize=11, color='#586d78')
+        fig.text(x, .875, key, fontsize=11, color='#6e6e73')
         fig.text(x, .823, '—' if value is None else f'{value:.{decimals}f}',
-                 fontsize=19, fontweight='bold', color='#087e8b')
-        fig.text(x, .783, unit, fontsize=10, color='#586d78')
+                 fontsize=19, fontweight='bold', color='#007aff')
+        fig.text(x, .783, unit, fontsize=10, color='#6e6e73')
     ax = fig.add_axes([.12, .15, .83, .57])
     if previous is not None:
-        ax.plot(previous['voltage'], previous['current'], color='#a15d14', ls='--', lw=1.6, label='上次结果')
+        ax.plot(previous['voltage'], previous['current'], color='#c77700', ls='--', lw=1.6, label='上次结果')
     light = result.get('optics', {}).get('mode') == 'spectrum' or result['settings']['G'] > 0
-    ax.plot(result['voltage'], result['current'], color='#087e8b', lw=2,
+    ax.plot(result['voltage'], result['current'], color='#007aff', lw=2,
             label='本次光照 J–V' if light else '本次暗态 J–V')
     m = result['metrics']
     if m.get('Vmp') is not None:
@@ -46,15 +48,15 @@ def jv_export_figure(result, previous=None, limits=None):
     if limits is not None:
         ax.set_xlim(limits[0])
         ax.set_ylim(limits[1])
-    ax.axhline(0, color='#87929b', lw=.8)
-    ax.axvline(0, color='#87929b', lw=.8)
+    ax.axhline(0, color='#aeaeb2', lw=.8)
+    ax.axvline(0, color='#aeaeb2', lw=.8)
     ax.set(xlabel='端电压 V (V)', ylabel='输出电流密度 J (mA/cm²)')
     ax.grid(alpha=.2)
     ax.legend(loc='best', fontsize=9)
     s = result['settings']
-    fig.text(.12, .058, f"Pin = {s['pin']:g} mW/cm²   ·   T = {s['T']:g} K", fontsize=9, color='#586d78')
+    fig.text(.12, .058, f"Pin = {s['pin']:g} mW/cm²   ·   T = {s['T']:g} K", fontsize=9, color='#6e6e73')
     note = '四项参数对应本次实线曲线；— 表示尚未确认或不适用。'
-    fig.text(.12, .025, note, fontsize=9, color='#586d78')
+    fig.text(.12, .025, note, fontsize=9, color='#6e6e73')
     return fig
 
 
@@ -98,10 +100,11 @@ class PerformancePage(ttk.Frame):
             body.unbind('<Map>')
             self.after_idle(lambda: body.sashpos(0, 365))
         body.bind('<Map>', initial_split)
-        ttk.Label(left, text='材料层（从左电极到右电极）', font=('Microsoft YaHei', 10, 'bold')).pack(anchor='w')
-        self.listbox = tk.Listbox(left, height=5, exportselection=False, font=('Microsoft YaHei', 10), bg='#f6f9fc', fg='#223b4b',
-                                  selectbackground='#087e8b', selectforeground='white', relief='flat',
-                                  highlightthickness=1, highlightbackground='#dce5ec')
+        ttk.Label(left, text='材料层（从左电极到右电极）', font=('Microsoft YaHei UI', 10, 'bold')).pack(anchor='w')
+        self.listbox = tk.Listbox(left, height=5, exportselection=False, font=('Microsoft YaHei UI', 10), bg='#ffffff', fg='#1d1d1f',
+                                  selectbackground='#007aff', selectforeground='white', relief='flat',
+                                  highlightthickness=1, highlightbackground='#e5e5ea')
+        style_layer_list(self.listbox)
         self.listbox.pack(fill='x', pady=5)
         self.listbox.bind('<<ListboxSelect>>', self.select)
         self.input_widgets.append(self.listbox)
@@ -113,7 +116,7 @@ class PerformancePage(ttk.Frame):
             button.pack(side='left', padx=2)
             self.input_widgets.append(button)
         self.grading_note = tk.StringVar()
-        ttk.Label(left, textvariable=self.grading_note, foreground='#a15d14', wraplength=380).pack(anchor='w', pady=4)
+        ttk.Label(left, textvariable=self.grading_note, foreground='#c77700', wraplength=380).pack(anchor='w', pady=4)
 
         layer_tabs = ttk.Notebook(left)
         self.layer_tabs = layer_tabs
@@ -138,7 +141,7 @@ class PerformancePage(ttk.Frame):
         self.absorber.trace_add('write', self.mark_dirty)
         self.input_widgets.append(check)
         ttk.Label(form, text='Nc 与 Nv 须相等；Nt=0 关闭体 SRH。\n捕获系数 C=1/(τ·Nt)；固定寿命时 Nt 不改变复合。\n最后一层的右界面传输速度不参与计算。',
-                  foreground='#526779').grid(row=len(self.vars)+1, column=0, columnspan=3, sticky='w')
+                  foreground='#6e6e73').grid(row=len(self.vars)+1, column=0, columnspan=3, sticky='w')
 
         grading_scroll = ScrollableFrame(layer_tabs, width=345)
         layer_tabs.add(grading_scroll, text='渐变')
@@ -179,12 +182,12 @@ class PerformancePage(ttk.Frame):
             self.input_widgets.append(widget)
             var.trace_add('write', self.grading_mode_changed if key == 'affinity_mode' else self.mark_dirty)
         ttk.Label(grading, text='独立端点：χ 线性变化，忽略 α。\n随带隙分配：χ=χ左−α(Eg−Eg左)。\n对数掺杂两端须 > 0；渐变分段数在计算设置中。',
-                  foreground='#526779', wraplength=325).pack(anchor='w', pady=6)
+                  foreground='#6e6e73', wraplength=325).pack(anchor='w', pady=6)
 
         optical_layer = ScrollableFrame(layer_tabs, width=345)
         layer_tabs.add(optical_layer, text='光学')
         of = optical_layer.content
-        ttk.Label(of, text='本层折射率 n / 消光系数 k', font=('Microsoft YaHei', 10, 'bold')).pack(anchor='w', pady=(5, 8))
+        ttk.Label(of, text='本层折射率 n / 消光系数 k', font=('Microsoft YaHei UI', 10, 'bold')).pack(anchor='w', pady=(5, 8))
         self.nk_choice = tk.StringVar()
         self.nk_combo = ttk.Combobox(of, textvariable=self.nk_choice, values=list(NK_LIBRARY), state='readonly', width=22)
         self.nk_combo.pack(fill='x', pady=3)
@@ -194,7 +197,7 @@ class PerformancePage(ttk.Frame):
         button.pack(fill='x', pady=6)
         self.input_widgets.append(button)
         self.nk_note = tk.StringVar()
-        ttk.Label(of, textvariable=self.nk_note, wraplength=320, foreground='#536c7c').pack(anchor='w', pady=5)
+        ttk.Label(of, textvariable=self.nk_note, wraplength=320, foreground='#6e6e73').pack(anchor='w', pady=5)
         check = ttk.Checkbutton(of, text='本层吸收光产生载流子', variable=self.absorber)
         check.pack(anchor='w', pady=5)
         self.input_widgets.append(check)
@@ -208,7 +211,7 @@ class PerformancePage(ttk.Frame):
             self.input_widgets.append(widget)
             var.trace_add('write', self.mark_dirty)
         ttk.Label(of, text='CSV：波长_nm,n,k；波长递增，n>0，k≥0。\n吸收边联动：局部 Eg 调整吸收边，n 保持原谱。\n参考 Eg 是原始 n,k 对应的带隙，修改材料 Eg 时不要跟着改。\n基础近似不代表真实组分光学常数；实测数据可选固定模式。', wraplength=320,
-                  foreground='#805c16').pack(anchor='w', pady=8)
+                  foreground='#6e6e73').pack(anchor='w', pady=8)
 
         interface_tab = ScrollableFrame(layer_tabs, width=345)
         layer_tabs.add(interface_tab, text='界面')
@@ -222,7 +225,7 @@ class PerformancePage(ttk.Frame):
         self.settings_toggle = ttk.Button(self.settings_header, text='模拟设置 ▾', width=11, command=self.toggle_settings)
         self.settings_toggle.pack(side='left', pady=(0, 3))
         self.mode_badge = tk.StringVar(value='AM1.5G · TMM 光学耦合')
-        ttk.Label(self.settings_header, textvariable=self.mode_badge, foreground='#536c7c').pack(side='left', padx=8)
+        ttk.Label(self.settings_header, textvariable=self.mode_badge, foreground='#6e6e73').pack(side='left', padx=8)
         self.settings_visible = False
         self.compact = None
         settings_tabs = ttk.Notebook(right, height=150)
@@ -264,10 +267,10 @@ class PerformancePage(ttk.Frame):
                 self.left_anode.trace_add('write', self.mark_dirty)
                 self.input_widgets.append(check)
                 ttk.Label(tab, text='速度 0 表示阻挡；左阳极时通常左电子 0、左空穴 1e7，右侧相反。', wraplength=430,
-                          foreground='#526779').grid(row=21, column=0, columnspan=2, sticky='w')
+                          foreground='#6e6e73').grid(row=21, column=0, columnspan=2, sticky='w')
             if title == '光照与扫描':
                 ttk.Label(tab, text='光谱模式自动计算 G(x)；入射功率统一缩放完整光谱。', wraplength=430,
-                          foreground='#a15d14').grid(row=20, column=0, columnspan=2, sticky='w', pady=4)
+                          foreground='#c77700').grid(row=20, column=0, columnspan=2, sticky='w', pady=4)
             self.setting_forms.append((scroll_tab, rows))
             scroll_tab.canvas.bind('<Configure>', lambda e, items=rows: self.layout_settings(items, e.width), add='+')
         optical_tab = ScrollableFrame(settings_tabs, width=560, height=150)
@@ -287,7 +290,7 @@ class PerformancePage(ttk.Frame):
             self.input_widgets.append(entry)
             var.trace_add('write', self.mark_dirty)
         ttk.Label(eqe_tab.content, text='短路微分 EQE；使用光学波段，逐波长叠加 1 nm 探测光。\n计算包含输运/复合；EQE 单独保存，切回 J–V 查看其指标。',
-                  foreground='#805c16').grid(row=3, column=0, columnspan=3, sticky='w', padx=5, pady=5)
+                  foreground='#6e6e73').grid(row=3, column=0, columnspan=3, sticky='w', padx=5, pady=5)
         summary = ttk.Frame(right, padding=(4, 2))
         self.summary = summary
         summary.pack(fill='x')
@@ -297,16 +300,16 @@ class PerformancePage(ttk.Frame):
             card = ttk.Frame(summary, padding=(8, 0))
             card.grid(row=0, column=i, sticky='ew', padx=4)
             summary.columnconfigure(i, weight=1)
-            ttk.Label(card, text=f'{title} · {unit}', font=('Microsoft YaHei', 9),
-                      foreground='#617580').pack(anchor='w')
+            ttk.Label(card, text=f'{title} · {unit}', font=('Microsoft YaHei UI', 9),
+                      foreground='#6e6e73').pack(anchor='w')
             var = tk.StringVar(value='—')
             self.metric_vars[key] = var
-            ttk.Label(card, textvariable=var, font=('Microsoft YaHei', 16, 'bold'), foreground='#245565').pack(anchor='w')
+            ttk.Label(card, textvariable=var, font=('Microsoft YaHei UI', 16, 'bold'), foreground='#1d1d1f').pack(anchor='w')
         self.mpp_text = tk.StringVar(value='尚未计算。输入支持科学计数法，例如 3e21。')
         self.mpp_label = ttk.Label(right, textvariable=self.mpp_text, wraplength=800)
         self.mpp_label.pack(anchor='w', padx=8)
         self.comparison_text = tk.StringVar()
-        self.comparison_label = ttk.Label(right, textvariable=self.comparison_text, foreground='#805c16', wraplength=800)
+        self.comparison_label = ttk.Label(right, textvariable=self.comparison_text, foreground='#6e6e73', wraplength=800)
         plot_controls = FlowToolbar(right)
         self.plot_controls = plot_controls
         plot_controls.pack(fill='x', padx=8, pady=4)
@@ -326,7 +329,7 @@ class PerformancePage(ttk.Frame):
         plot_controls.add(self.loss_choice)
         self.loss_choice.bind('<<ComboboxSelected>>', lambda e: self.plot())
         self.analysis_note = tk.StringVar()
-        self.analysis_label = ttk.Label(right, textvariable=self.analysis_note, wraplength=800, foreground='#536c7c')
+        self.analysis_label = ttk.Label(right, textvariable=self.analysis_note, wraplength=800, foreground='#6e6e73')
         self.fig = Figure(figsize=(7, 4), dpi=100)
         self.fig.set_layout_engine('tight', pad=1.2)
         self.ax = self.fig.add_subplot(111)
@@ -334,7 +337,7 @@ class PerformancePage(ttk.Frame):
         self.canvas.get_tk_widget().bind('<Configure>', self.resize_plot, add='+')
         self.canvas.get_tk_widget().configure(width=250, height=140)
         self.canvas.get_tk_widget().pack(fill='both', expand=True)
-        self.toolbar = NavigationToolbar2Tk(self.canvas, right, pack_toolbar=False)
+        self.toolbar = PlotToolbar(self.canvas, right, pack_toolbar=False)
         self.canvas.get_tk_widget().pack_forget()
         self.toolbar.pack(side='bottom', fill='x')
         self.canvas.get_tk_widget().pack(fill='both', expand=True)
@@ -342,10 +345,10 @@ class PerformancePage(ttk.Frame):
         self.footer = footer
         footer.pack(side='bottom', fill='x', before=body)
         self.status = tk.StringVar(value=f'就绪 · SimSS {ENGINE_VERSION} · 参数已从能带页复制，可直接编辑。')
-        self.status_label = ttk.Label(footer, textvariable=self.status, foreground='#245565', wraplength=1250)
+        self.status_label = ttk.Label(footer, textvariable=self.status, foreground='#1d1d1f', wraplength=1250)
         self.status_label.pack(fill='x', pady=(4, 0))
         self.warning = tk.StringVar()
-        self.warning_label = ttk.Label(footer, textvariable=self.warning, foreground='#a15d14', wraplength=1250)
+        self.warning_label = ttk.Label(footer, textvariable=self.warning, foreground='#c77700', wraplength=1250)
         self.warning_label.pack(fill='x')
         self.bind('<Configure>', self.resize_labels, add='+')
         right.bind('<Configure>', self.resize_right)
@@ -358,7 +361,7 @@ class PerformancePage(ttk.Frame):
 
     def build_interface_form(self, form):
         self.interface_note = tk.StringVar()
-        ttk.Label(form, textvariable=self.interface_note, wraplength=320, foreground='#536c7c').grid(row=0, column=0, columnspan=3, sticky='w', pady=7)
+        ttk.Label(form, textvariable=self.interface_note, wraplength=320, foreground='#6e6e73').grid(row=0, column=0, columnspan=3, sticky='w', pady=7)
         self.interface_vars = {}
         for i, (key, title, unit) in enumerate([('Nt', '界面缺陷浓度', 'cm⁻²'), ('Et', '陷阱真空以下深度', 'eV'),
                                                ('Cn', '电子捕获系数', 'cm³/s'), ('Cp', '空穴捕获系数', 'cm³/s')], 1):
@@ -385,7 +388,7 @@ class PerformancePage(ttk.Frame):
         self.input_widgets.append(combo)
         self.interface_type.trace_add('write', self.mark_dirty)
         ttk.Label(form, text='设置本层与右侧材料的真实界面。\nNt=0 关闭界面陷阱；最后一层忽略此设置。\n捕获系数独立于体寿命，单位 cm³/s。\n自动能级会随两侧能级更新；手动深度须在共同禁带内。\n数值渐变子层之间不添加陷阱。',
-                  wraplength=320, foreground='#805c16').grid(row=7, column=0, columnspan=3, sticky='w', pady=7)
+                  wraplength=320, foreground='#6e6e73').grid(row=7, column=0, columnspan=3, sticky='w', pady=7)
 
     def update_interface_controls(self):
         self.interface_energy_entry.configure(state='disabled' if self.running or self.interface_auto.get() else 'normal')
@@ -432,7 +435,7 @@ class PerformancePage(ttk.Frame):
             var.trace_add('write', self.mark_dirty)
         ttk.Label(form, text='每层 n,k 在左侧「光学参数」中选择。光学基底及额外电极不改变电学层。\n'
                   '效率分母采用完整光谱；光生仅计算指定波段。CSV 光谱单位：nm、W/m²/nm。',
-                  wraplength=450, foreground='#805c16').grid(row=10, column=0, columnspan=3, sticky='w', padx=4, pady=8)
+                  wraplength=450, foreground='#6e6e73').grid(row=10, column=0, columnspan=3, sticky='w', padx=4, pady=8)
 
     def update_optical_mode(self, *_):
         if not hasattr(self, 'optical_mode'):
@@ -904,8 +907,8 @@ class PerformancePage(ttk.Frame):
             if self.comparison_text.get():
                 self.comparison_label.pack(anchor='w', padx=8, before=self.plot_controls)
         ax.set(xlabel='端电压 V (V)', ylabel='输出电流密度 J (mA/cm²)')
-        ax.axhline(0, color='#87929b', lw=.8)
-        ax.axvline(0, color='#87929b', lw=.8)
+        ax.axhline(0, color='#aeaeb2', lw=.8)
+        ax.axvline(0, color='#aeaeb2', lw=.8)
         ax.grid(alpha=.2)
         self.loss_choice.configure(state='readonly' if self.plot_view.get() == '损失分析' else 'disabled')
         if self.plot_view.get() == '损失分析':
@@ -926,9 +929,9 @@ class PerformancePage(ttk.Frame):
             r = self.result
             if self.show_previous.get() and self.previous_result is not None:
                 prev = self.previous_result
-                ax.plot(prev['voltage'], prev['current'], color='#a15d14', ls='--', lw=1.6, label='上次结果')
+                ax.plot(prev['voltage'], prev['current'], color='#c77700', ls='--', lw=1.6, label='上次结果')
             light = r.get('optics', {}).get('mode') == 'spectrum' or r['settings']['G'] > 0
-            ax.plot(r['voltage'], r['current'], color='#087e8b', lw=2, label='光照 J–V' if light else '暗态 J–V')
+            ax.plot(r['voltage'], r['current'], color='#007aff', lw=2, label='光照 J–V' if light else '暗态 J–V')
             m = r['metrics']
             if m['Vmp'] is not None:
                 ax.plot(m['Vmp'], m['Jmp'], 'o', color='#cd6930', label='最大功率点')
@@ -973,9 +976,9 @@ class PerformancePage(ttk.Frame):
             labels = [labels[i] for i in chosen]+['其余层 / 界面合计']
             bulk, direct, interface = (np.r_[a[chosen], a[other].sum()] for a in (bulk, direct, interface))
         y = np.arange(len(labels))
-        ax.barh(y, bulk, color='#087e8b', label='体 SRH')
+        ax.barh(y, bulk, color='#007aff', label='体 SRH')
         ax.barh(y, direct, left=bulk, color='#d18b37', label='双分子')
-        ax.barh(y, interface, left=bulk+direct, color='#9871b6', label='界面 SRH')
+        ax.barh(y, interface, left=bulk+direct, color='#af52de', label='界面 SRH')
         ax.set_yticks(y, [a if len(a) < 24 else a[:22]+'…' for a in labels], fontsize=8)
         ax.invert_yaxis()
         ax.grid(axis='x', alpha=.2)
@@ -995,12 +998,12 @@ class PerformancePage(ttk.Frame):
             ax.set_title('选择光谱 TMM 模式后，点击「运行 EQE」', fontsize=11)
             return
         r = self.eqe_result
-        ax.plot(r['wavelength_nm'], np.asarray(r['EQE'])*100, color='#087e8b', lw=2, label='EQE（含输运与复合）')
+        ax.plot(r['wavelength_nm'], np.asarray(r['EQE'])*100, color='#007aff', lw=2, label='EQE（含输运与复合）')
         ax.plot(r['wavelength_nm'], np.asarray(r['active_absorptance'])*100, color='#d18b37', ls=':', label='光生吸收参考')
         if self.show_previous.get() and self.previous_eqe is not None:
             p = self.previous_eqe
-            ax.plot(p['wavelength_nm'], np.asarray(p['EQE'])*100, color='#9871b6', ls='--', label='上次 EQE')
-        ax.axhline(100, lw=.7, color='#9fb1bd')
+            ax.plot(p['wavelength_nm'], np.asarray(p['EQE'])*100, color='#af52de', ls='--', label='上次 EQE')
+        ax.axhline(100, lw=.7, color='#aeaeb2')
         ax.set_title(f"短路微分 EQE · 背景光比例 {r['eqe_settings']['background_scale']:g}", fontsize=11)
         ax.legend(loc='best', fontsize=8)
         self.show_analysis_note(f"此图对应最近成功 EQE 输入；J–V 指标切回 J–V 视图查看。光谱加权电流参考 "
@@ -1020,20 +1023,20 @@ class PerformancePage(ttk.Frame):
             table = np.asarray(o['spectrum_nm_W_m2_nm'])
             ax.plot(table[:, 0], table[:, 1], color='#d18b37', lw=1.2, label=o['spectrum_name'])
             lo, hi = o['settings']['wavelength_min'], o['settings']['wavelength_max']
-            ax.axvspan(lo, hi, color='#087e8b', alpha=.1, label='光生计算波段')
+            ax.axvspan(lo, hi, color='#007aff', alpha=.1, label='光生计算波段')
             ax.set_title(f"完整入射光谱 · {o['incident_power_mW_cm2']:g} mW/cm²", fontsize=11)
         else:
-            ax.plot(o['x_nm'], o['G_cm3_s'], color='#087e8b', lw=2, label='当前 G(x)')
+            ax.plot(o['x_nm'], o['G_cm3_s'], color='#007aff', lw=2, label='当前 G(x)')
             x = 0.
             for a in r['layers']:
-                ax.axvspan(x, x+a['thickness'], color='#087e8b' if a.get('absorber') else '#8096a7', alpha=.07)
+                ax.axvspan(x, x+a['thickness'], color='#007aff' if a.get('absorber') else '#8096a7', alpha=.07)
                 x += a['thickness']
             ax.set_title(f"光生分布 · q∫Gdx = {r['generated_current']:.3f} mA/cm²", fontsize=11)
             ax.ticklabel_format(axis='y', style='sci', scilimits=(0, 0))
             if self.show_previous.get() and self.previous_result is not None:
                 previous = self.previous_result.get('optics', {})
                 if previous.get('mode') == 'spectrum':
-                    ax.plot(previous['x_nm'], previous['G_cm3_s'], color='#a15d14', ls='--', label='上次 G(x)')
+                    ax.plot(previous['x_nm'], previous['G_cm3_s'], color='#c77700', ls='--', label='上次 G(x)')
         ax.set_ylim(bottom=0)
         ax.legend(loc='best')
 
