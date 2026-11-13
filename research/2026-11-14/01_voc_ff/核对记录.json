@@ -1,0 +1,236 @@
+[
+  {
+    "file": "grid1500\\direct_align.json",
+    "dense_PCE": 24.35498081435812,
+    "delta": 3.552713678800501e-15,
+    "current_error": 1.7112190646393734e-05
+  },
+  {
+    "file": "grid1500\\direct_align_quality.json",
+    "dense_PCE": 24.890067158065474,
+    "delta": 3.552713678800501e-15,
+    "current_error": 8.591639649563271e-06
+  },
+  {
+    "file": "grid1500\\graded_np_align.json",
+    "dense_PCE": 24.355823084046317,
+    "delta": 3.552713678800501e-15,
+    "current_error": 1.3657560619172816e-05
+  },
+  {
+    "file": "grid1500\\graded_np_align_quality.json",
+    "dense_PCE": 24.892885424707572,
+    "delta": -3.552713678800501e-15,
+    "current_error": 9.802394035667791e-06
+  },
+  {
+    "file": "grid2000\\direct_align.json",
+    "dense_PCE": 24.349063771338294,
+    "delta": -3.552713678800501e-15,
+    "current_error": 1.72103182932288e-05
+  },
+  {
+    "file": "grid2000\\direct_align_mobility.json",
+    "dense_PCE": 24.84448659653582,
+    "delta": 0.0,
+    "current_error": 8.495235900178288e-06
+  },
+  {
+    "file": "grid2000\\direct_align_quality.json",
+    "dense_PCE": 24.88393210960895,
+    "delta": 0.0,
+    "current_error": 8.497401458161143e-06
+  },
+  {
+    "file": "grid2000\\direct_baseline.json",
+    "dense_PCE": 11.295059428238705,
+    "delta": 1.7763568394002505e-15,
+    "current_error": 1.9224983116731725e-05
+  },
+  {
+    "file": "grid2000\\direct_chi_3.3.json",
+    "dense_PCE": 24.387770947615724,
+    "delta": 3.552713678800501e-15,
+    "current_error": 8.244769957880945e-06
+  },
+  {
+    "file": "grid2000\\graded_np_align.json",
+    "dense_PCE": 24.346003626489612,
+    "delta": 3.552713678800501e-15,
+    "current_error": 1.7870098068609182e-05
+  },
+  {
+    "file": "grid2000\\graded_np_align_mobility.json",
+    "dense_PCE": 24.843193538426156,
+    "delta": 0.0,
+    "current_error": 9.430589245400574e-06
+  },
+  {
+    "file": "grid2000\\graded_np_align_quality.json",
+    "dense_PCE": 24.882788733389727,
+    "delta": 3.552713678800501e-15,
+    "current_error": 9.432490833572124e-06
+  },
+  {
+    "file": "grid2000\\graded_np_baseline.json",
+    "dense_PCE": 11.380360160101038,
+    "delta": -3.552713678800501e-15,
+    "current_error": 1.9901100131609694e-05
+  },
+  {
+    "file": "grid600\\direct_align.json",
+    "dense_PCE": 24.416566399888936,
+    "delta": -7.105427357601002e-15,
+    "current_error": 2.2493507695130842e-05
+  },
+  {
+    "file": "grid600\\direct_align_contacts.json",
+    "dense_PCE": 24.92524937108333,
+    "delta": 0.0,
+    "current_error": 1.0316286151033825e-05
+  },
+  {
+    "file": "grid600\\direct_align_mobility.json",
+    "dense_PCE": 24.891889874435414,
+    "delta": -7.105427357601002e-15,
+    "current_error": 3.0083276622659347e-06
+  },
+  {
+    "file": "grid600\\direct_align_quality.json",
+    "dense_PCE": 24.924040445303074,
+    "delta": -3.552713678800501e-15,
+    "current_error": 3.0067684598866828e-06
+  },
+  {
+    "file": "grid600\\direct_B_control.json",
+    "dense_PCE": 11.808376772230732,
+    "delta": -5.662119662019904e-10,
+    "current_error": 6.119511145406392e-06
+  },
+  {
+    "file": "grid600\\direct_baseline.json",
+    "dense_PCE": 11.360759121410865,
+    "delta": -1.7763568394002505e-15,
+    "current_error": 1.1057729373370873e-05
+  },
+  {
+    "file": "grid600\\direct_chi_3.2.json",
+    "dense_PCE": 24.38327064794201,
+    "delta": -3.552713678800501e-15,
+    "current_error": 2.80321196517346e-05
+  },
+  {
+    "file": "grid600\\direct_chi_3.3.json",
+    "dense_PCE": 24.45470972982728,
+    "delta": 0.0,
+    "current_error": 2.3393143236966177e-05
+  },
+  {
+    "file": "grid600\\direct_chi_3.4.json",
+    "dense_PCE": 24.32865058559536,
+    "delta": 0.0,
+    "current_error": 2.0514570930168377e-05
+  },
+  {
+    "file": "grid600\\direct_chi_3.45.json",
+    "dense_PCE": 23.745558084689797,
+    "delta": -3.552713678800501e-15,
+    "current_error": 6.762531429087081e-05
+  },
+  {
+    "file": "grid600\\direct_chi_3.5.json",
+    "dense_PCE": 21.09959633713665,
+    "delta": 0.0,
+    "current_error": 6.9671306173626e-06
+  },
+  {
+    "file": "grid600\\direct_chi_3.55.json",
+    "dense_PCE": 15.456433424911266,
+    "delta": -1.1812772982011666e-12,
+    "current_error": 1.3985230379465992e-05
+  },
+  {
+    "file": "grid600\\direct_contacts.json",
+    "dense_PCE": 11.612348064224058,
+    "delta": 0.0,
+    "current_error": 3.1938449947128965e-05
+  },
+  {
+    "file": "grid600\\direct_lifetime.json",
+    "dense_PCE": 11.363071589605031,
+    "delta": 0.0,
+    "current_error": 1.103776864413931e-05
+  },
+  {
+    "file": "grid600\\direct_mobility.json",
+    "dense_PCE": 11.398238706472123,
+    "delta": 0.0,
+    "current_error": 2.5849870157409004e-06
+  },
+  {
+    "file": "grid600\\direct_narrow_only.json",
+    "dense_PCE": 0.0007970029846849052,
+    "delta": -1.7924897677268348e-14,
+    "current_error": 4.424593463650751e-06
+  },
+  {
+    "file": "grid600\\direct_partial_align.json",
+    "dense_PCE": 11.70316231216059,
+    "delta": 0.0,
+    "current_error": 8.36535719475027e-06
+  },
+  {
+    "file": "grid600\\direct_resistance.json",
+    "dense_PCE": 11.435744571304104,
+    "delta": 0.0,
+    "current_error": 1.1057729373370873e-05
+  },
+  {
+    "file": "grid600\\direct_wide_only.json",
+    "dense_PCE": 10.866290694273177,
+    "delta": -3.062439191126032e-12,
+    "current_error": 7.794573760253828e-06
+  },
+  {
+    "file": "grid600\\graded_np_align.json",
+    "dense_PCE": 24.48778661507347,
+    "delta": -3.552713678800501e-15,
+    "current_error": 2.2933162192489527e-05
+  },
+  {
+    "file": "grid600\\graded_np_align_mobility.json",
+    "dense_PCE": 24.96662317839034,
+    "delta": 3.552713678800501e-15,
+    "current_error": 3.2069520578008904e-06
+  },
+  {
+    "file": "grid600\\graded_np_align_quality.json",
+    "dense_PCE": 24.998904194347336,
+    "delta": 0.0,
+    "current_error": 3.2082954827670177e-06
+  },
+  {
+    "file": "grid600\\graded_np_baseline.json",
+    "dense_PCE": 11.522619235507,
+    "delta": -2.4093083084153477e-10,
+    "current_error": 1.0101479891245059e-05
+  },
+  {
+    "file": "grid600\\graded_np_chi_3.4.json",
+    "dense_PCE": 24.393485926583622,
+    "delta": 0.0,
+    "current_error": 1.9978103137195413e-05
+  },
+  {
+    "file": "grid600\\graded_np_chi_3.45.json",
+    "dense_PCE": 23.764926360901832,
+    "delta": -3.552713678800501e-15,
+    "current_error": 6.783820956514606e-05
+  },
+  {
+    "file": "grid600\\graded_np_chi_3.5.json",
+    "dense_PCE": 20.88681253949729,
+    "delta": 3.552713678800501e-15,
+    "current_error": 1.103197965792894e-05
+  }
+]

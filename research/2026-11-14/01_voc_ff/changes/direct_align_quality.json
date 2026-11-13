@@ -1,0 +1,62 @@
+[
+  {
+    "layer": 2,
+    "parameter": "chi",
+    "before": 3.8,
+    "after": 3.37
+  },
+  {
+    "layer": 2,
+    "parameter": "mun",
+    "before": 2.0,
+    "after": 20.0
+  },
+  {
+    "layer": 2,
+    "parameter": "mup",
+    "before": 2.0,
+    "after": 20.0
+  },
+  {
+    "layer": 2,
+    "parameter": "taun",
+    "before": 0.0001,
+    "after": 0.001
+  },
+  {
+    "layer": 2,
+    "parameter": "taup",
+    "before": 0.0001,
+    "after": 0.001
+  },
+  {
+    "layer": 2,
+    "parameter": "chi_end",
+    "before": 3.8,
+    "after": 3.37
+  },
+  {
+    "layer": 3,
+    "parameter": "mun",
+    "before": 2.0,
+    "after": 20.0
+  },
+  {
+    "layer": 3,
+    "parameter": "mup",
+    "before": 2.0,
+    "after": 20.0
+  },
+  {
+    "layer": 3,
+    "parameter": "taun",
+    "before": 0.0001,
+    "after": 0.001
+  },
+  {
+    "layer": 3,
+    "parameter": "taup",
+    "before": 0.0001,
+    "after": 0.001
+  }
+]

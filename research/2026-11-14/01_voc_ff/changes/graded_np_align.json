@@ -1,0 +1,26 @@
+[
+  {
+    "layer": 2,
+    "parameter": "chi",
+    "before": 3.8,
+    "after": 3.37
+  },
+  {
+    "layer": 2,
+    "parameter": "chi_end",
+    "before": 3.8,
+    "after": 3.37
+  },
+  {
+    "layer": 3,
+    "parameter": "chi",
+    "before": 3.8,
+    "after": 3.37
+  },
+  {
+    "layer": 3,
+    "parameter": "chi_end",
+    "before": 3.8,
+    "after": 3.37
+  }
+]
