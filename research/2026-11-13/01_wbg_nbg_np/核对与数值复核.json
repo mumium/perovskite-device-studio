@@ -1,0 +1,321 @@
+{
+  "checks": [
+    {
+      "phase": "initial",
+      "design": "direct",
+      "independent_PCE_error": -1.7763568394002505e-15,
+      "independent_FF_error": -7.105427357601002e-15,
+      "relative_current_error": 7.711080753900377e-06
+    },
+    {
+      "phase": "initial",
+      "design": "graded_np",
+      "independent_PCE_error": 0.0,
+      "independent_FF_error": 7.105427357601002e-15,
+      "relative_current_error": 8.221595427682055e-06
+    },
+    {
+      "phase": "initial",
+      "design": "split_control",
+      "independent_PCE_error": -1.7763568394002505e-15,
+      "independent_FF_error": 7.105427357601002e-15,
+      "relative_current_error": 7.738553891432944e-06
+    },
+    {
+      "phase": "grid1000",
+      "design": "direct",
+      "independent_PCE_error": 0.0,
+      "independent_FF_error": -1.4210854715202004e-14,
+      "relative_current_error": 5.206614654830474e-06
+    },
+    {
+      "phase": "grid1000",
+      "design": "graded_np",
+      "independent_PCE_error": 0.0,
+      "independent_FF_error": 7.105427357601002e-15,
+      "relative_current_error": 2.0465740977211448e-05
+    },
+    {
+      "phase": "grid1000",
+      "design": "split_control",
+      "independent_PCE_error": -3.552713678800501e-15,
+      "independent_FF_error": -1.4210854715202004e-14,
+      "relative_current_error": 5.331839465823887e-06
+    },
+    {
+      "phase": "grid1500",
+      "design": "direct",
+      "independent_PCE_error": 0.0,
+      "independent_FF_error": -7.105427357601002e-15,
+      "relative_current_error": 2.2715548156478018e-05
+    },
+    {
+      "phase": "grid1500",
+      "design": "graded_np",
+      "independent_PCE_error": 0.0,
+      "independent_FF_error": 0.0,
+      "relative_current_error": 2.4593974921920835e-05
+    },
+    {
+      "phase": "grid1500",
+      "design": "split_control",
+      "independent_PCE_error": 1.7763568394002505e-15,
+      "independent_FF_error": 0.0,
+      "relative_current_error": 2.367234357564469e-05
+    },
+    {
+      "phase": "refined",
+      "design": "direct",
+      "independent_PCE_error": 0.0,
+      "independent_FF_error": 0.0,
+      "relative_current_error": 2.137183089642984e-05
+    },
+    {
+      "phase": "refined",
+      "design": "graded_np",
+      "independent_PCE_error": 1.7763568394002505e-15,
+      "independent_FF_error": 7.105427357601002e-15,
+      "relative_current_error": 2.1981269569440627e-05
+    },
+    {
+      "phase": "refined",
+      "design": "split_control",
+      "independent_PCE_error": 0.0,
+      "independent_FF_error": -7.105427357601002e-15,
+      "relative_current_error": 2.2299300524776e-05
+    },
+    {
+      "phase": "check48",
+      "design": "graded_np",
+      "independent_PCE_error": -1.7763568394002505e-15,
+      "independent_FF_error": -7.105427357601002e-15,
+      "relative_current_error": 2.2509730459564662e-05
+    }
+  ],
+  "variants": [
+    {
+      "phase": "initial",
+      "design": "direct",
+      "metrics": {
+        "Jsc": 16.535094525103677,
+        "Voc": 1.3349248256774766,
+        "FF": 62.64806562530129,
+        "PCE": 13.828375295947833,
+        "Vmp": 0.8953666887085469,
+        "Jmp": 15.444370971510581,
+        "Pmax": 13.828375295947833
+      },
+      "points": 250,
+      "grading_slices": 16.0,
+      "voltage_step": 0.02,
+      "generation": 22.974661905541122
+    },
+    {
+      "phase": "initial",
+      "design": "graded_np",
+      "metrics": {
+        "Jsc": 16.607924329793136,
+        "Voc": 1.3367900855948824,
+        "FF": 62.84405157509792,
+        "PCE": 13.952201818369717,
+        "Vmp": 0.8953249818441461,
+        "Jmp": 15.583393852846218,
+        "Pmax": 13.952201818369717
+      },
+      "points": 288,
+      "grading_slices": 16.0,
+      "voltage_step": 0.02,
+      "generation": 23.037214999440025
+    },
+    {
+      "phase": "initial",
+      "design": "split_control",
+      "metrics": {
+        "Jsc": 16.535069800460125,
+        "Voc": 1.3348096486322323,
+        "FF": 62.68803861281793,
+        "PCE": 13.83598401727514,
+        "Vmp": 0.895364126075302,
+        "Jmp": 15.452913082326802,
+        "Pmax": 13.83598401727514
+      },
+      "points": 250,
+      "grading_slices": 16.0,
+      "voltage_step": 0.02,
+      "generation": 23.003902335765645
+    },
+    {
+      "phase": "grid1000",
+      "design": "direct",
+      "metrics": {
+        "Jsc": 15.605230001326467,
+        "Voc": 1.3328594784198247,
+        "FF": 62.60666753694664,
+        "PCE": 13.021923098434474,
+        "Vmp": 0.8956382199390776,
+        "Jmp": 14.539266869741493,
+        "Pmax": 13.021923098434474
+      },
+      "points": 1000,
+      "grading_slices": 32,
+      "voltage_step": 0.01,
+      "generation": 22.035974671434687
+    },
+    {
+      "phase": "grid1000",
+      "design": "graded_np",
+      "metrics": {
+        "Jsc": 15.748512388274916,
+        "Voc": 1.3336353073821159,
+        "FF": 62.83393797072981,
+        "PCE": 13.196868830989816,
+        "Vmp": 0.8955793300308073,
+        "Jmp": 14.735566563975805,
+        "Pmax": 13.196868830989816
+      },
+      "points": 1000,
+      "grading_slices": 32,
+      "voltage_step": 0.01,
+      "generation": 22.179197923840697
+    },
+    {
+      "phase": "grid1000",
+      "design": "split_control",
+      "metrics": {
+        "Jsc": 15.604335495252196,
+        "Voc": 1.3327052742233936,
+        "FF": 62.668036094075134,
+        "PCE": 13.032432387424578,
+        "Vmp": 0.8956346825413981,
+        "Jmp": 14.551058195339808,
+        "Pmax": 13.032432387424578
+      },
+      "points": 1000,
+      "grading_slices": 32,
+      "voltage_step": 0.01,
+      "generation": 22.03930828666524
+    },
+    {
+      "phase": "grid1500",
+      "design": "direct",
+      "metrics": {
+        "Jsc": 15.535433550531032,
+        "Voc": 1.3325454488688186,
+        "FF": 62.61066348015207,
+        "PCE": 12.961453736108957,
+        "Vmp": 0.8956585732140326,
+        "Jmp": 14.471422619891118,
+        "Pmax": 12.961453736108957
+      },
+      "points": 1500,
+      "grading_slices": 32,
+      "voltage_step": 0.01,
+      "generation": 21.965431291406148
+    },
+    {
+      "phase": "grid1500",
+      "design": "graded_np",
+      "metrics": {
+        "Jsc": 15.567859578730744,
+        "Voc": 1.3329134792961295,
+        "FF": 62.84140816694528,
+        "PCE": 13.039975449483304,
+        "Vmp": 0.89563214355021,
+        "Jmp": 14.559521499299862,
+        "Pmax": 13.039975449483304
+      },
+      "points": 1500,
+      "grading_slices": 32,
+      "voltage_step": 0.01,
+      "generation": 21.99875407440537
+    },
+    {
+      "phase": "grid1500",
+      "design": "split_control",
+      "metrics": {
+        "Jsc": 15.53451511561474,
+        "Voc": 1.3323894206401872,
+        "FF": 62.673711760644444,
+        "PCE": 12.97221964796776,
+        "Vmp": 0.895654949602952,
+        "Jmp": 14.483501323493389,
+        "Pmax": 12.97221964796776
+      },
+      "points": 1500,
+      "grading_slices": 32,
+      "voltage_step": 0.01,
+      "generation": 21.96686528054727
+    },
+    {
+      "phase": "refined",
+      "design": "direct",
+      "metrics": {
+        "Jsc": 15.509260897755135,
+        "Voc": 1.3324149865763952,
+        "FF": 62.612725855125674,
+        "PCE": 12.938776822360873,
+        "Vmp": 0.8956662057563842,
+        "Jmp": 14.445980812052813,
+        "Pmax": 12.938776822360873
+      },
+      "points": 2000,
+      "grading_slices": 32,
+      "voltage_step": 0.01,
+      "generation": 21.93890705845174
+    },
+    {
+      "phase": "refined",
+      "design": "graded_np",
+      "metrics": {
+        "Jsc": 15.521358659265125,
+        "Voc": 1.3326890289003008,
+        "FF": 62.84497199044218,
+        "PCE": 12.999573203626802,
+        "Vmp": 0.8956457427586535,
+        "Jmp": 14.51419080448837,
+        "Pmax": 12.999573203626804
+      },
+      "points": 2000,
+      "grading_slices": 32,
+      "voltage_step": 0.01,
+      "generation": 21.952334859953023
+    },
+    {
+      "phase": "refined",
+      "design": "split_control",
+      "metrics": {
+        "Jsc": 15.508345199065017,
+        "Voc": 1.3322579601922533,
+        "FF": 62.67641781917502,
+        "PCE": 12.949647603905568,
+        "Vmp": 0.8956625469105839,
+        "Jmp": 14.458176964720577,
+        "Pmax": 12.949647603905568
+      },
+      "points": 2000,
+      "grading_slices": 32,
+      "voltage_step": 0.01,
+      "generation": 21.93971199278243
+    },
+    {
+      "phase": "check48",
+      "design": "graded_np",
+      "metrics": {
+        "Jsc": 15.53351170776995,
+        "Voc": 1.3327487851238726,
+        "FF": 62.84290971779191,
+        "PCE": 13.009908127488536,
+        "Vmp": 0.8956422641107478,
+        "Jmp": 14.525786297507548,
+        "Pmax": 13.009908127488536
+      },
+      "points": 2000,
+      "grading_slices": 48,
+      "voltage_step": 0.01,
+      "generation": 21.964238819426175
+    }
+  ],
+  "source_and_engine_unchanged": true,
+  "UI_reproduced": true,
+  "note": "电流守恒误差小不等于空间网格已完全收敛；保留多网格和分段结果。"
+}

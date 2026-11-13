@@ -1,0 +1,30 @@
+{
+  "checks": [
+    {
+      "design": "direct",
+      "project_opened": true,
+      "actual_page_run": true,
+      "metrics_delta_from_api": {
+        "Jsc": 0.0,
+        "Voc": 0.0,
+        "FF": 0.0,
+        "PCE": 0.0
+      },
+      "physical_layers": 4
+    },
+    {
+      "design": "graded_np",
+      "project_opened": true,
+      "actual_page_run": true,
+      "metrics_delta_from_api": {
+        "Jsc": 0.0,
+        "Voc": 0.0,
+        "FF": 0.0,
+        "PCE": 0.0
+      },
+      "physical_layers": 6
+    }
+  ],
+  "delivered_project_settings": "2000 points / 32 slices / 0.01 V",
+  "original_parameter_file_unchanged": "07e3901fceac1c340781cd323f735d12de8d059e4aef486b86c5c78a8487bbd4"
+}
