@@ -1,0 +1,32 @@
+{
+  "checks": [
+    {
+      "design": "direct",
+      "project_opened": true,
+      "actual_page_run": true,
+      "metrics_delta": {
+        "Jsc": 0.0,
+        "Voc": 0.0,
+        "FF": 0.0,
+        "PCE": 0.0
+      },
+      "physical_layer_count": 4,
+      "wavelength_max": 1100,
+      "interconnect_added": false
+    },
+    {
+      "design": "graded_np",
+      "project_opened": true,
+      "actual_page_run": true,
+      "metrics_delta": {
+        "Jsc": 0.0,
+        "Voc": 0.0,
+        "FF": 0.0,
+        "PCE": 0.0
+      },
+      "physical_layer_count": 6,
+      "wavelength_max": 1100,
+      "interconnect_added": false
+    }
+  ]
+}

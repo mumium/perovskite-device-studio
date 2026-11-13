@@ -1,0 +1,125 @@
+{
+  "source_downloads": {
+    "commit": "b059fd052c87dd3a0057a9373c2ea59ec50ca8b6",
+    "files": [
+      {
+        "path": "README.md",
+        "url": "https://raw.githubusercontent.com/akashdasgupta/Perovskite-Dielectric-Constants-Repository/b059fd052c87dd3a0057a9373c2ea59ec50ca8b6/README.md",
+        "sha256": "12cee2be363dad5971178060ce69c7914531fb70f3d0e4a069af527fac0cba2b",
+        "bytes": 1964
+      },
+      {
+        "path": "Interpolated/NeatPb_FaCsPbBrI_interp.csv",
+        "url": "https://raw.githubusercontent.com/akashdasgupta/Perovskite-Dielectric-Constants-Repository/b059fd052c87dd3a0057a9373c2ea59ec50ca8b6/Interpolated/NeatPb_FaCsPbBrI_interp.csv",
+        "sha256": "b9093c685498ce155bdf72eeb60ccc3ff24b1dcf2fa56ed6ed7b3dad3a830ed8",
+        "bytes": 6327040
+      },
+      {
+        "path": "Interpolated/PbSn_MaFaCsPbSnI_interp.csv",
+        "url": "https://raw.githubusercontent.com/akashdasgupta/Perovskite-Dielectric-Constants-Repository/b059fd052c87dd3a0057a9373c2ea59ec50ca8b6/Interpolated/PbSn_MaFaCsPbSnI_interp.csv",
+        "sha256": "f1244061b91fb1b7afa6be4df44166442b082b68c61fe5f4f2770e5f13b46225",
+        "bytes": 3078288
+      },
+      {
+        "path": "Stitched_Not_Interpolated/NeatPb_FaCsPbBrI_stitched_nointerp.csv",
+        "url": "https://raw.githubusercontent.com/akashdasgupta/Perovskite-Dielectric-Constants-Repository/b059fd052c87dd3a0057a9373c2ea59ec50ca8b6/Stitched_Not_Interpolated/NeatPb_FaCsPbBrI_stitched_nointerp.csv",
+        "sha256": "3da34a7df000487df789f3634ea02b3d33c1b3d959f91e5222ff3263df155e9f",
+        "bytes": 877137
+      },
+      {
+        "path": "Stitched_Not_Interpolated/PbSn_MaFaCsPbSnI_stitched_nointerp.csv",
+        "url": "https://raw.githubusercontent.com/akashdasgupta/Perovskite-Dielectric-Constants-Repository/b059fd052c87dd3a0057a9373c2ea59ec50ca8b6/Stitched_Not_Interpolated/PbSn_MaFaCsPbSnI_stitched_nointerp.csv",
+        "sha256": "3e46e69ae39a7d96a07d50c1997efd81bba8d8bf51a000dedbab3fefd10b7cad",
+        "bytes": 334255
+      },
+      {
+        "path": "Stitching_and_interpolation.ipynb",
+        "url": "https://raw.githubusercontent.com/akashdasgupta/Perovskite-Dielectric-Constants-Repository/b059fd052c87dd3a0057a9373c2ea59ec50ca8b6/Stitching_and_interpolation.ipynb",
+        "sha256": "a5e172d61173e5cda3427d2924aaa54e3ca8af6329974779766ac284c0de8a52",
+        "bytes": 591866
+      }
+    ]
+  },
+  "ag_source": {
+    "commit": "e6d15e364f70de1cad8a96a20f75689f2fba8b21",
+    "url": "https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/e6d15e364f70de1cad8a96a20f75689f2fba8b21/database/data/main/Ag/nk/Johnson.yml",
+    "sha256": "8c79d5e2529e4d3a51e1502b42f2e96e63b3cb49e1036c66b86eb9dbdd0c65a5",
+    "citation": "P. B. Johnson and R. W. Christy, Phys. Rev. B 6, 4370–4379 (1972). DOI:10.1103/PhysRevB.6.4370",
+    "database_license": "CC0 1.0",
+    "unit_wavelength": "micrometre"
+  },
+  "tauc_anchors": {
+    "Pb": [
+      {
+        "composition_percent": 0,
+        "raw_tauc_eV": 1.5254742515971653,
+        "author_anchor_eV": 1.53
+      },
+      {
+        "composition_percent": 25,
+        "raw_tauc_eV": 1.6599957518547779,
+        "author_anchor_eV": 1.66
+      },
+      {
+        "composition_percent": 50,
+        "raw_tauc_eV": 1.807370905850091,
+        "author_anchor_eV": 1.81
+      },
+      {
+        "composition_percent": 75,
+        "raw_tauc_eV": 1.9835770107488828,
+        "author_anchor_eV": 1.98
+      },
+      {
+        "composition_percent": 100,
+        "raw_tauc_eV": 2.2170055659538357,
+        "author_anchor_eV": 2.22
+      }
+    ],
+    "PbSn": [
+      {
+        "composition_percent": 10,
+        "raw_tauc_eV": 1.4130184671734798,
+        "author_anchor_eV": 1.41
+      },
+      {
+        "composition_percent": 20,
+        "raw_tauc_eV": 1.3391133658365537,
+        "author_anchor_eV": 1.34
+      },
+      {
+        "composition_percent": 30,
+        "raw_tauc_eV": 1.3057252595509883,
+        "author_anchor_eV": 1.31
+      },
+      {
+        "composition_percent": 40,
+        "raw_tauc_eV": 1.2753185117322683,
+        "author_anchor_eV": 1.28
+      },
+      {
+        "composition_percent": 50,
+        "raw_tauc_eV": 1.2487541222061855,
+        "author_anchor_eV": 1.25
+      },
+      {
+        "composition_percent": 60,
+        "raw_tauc_eV": 1.2369055922569576,
+        "author_anchor_eV": 1.24
+      }
+    ]
+  },
+  "selected": {
+    "wbg": "Br 45% FA-Cs lead halide series; author interpolated Tauc anchor 1.78 eV",
+    "nbg": "Sn 50% MA-FA-Cs tin-lead series; measured-composition anchor 1.25 eV; author supplied reconstructed 1 nm table"
+  },
+  "notes": [
+    "只改变光学数据和计算波段；两个结构的厚度、Eg、χ、掺杂、寿命、缺陷、电极、电阻及全部电学数值设置保持不变。未新增互联层。",
+    "新宽带隙表来自Br45%的作者插值，锡铅表来自Sn50%组成；用户未指定化学配方，因此是按带隙选取的有出处代理材料，并非用户实际薄膜的椭偏测量。",
+    "完整导入n与k，模式设为固定n,k，避免旧MAPI吸收边映射再次处理；保留作者亚带隙尾态，不再自行硬截断。",
+    "Ag改用Johnson–Christy1972全波段数据；Air沿用原n=1,k=0解析假设扩展。NiOx原先使用的PTAA示例映射、C60原表均覆盖1100nm，本次保持原样，未声称所有层均已实验校准。",
+    "上游alpha列由4πk/λ(m)计算，数值单位为m^-1；本研究只读取n,k，若需要alpha则自行按明确单位重算。",
+    "AM1.5G完整光谱仍归一到100mW/cm²，未将300–1100nm截取波段重新归一成100mW/cm²。",
+    "比较旧MAPI/800nm、新数据/800nm、新数据/1100nm，以区分数据替换与近红外扩展的影响。"
+  ]
+}

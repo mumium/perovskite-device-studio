@@ -1,0 +1,178 @@
+{
+  "raw_JV_checks": [
+    {
+      "phase": "updated800",
+      "design": "direct",
+      "metrics_deltas": {
+        "Jsc": 0.0,
+        "Voc": 0.0,
+        "FF": -7.105427357601002e-15,
+        "PCE": -1.7763568394002505e-15
+      },
+      "current_error": 1.8473902872586056e-05,
+      "PCE": 11.153416718668122,
+      "Jsc": 15.414867241981357,
+      "qG": 22.732554303723145
+    },
+    {
+      "phase": "updated800",
+      "design": "graded_np",
+      "metrics_deltas": {
+        "Jsc": 0.0,
+        "Voc": 0.0,
+        "FF": 0.0,
+        "PCE": 0.0
+      },
+      "current_error": 1.8972958217841148e-05,
+      "PCE": 11.237116427937458,
+      "Jsc": 15.410870113453255,
+      "qG": 22.73587622913682
+    },
+    {
+      "phase": "updated1100",
+      "design": "direct",
+      "metrics_deltas": {
+        "Jsc": 0.0,
+        "Voc": 0.0,
+        "FF": 7.105427357601002e-15,
+        "PCE": 1.7763568394002505e-15
+      },
+      "current_error": 1.9224983116731725e-05,
+      "PCE": 11.295059428238703,
+      "Jsc": 15.419238879298401,
+      "qG": 31.44171769804978
+    },
+    {
+      "phase": "updated1100",
+      "design": "graded_np",
+      "metrics_deltas": {
+        "Jsc": 0.0,
+        "Voc": 0.0,
+        "FF": -1.4210854715202004e-14,
+        "PCE": -3.552713678800501e-15
+      },
+      "current_error": 1.9901100131609694e-05,
+      "PCE": 11.380360160101041,
+      "Jsc": 15.414853665710345,
+      "qG": 31.444587306801463
+    },
+    {
+      "phase": "grid1000",
+      "design": "direct",
+      "metrics_deltas": {
+        "Jsc": 0.0,
+        "Voc": 0.0,
+        "FF": -5.840163908032991e-10,
+        "PCE": -1.17747589456485e-10
+      },
+      "current_error": 3.922472306589748e-06,
+      "PCE": 11.315830169503478,
+      "Jsc": 15.444503619874748,
+      "qG": 31.469060679425176
+    },
+    {
+      "phase": "grid1000",
+      "design": "graded_np",
+      "metrics_deltas": {
+        "Jsc": 0.0,
+        "Voc": 0.0,
+        "FF": 0.0,
+        "PCE": 0.0
+      },
+      "current_error": 1.9602392110217423e-05,
+      "PCE": 11.430762186524214,
+      "Jsc": 15.47592961387207,
+      "qG": 31.504501429808915
+    },
+    {
+      "phase": "grid1500",
+      "design": "direct",
+      "metrics_deltas": {
+        "Jsc": 0.0,
+        "Voc": 0.0,
+        "FF": -5.372484679355694e-10,
+        "PCE": -1.0817302609211765e-10
+      },
+      "current_error": 2.08082279724504e-05,
+      "PCE": 11.300702596797453,
+      "Jsc": 15.426101835142926,
+      "qG": 31.44924893698855
+    },
+    {
+      "phase": "grid1500",
+      "design": "graded_np",
+      "metrics_deltas": {
+        "Jsc": 0.0,
+        "Voc": -2.220446049250313e-16,
+        "FF": 0.0,
+        "PCE": -3.552713678800501e-15
+      },
+      "current_error": 3.4475646388742105e-06,
+      "PCE": 11.390678907197417,
+      "Jsc": 15.427401136066766,
+      "qG": 31.456813284253315
+    },
+    {
+      "phase": "check48",
+      "design": "graded_np",
+      "metrics_deltas": {
+        "Jsc": 0.0,
+        "Voc": 0.0,
+        "FF": 0.0,
+        "PCE": 0.0
+      },
+      "current_error": 2.0557355936003998e-05,
+      "PCE": 11.38293541771706,
+      "Jsc": 15.418236607471197,
+      "qG": 31.44740999740351
+    },
+    {
+      "phase": "eqe_jv",
+      "design": "direct",
+      "metrics_deltas": {
+        "Jsc": 0.0,
+        "Voc": 0.0,
+        "FF": -5.840163908032991e-10,
+        "PCE": -1.17747589456485e-10
+      },
+      "current_error": 3.922472306589748e-06,
+      "PCE": 11.315830169503478,
+      "Jsc": 15.444503619874748,
+      "qG": 31.469060679425176
+    },
+    {
+      "phase": "eqe_jv",
+      "design": "graded_np",
+      "metrics_deltas": {
+        "Jsc": 0.0,
+        "Voc": 0.0,
+        "FF": 0.0,
+        "PCE": 0.0
+      },
+      "current_error": 3.3740268478981513e-06,
+      "PCE": 11.407869990372955,
+      "Jsc": 15.447596789468104,
+      "qG": 31.478065254773423
+    }
+  ],
+  "eqe_checks": [
+    {
+      "design": "direct",
+      "baseline_delta_from_same_resolution_JV": 2.5539997290380256e-05,
+      "max_error_estimate": 0.003586463036540122,
+      "weighted_current": 15.424869052591697,
+      "max_absolute_EQE_800_1100": 0.0003381947062934312
+    },
+    {
+      "design": "graded_np",
+      "baseline_delta_from_same_resolution_JV": 2.7338455566905395e-05,
+      "max_error_estimate": 0.0039377907037211925,
+      "weighted_current": 15.429557327993376,
+      "max_absolute_EQE_800_1100": 0.00030586018085665753
+    }
+  ],
+  "UI_reproduced": true,
+  "electrical_parameters_unchanged": true,
+  "interconnect_added": false,
+  "core_code_unchanged": true
+}
