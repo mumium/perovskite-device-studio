@@ -1,0 +1,42 @@
+[
+  {
+    "case": "original_Nt1e+12_N1e+16",
+    "status": "failed_not_used",
+    "error": "J–V 计算（尝试 1/3）失败：SimSS 未完成计算（退出码 94），未采用部分曲线。"
+  },
+  {
+    "case": "original_Nt1e+14_N1e+16",
+    "status": "failed_not_used",
+    "error": "J–V 计算（尝试 1/3）失败：SimSS 未完成计算（退出码 94），未采用部分曲线。"
+  },
+  {
+    "case": "original_Nt1e+12_N1e+18",
+    "status": "failed_not_used",
+    "error": "J–V 计算（尝试 1/3）失败：SimSS 未完成计算（退出码 94），未采用部分曲线。"
+  },
+  {
+    "case": "original_Nt1e+14_N1e+18",
+    "status": "failed_not_used",
+    "error": "J–V 计算（尝试 1/3）失败：SimSS 未完成计算（退出码 94），未采用部分曲线。"
+  },
+  {
+    "case": "latest_Nt1e+12_N1e+16",
+    "status": "failed_not_used",
+    "error": "J–V 计算（尝试 1/3）失败：SimSS 未完成计算（退出码 94），未采用部分曲线。"
+  },
+  {
+    "case": "latest_Nt1e+14_N1e+16",
+    "status": "failed_not_used",
+    "error": "J–V 计算（尝试 1/3）失败：SimSS 未完成计算（退出码 94），未采用部分曲线。"
+  },
+  {
+    "case": "latest_Nt1e+12_N1e+18",
+    "status": "failed_not_used",
+    "error": "J–V 计算（尝试 1/3）失败：SimSS 未完成计算（退出码 94），未采用部分曲线。"
+  },
+  {
+    "case": "latest_Nt1e+14_N1e+18",
+    "status": "failed_not_used",
+    "error": "J–V 计算（尝试 1/3）失败：SimSS 未完成计算（退出码 94），未采用部分曲线。"
+  }
+]
