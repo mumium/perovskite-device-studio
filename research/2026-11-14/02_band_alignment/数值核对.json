@@ -1,0 +1,792 @@
+[
+  {
+    "file": "absorber\\direct_n0_d0.json",
+    "PCE_delta": 0.0,
+    "current_error": 7.077124988901876e-05
+  },
+  {
+    "file": "absorber\\direct_n0_d1.json",
+    "PCE_delta": 0.0,
+    "current_error": 3.82816654905255e-05
+  },
+  {
+    "file": "absorber\\direct_n0_d2.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 7.058085611080083e-05
+  },
+  {
+    "file": "absorber\\direct_n0_d3.json",
+    "PCE_delta": 0.0,
+    "current_error": 3.453145562950306e-05
+  },
+  {
+    "file": "absorber\\direct_n0_d4.json",
+    "PCE_delta": 0.0,
+    "current_error": 3.676484532391764e-05
+  },
+  {
+    "file": "absorber\\direct_n0_d5.json",
+    "PCE_delta": 0.0,
+    "current_error": 0.00024599815160566193
+  },
+  {
+    "file": "absorber\\direct_n0_d6.json",
+    "PCE_delta": 0.0,
+    "current_error": 0.00012888221074954906
+  },
+  {
+    "file": "absorber\\direct_n1_d0.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 2.8703691250477583e-05
+  },
+  {
+    "file": "absorber\\direct_n1_d1.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 2.1451677949398394e-05
+  },
+  {
+    "file": "absorber\\direct_n1_d2.json",
+    "PCE_delta": -7.105427357601002e-15,
+    "current_error": 3.5228355720094286e-05
+  },
+  {
+    "file": "absorber\\direct_n1_d3.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 2.1470619031222654e-05
+  },
+  {
+    "file": "absorber\\direct_n1_d4.json",
+    "PCE_delta": 0.0,
+    "current_error": 4.9453113003064e-05
+  },
+  {
+    "file": "absorber\\direct_n1_d5.json",
+    "PCE_delta": 0.0,
+    "current_error": 0.00010639354667238092
+  },
+  {
+    "file": "absorber\\direct_n1_d6.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 3.612799911343784e-05
+  },
+  {
+    "file": "absorber\\direct_n2_d0.json",
+    "PCE_delta": 0.0,
+    "current_error": 4.559630733337611e-05
+  },
+  {
+    "file": "absorber\\direct_n2_d1.json",
+    "PCE_delta": 0.0,
+    "current_error": 4.675077064875198e-05
+  },
+  {
+    "file": "absorber\\direct_n2_d2.json",
+    "PCE_delta": -7.105427357601002e-15,
+    "current_error": 3.172824404827458e-05
+  },
+  {
+    "file": "absorber\\direct_n2_d3.json",
+    "PCE_delta": 0.0,
+    "current_error": 3.1352660503569015e-05
+  },
+  {
+    "file": "absorber\\direct_n2_d4.json",
+    "PCE_delta": -6.476170710811857e-10,
+    "current_error": 3.957303020431453e-05
+  },
+  {
+    "file": "absorber\\direct_n2_d5.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 5.28415062243725e-05
+  },
+  {
+    "file": "absorber\\direct_n2_d6.json",
+    "PCE_delta": 0.0,
+    "current_error": 4.613205283368921e-05
+  },
+  {
+    "file": "absorber\\direct_n3_d0.json",
+    "PCE_delta": 0.0,
+    "current_error": 2.719397235961352e-05
+  },
+  {
+    "file": "absorber\\direct_n3_d1.json",
+    "PCE_delta": 0.0,
+    "current_error": 2.4814279499051175e-05
+  },
+  {
+    "file": "absorber\\direct_n3_d2.json",
+    "PCE_delta": 0.0,
+    "current_error": 3.49298051036586e-05
+  },
+  {
+    "file": "absorber\\direct_n3_d3.json",
+    "PCE_delta": -7.105427357601002e-15,
+    "current_error": 2.2555466569111434e-05
+  },
+  {
+    "file": "absorber\\direct_n3_d4.json",
+    "PCE_delta": 3.552713678800501e-15,
+    "current_error": 1.1376581190136742e-05
+  },
+  {
+    "file": "absorber\\direct_n3_d5.json",
+    "PCE_delta": 0.0,
+    "current_error": 1.5177048754837416e-05
+  },
+  {
+    "file": "absorber\\direct_n3_d6.json",
+    "PCE_delta": -2.6219026949547697e-11,
+    "current_error": 0.00014139090412002952
+  },
+  {
+    "file": "absorber\\direct_n4_d0.json",
+    "PCE_delta": 0.0,
+    "current_error": 1.4493657321195651e-05
+  },
+  {
+    "file": "absorber\\direct_n4_d1.json",
+    "PCE_delta": 0.0,
+    "current_error": 1.4500145738447e-05
+  },
+  {
+    "file": "absorber\\direct_n4_d2.json",
+    "PCE_delta": 0.0,
+    "current_error": 5.132648066417747e-06
+  },
+  {
+    "file": "absorber\\direct_n4_d3.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 3.838973274312309e-06
+  },
+  {
+    "file": "absorber\\direct_n4_d4.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 6.9774091651296735e-06
+  },
+  {
+    "file": "absorber\\direct_n4_d5.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 4.745930457463491e-05
+  },
+  {
+    "file": "absorber\\direct_n4_d6.json",
+    "PCE_delta": 0.0,
+    "current_error": 1.000681134819651e-05
+  },
+  {
+    "file": "absorber\\direct_n5_d0.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 6.237375916022537e-06
+  },
+  {
+    "file": "absorber\\direct_n5_d1.json",
+    "PCE_delta": 0.0,
+    "current_error": 9.011221015161287e-06
+  },
+  {
+    "file": "absorber\\direct_n5_d2.json",
+    "PCE_delta": 0.0,
+    "current_error": 6.332224661404195e-06
+  },
+  {
+    "file": "absorber\\direct_n5_d3.json",
+    "PCE_delta": 0.0,
+    "current_error": 1.16645657542939e-05
+  },
+  {
+    "file": "absorber\\direct_n5_d4.json",
+    "PCE_delta": 0.0,
+    "current_error": 1.882246249322101e-05
+  },
+  {
+    "file": "absorber\\direct_n5_d5.json",
+    "PCE_delta": 0.0,
+    "current_error": 1.4735747384282792e-05
+  },
+  {
+    "file": "absorber\\direct_n5_d6.json",
+    "PCE_delta": -1.7763568394002505e-15,
+    "current_error": 7.79728824167923e-06
+  },
+  {
+    "file": "absorber\\direct_n6_d0.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 3.3051201320869374e-06
+  },
+  {
+    "file": "absorber\\direct_n6_d1.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 5.967188815244355e-06
+  },
+  {
+    "file": "absorber\\direct_n6_d2.json",
+    "PCE_delta": 0.0,
+    "current_error": 6.572813778366064e-06
+  },
+  {
+    "file": "absorber\\direct_n6_d3.json",
+    "PCE_delta": 0.0,
+    "current_error": 1.4110300751405981e-05
+  },
+  {
+    "file": "absorber\\direct_n6_d4.json",
+    "PCE_delta": 3.552713678800501e-15,
+    "current_error": 7.471653554946873e-06
+  },
+  {
+    "file": "absorber\\direct_n6_d5.json",
+    "PCE_delta": 1.7763568394002505e-15,
+    "current_error": 1.3646346774369436e-05
+  },
+  {
+    "file": "absorber\\direct_n6_d6.json",
+    "PCE_delta": -1.1928946719308442e-10,
+    "current_error": 8.832894744846931e-06
+  },
+  {
+    "file": "absorber\\direct_previous.json",
+    "PCE_delta": -7.105427357601002e-15,
+    "current_error": 2.2555466569111434e-05
+  },
+  {
+    "file": "contacts\\direct_b0_h0_e0.json",
+    "PCE_delta": 0.0,
+    "current_error": 7.078374325778201e-05
+  },
+  {
+    "file": "contacts\\direct_b0_h0_e1.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 4.079385287143983e-05
+  },
+  {
+    "file": "contacts\\direct_b0_h0_e2.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 3.243010600269051e-05
+  },
+  {
+    "file": "contacts\\direct_b0_h0_e3.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 7.838360297854386e-06
+  },
+  {
+    "file": "contacts\\direct_b0_h0_e4.json",
+    "PCE_delta": 0.0,
+    "current_error": 0.00015180843379619918
+  },
+  {
+    "file": "contacts\\direct_b0_h1_e0.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 1.393073258074568e-05
+  },
+  {
+    "file": "contacts\\direct_b0_h1_e1.json",
+    "PCE_delta": 0.0,
+    "current_error": 1.8623780207607858e-05
+  },
+  {
+    "file": "contacts\\direct_b0_h1_e2.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 3.926705032302506e-05
+  },
+  {
+    "file": "contacts\\direct_b0_h1_e3.json",
+    "PCE_delta": 0.0,
+    "current_error": 4.334487902129088e-05
+  },
+  {
+    "file": "contacts\\direct_b0_h1_e4.json",
+    "PCE_delta": 0.0,
+    "current_error": 2.5976233050296712e-05
+  },
+  {
+    "file": "contacts\\direct_b0_h2_e0.json",
+    "PCE_delta": 3.552713678800501e-15,
+    "current_error": 1.2167262290802466e-05
+  },
+  {
+    "file": "contacts\\direct_b0_h2_e1.json",
+    "PCE_delta": 0.0,
+    "current_error": 1.6400812627065342e-05
+  },
+  {
+    "file": "contacts\\direct_b0_h2_e2.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 2.4196972080041607e-05
+  },
+  {
+    "file": "contacts\\direct_b0_h2_e3.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 5.721642479641791e-05
+  },
+  {
+    "file": "contacts\\direct_b0_h2_e4.json",
+    "PCE_delta": 0.0,
+    "current_error": 2.1349144795333647e-05
+  },
+  {
+    "file": "contacts\\direct_b0_h3_e0.json",
+    "PCE_delta": 0.0,
+    "current_error": 1.2787311823934759e-05
+  },
+  {
+    "file": "contacts\\direct_b0_h3_e1.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 1.7171019562304164e-05
+  },
+  {
+    "file": "contacts\\direct_b0_h3_e2.json",
+    "PCE_delta": 0.0,
+    "current_error": 2.411047667081727e-05
+  },
+  {
+    "file": "contacts\\direct_b0_h3_e3.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 3.874147436039539e-05
+  },
+  {
+    "file": "contacts\\direct_b0_h3_e4.json",
+    "PCE_delta": 0.0,
+    "current_error": 5.061745110334428e-05
+  },
+  {
+    "file": "contacts\\direct_b1_h0_e0.json",
+    "PCE_delta": 0.0,
+    "current_error": 3.030464148474715e-05
+  },
+  {
+    "file": "contacts\\direct_b1_h0_e1.json",
+    "PCE_delta": 0.0,
+    "current_error": 3.177684616758268e-05
+  },
+  {
+    "file": "contacts\\direct_b1_h0_e2.json",
+    "PCE_delta": 0.0,
+    "current_error": 1.634522377984957e-05
+  },
+  {
+    "file": "contacts\\direct_b1_h0_e3.json",
+    "PCE_delta": 0.0,
+    "current_error": 6.2811956421509355e-06
+  },
+  {
+    "file": "contacts\\direct_b1_h0_e4.json",
+    "PCE_delta": 0.0,
+    "current_error": 2.3902422534672313e-05
+  },
+  {
+    "file": "contacts\\direct_b1_h1_e0.json",
+    "PCE_delta": 0.0,
+    "current_error": 1.9543495546184483e-05
+  },
+  {
+    "file": "contacts\\direct_b1_h1_e1.json",
+    "PCE_delta": 0.0,
+    "current_error": 2.079419013733581e-05
+  },
+  {
+    "file": "contacts\\direct_b1_h1_e2.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 2.720972794594007e-05
+  },
+  {
+    "file": "contacts\\direct_b1_h1_e3.json",
+    "PCE_delta": 0.0,
+    "current_error": 3.158470343905441e-05
+  },
+  {
+    "file": "contacts\\direct_b1_h1_e4.json",
+    "PCE_delta": -6.072866653994424e-10,
+    "current_error": 1.008951915209548e-05
+  },
+  {
+    "file": "contacts\\direct_b1_h2_e0.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 1.3705407187403905e-05
+  },
+  {
+    "file": "contacts\\direct_b1_h2_e1.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 1.4636036504163008e-05
+  },
+  {
+    "file": "contacts\\direct_b1_h2_e2.json",
+    "PCE_delta": 0.0,
+    "current_error": 1.9356610401410412e-05
+  },
+  {
+    "file": "contacts\\direct_b1_h2_e3.json",
+    "PCE_delta": 0.0,
+    "current_error": 2.7042691988667484e-05
+  },
+  {
+    "file": "contacts\\direct_b1_h2_e4.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 4.650606225532135e-05
+  },
+  {
+    "file": "contacts\\direct_b1_h3_e0.json",
+    "PCE_delta": 0.0,
+    "current_error": 1.3505050928334877e-05
+  },
+  {
+    "file": "contacts\\direct_b1_h3_e1.json",
+    "PCE_delta": -7.105427357601002e-15,
+    "current_error": 1.442545535813345e-05
+  },
+  {
+    "file": "contacts\\direct_b1_h3_e2.json",
+    "PCE_delta": 0.0,
+    "current_error": 1.9095446421769003e-05
+  },
+  {
+    "file": "contacts\\direct_b1_h3_e3.json",
+    "PCE_delta": 0.0,
+    "current_error": 2.6895122727485478e-05
+  },
+  {
+    "file": "contacts\\direct_b1_h3_e4.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 4.510297632671098e-05
+  },
+  {
+    "file": "fine\\direct_n0_d0_e0.json",
+    "PCE_delta": -1.0658141036401503e-14,
+    "current_error": 1.3614266956604412e-05
+  },
+  {
+    "file": "fine\\direct_n0_d0_e1.json",
+    "PCE_delta": 0.0,
+    "current_error": 1.4330660790403749e-05
+  },
+  {
+    "file": "fine\\direct_n0_d0_e2.json",
+    "PCE_delta": -7.105427357601002e-15,
+    "current_error": 1.591163612596484e-05
+  },
+  {
+    "file": "fine\\direct_n0_d0_e3.json",
+    "PCE_delta": 3.552713678800501e-15,
+    "current_error": 1.8974234900864613e-05
+  },
+  {
+    "file": "fine\\direct_n0_d1_e0.json",
+    "PCE_delta": 3.552713678800501e-15,
+    "current_error": 2.639715625535863e-05
+  },
+  {
+    "file": "fine\\direct_n0_d1_e1.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 1.2167253140308527e-05
+  },
+  {
+    "file": "fine\\direct_n0_d1_e2.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 1.3608606217579447e-05
+  },
+  {
+    "file": "fine\\direct_n0_d1_e3.json",
+    "PCE_delta": -1.0658141036401503e-14,
+    "current_error": 1.6400810711246815e-05
+  },
+  {
+    "file": "fine\\direct_n0_d2_e0.json",
+    "PCE_delta": 0.0,
+    "current_error": 2.335593471369004e-05
+  },
+  {
+    "file": "fine\\direct_n0_d2_e1.json",
+    "PCE_delta": -7.105427357601002e-15,
+    "current_error": 2.3571270830766073e-05
+  },
+  {
+    "file": "fine\\direct_n0_d2_e2.json",
+    "PCE_delta": 0.0,
+    "current_error": 2.451042887380989e-05
+  },
+  {
+    "file": "fine\\direct_n0_d2_e3.json",
+    "PCE_delta": 0.0,
+    "current_error": 2.074565852968546e-05
+  },
+  {
+    "file": "fine\\direct_n1_d0_e0.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 1.349331088746066e-05
+  },
+  {
+    "file": "fine\\direct_n1_d0_e1.json",
+    "PCE_delta": 0.0,
+    "current_error": 1.3692768873442189e-05
+  },
+  {
+    "file": "fine\\direct_n1_d0_e2.json",
+    "PCE_delta": 0.0,
+    "current_error": 1.4412425181168658e-05
+  },
+  {
+    "file": "fine\\direct_n1_d0_e3.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 1.5839923091007056e-05
+  },
+  {
+    "file": "fine\\direct_n1_d1_e0.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 1.1515612683682982e-05
+  },
+  {
+    "file": "fine\\direct_n1_d1_e1.json",
+    "PCE_delta": -1.0658141036401503e-14,
+    "current_error": 1.1698052239169923e-05
+  },
+  {
+    "file": "fine\\direct_n1_d1_e2.json",
+    "PCE_delta": -7.105427357601002e-15,
+    "current_error": 1.2355478899508941e-05
+  },
+  {
+    "file": "fine\\direct_n1_d1_e3.json",
+    "PCE_delta": 3.552713678800501e-15,
+    "current_error": 1.3813318228732116e-05
+  },
+  {
+    "file": "fine\\direct_n1_d2_e0.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 2.441507122110952e-05
+  },
+  {
+    "file": "fine\\direct_n1_d2_e1.json",
+    "PCE_delta": 0.0,
+    "current_error": 2.3734210589988488e-05
+  },
+  {
+    "file": "fine\\direct_n1_d2_e2.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 2.4015390190034318e-05
+  },
+  {
+    "file": "fine\\direct_n1_d2_e3.json",
+    "PCE_delta": 3.552713678800501e-15,
+    "current_error": 2.4927577514522495e-05
+  },
+  {
+    "file": "fine\\direct_n2_d0_e0.json",
+    "PCE_delta": 0.0,
+    "current_error": 1.4048133704253108e-05
+  },
+  {
+    "file": "fine\\direct_n2_d0_e1.json",
+    "PCE_delta": 0.0,
+    "current_error": 1.370541570814443e-05
+  },
+  {
+    "file": "fine\\direct_n2_d0_e2.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 1.3907305733296484e-05
+  },
+  {
+    "file": "fine\\direct_n2_d0_e3.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 1.4636035778036145e-05
+  },
+  {
+    "file": "fine\\direct_n2_d1_e0.json",
+    "PCE_delta": 3.552713678800501e-15,
+    "current_error": 1.2234469837999906e-05
+  },
+  {
+    "file": "fine\\direct_n2_d1_e1.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 1.1917942575445294e-05
+  },
+  {
+    "file": "fine\\direct_n2_d1_e2.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 1.2105224765324225e-05
+  },
+  {
+    "file": "fine\\direct_n2_d1_e3.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 1.2780425226440895e-05
+  },
+  {
+    "file": "fine\\direct_n2_d2_e0.json",
+    "PCE_delta": -7.105427357601002e-15,
+    "current_error": 2.8394662868112864e-05
+  },
+  {
+    "file": "fine\\direct_n2_d2_e1.json",
+    "PCE_delta": 3.552713678800501e-15,
+    "current_error": 2.0075044238765015e-05
+  },
+  {
+    "file": "fine\\direct_n2_d2_e2.json",
+    "PCE_delta": -1.0658141036401503e-14,
+    "current_error": 1.9598426700168998e-05
+  },
+  {
+    "file": "fine\\direct_n2_d2_e3.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 1.9868005337324153e-05
+  },
+  {
+    "file": "gradient\\direct_w0_n0.json",
+    "PCE_delta": -7.105427357601002e-15,
+    "current_error": 1.2073220003945715e-05
+  },
+  {
+    "file": "gradient\\direct_w0_n1.json",
+    "PCE_delta": 0.0,
+    "current_error": 2.3202791884697334e-05
+  },
+  {
+    "file": "gradient\\direct_w0_n2.json",
+    "PCE_delta": 0.0,
+    "current_error": 1.5748032540664894e-05
+  },
+  {
+    "file": "gradient\\direct_w0_n3.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 2.0450588550076983e-05
+  },
+  {
+    "file": "gradient\\direct_w1_n0.json",
+    "PCE_delta": 3.552713678800501e-15,
+    "current_error": 2.8642226988667498e-05
+  },
+  {
+    "file": "gradient\\direct_w1_n1.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 1.3788928720731447e-05
+  },
+  {
+    "file": "gradient\\direct_w1_n2.json",
+    "PCE_delta": 3.552713678800501e-15,
+    "current_error": 2.4687836516438247e-05
+  },
+  {
+    "file": "gradient\\direct_w1_n3.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 4.3891457494149495e-05
+  },
+  {
+    "file": "gradient\\direct_w2_n0.json",
+    "PCE_delta": -7.105427357601002e-15,
+    "current_error": 2.2022903848072884e-05
+  },
+  {
+    "file": "gradient\\direct_w2_n1.json",
+    "PCE_delta": 0.0,
+    "current_error": 1.915532036732958e-05
+  },
+  {
+    "file": "gradient\\direct_w2_n2.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 4.127585762146249e-05
+  },
+  {
+    "file": "gradient\\direct_w2_n3.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 5.7067886049819765e-05
+  },
+  {
+    "file": "gradient\\direct_w3_n0.json",
+    "PCE_delta": -7.105427357601002e-15,
+    "current_error": 1.170457281281558e-05
+  },
+  {
+    "file": "gradient\\direct_w3_n1.json",
+    "PCE_delta": 0.0,
+    "current_error": 7.664810685802322e-06
+  },
+  {
+    "file": "gradient\\direct_w3_n2.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 6.884099421422973e-06
+  },
+  {
+    "file": "gradient\\direct_w3_n3.json",
+    "PCE_delta": -1.474909083754028e-10,
+    "current_error": 6.621943760778236e-06
+  },
+  {
+    "file": "grid1500\\direct_fine_best.json",
+    "PCE_delta": 0.0,
+    "current_error": 8.208671538218018e-06
+  },
+  {
+    "file": "grid1500\\graded_np_fine_best.json",
+    "PCE_delta": 0.0,
+    "current_error": 6.824828504721606e-06
+  },
+  {
+    "file": "grid2000\\direct_contacts_best.json",
+    "PCE_delta": 0.0,
+    "current_error": 9.34435900346634e-06
+  },
+  {
+    "file": "grid2000\\direct_fine_best.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 8.25360963211636e-06
+  },
+  {
+    "file": "grid2000\\direct_fine_best_quality.json",
+    "PCE_delta": 3.552713678800501e-15,
+    "current_error": 3.7711411399489526e-05
+  },
+  {
+    "file": "grid2000\\direct_gradient_best.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 1.105111430150297e-05
+  },
+  {
+    "file": "grid2000\\direct_previous.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 1.72103182932288e-05
+  },
+  {
+    "file": "grid2000\\graded_np_contacts_best.json",
+    "PCE_delta": 0.0,
+    "current_error": 9.22087393373079e-06
+  },
+  {
+    "file": "grid2000\\graded_np_fine_best.json",
+    "PCE_delta": 3.552713678800501e-15,
+    "current_error": 7.195667089194643e-06
+  },
+  {
+    "file": "grid2000\\graded_np_fine_best_quality.json",
+    "PCE_delta": -7.105427357601002e-15,
+    "current_error": 3.746656591014067e-05
+  },
+  {
+    "file": "grid2000\\graded_np_gradient_best.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 1.045848929041996e-05
+  },
+  {
+    "file": "grid2000\\graded_np_previous.json",
+    "PCE_delta": 3.552713678800501e-15,
+    "current_error": 1.7870098068609182e-05
+  },
+  {
+    "file": "halfstep\\direct_fine_best.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 1.737512893168485e-05
+  },
+  {
+    "file": "halfstep\\graded_np_fine_best.json",
+    "PCE_delta": 0.0,
+    "current_error": 1.6841564798291608e-05
+  },
+  {
+    "file": "gradient24\\direct_gradient_best.json",
+    "PCE_delta": 0.0,
+    "current_error": 1.1100275559012668e-05
+  },
+  {
+    "file": "gradient24\\graded_np_gradient_best.json",
+    "PCE_delta": -3.552713678800501e-15,
+    "current_error": 1.044422131841103e-05
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "design": "direct",
+    "metrics_delta": {
+      "Jsc": 0.0,
+      "Voc": 0.0,
+      "FF": 0.0,
+      "PCE": 0.0
+    }
+  },
+  {
+    "design": "graded_np",
+    "metrics_delta": {
+      "Jsc": 0.0,
+      "Voc": 0.0,
+      "FF": 0.0,
+      "PCE": 0.0
+    }
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "input": "research/2026-11-13/02_extended_optics/parameters",
+  "core": {
+    "perovskite_studio/performance.py": "18884b080b6dfb215be0ecb38310a184ce592a7ce3f1033f68b9be8f27756520",
+    "perovskite_studio/optics.py": "77c5b25049e4eafae0e311bfe049193527dddad32692f112eeadde2d7bef490e",
+    "vendor/simsalabim/simss.exe": "ba54d82ea8848f7e5d0e65251e61cd18699fb4e499ea587dde8e703b9d74bad6"
+  },
+  "valid_runs": 158,
+  "constraints": "no interconnect; same thickness/Eg/doping/optics; primary comparison fixed mobility=2, lifetime=100us, B=1e-10"
+}
