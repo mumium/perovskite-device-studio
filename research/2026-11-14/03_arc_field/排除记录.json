@@ -1,0 +1,10 @@
+{
+  "files": [
+    "peak/graded_np_peak_0.json",
+    "peak/graded_np_peak_1.json",
+    "peak/graded_np_peak_2.json",
+    "peak/graded_np_peak_3.json",
+    "peak/graded_np_peak_4.json"
+  ],
+  "reason": "早期驱动按无空格层名匹配，未实际改变peak；五组是重复基线，未用于峰值浓度结论。已按层厚度和带隙识别，validated_peak五组重新计算并核对实际端点。"
+}

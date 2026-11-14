@@ -1,0 +1,62 @@
+[
+  {
+    "design": "direct",
+    "case": "arc85",
+    "metrics_delta": {
+      "Jsc": 0.0,
+      "Voc": 0.0,
+      "FF": 0.0,
+      "PCE": 0.0
+    }
+  },
+  {
+    "design": "direct",
+    "case": "thin50",
+    "metrics_delta": {
+      "Jsc": 0.0,
+      "Voc": 0.0,
+      "FF": 0.0,
+      "PCE": 0.0
+    }
+  },
+  {
+    "design": "direct",
+    "case": "thin50_quality_rs01",
+    "metrics_delta": {
+      "Jsc": 0.0,
+      "Voc": 0.0,
+      "FF": 0.0,
+      "PCE": 0.0
+    }
+  },
+  {
+    "design": "graded_np",
+    "case": "arc85",
+    "metrics_delta": {
+      "Jsc": 0.0,
+      "Voc": 0.0,
+      "FF": 0.0,
+      "PCE": 0.0
+    }
+  },
+  {
+    "design": "graded_np",
+    "case": "thin50",
+    "metrics_delta": {
+      "Jsc": 0.0,
+      "Voc": 0.0,
+      "FF": 0.0,
+      "PCE": 0.0
+    }
+  },
+  {
+    "design": "graded_np",
+    "case": "thin50_quality_rs01",
+    "metrics_delta": {
+      "Jsc": 0.0,
+      "Voc": 0.0,
+      "FF": 0.0,
+      "PCE": 0.0
+    }
+  }
+]

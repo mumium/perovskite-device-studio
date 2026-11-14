@@ -1,0 +1,23 @@
+{
+  "valid_runs": 179,
+  "SiO2": {
+    "url": "https://opg.optica.org/josa/abstract.cfm?URI=josa-55-10-1205",
+    "doi": "10.1364/JOSA.55.001205",
+    "range_um": [
+      0.21,
+      3.71
+    ],
+    "used_nm": [
+      300,
+      1100
+    ],
+    "n_632_8nm": 1.4570179296326728,
+    "k": "assumed zero, not measured k; transparent-film approximation",
+    "bulk_vs_film": "bulk fused silica proxy; deposited film must be calibrated"
+  },
+  "core": {
+    "perovskite_studio/performance.py": "18884b080b6dfb215be0ecb38310a184ce592a7ce3f1033f68b9be8f27756520",
+    "perovskite_studio/optics.py": "77c5b25049e4eafae0e311bfe049193527dddad32692f112eeadde2d7bef490e",
+    "vendor/simsalabim/simss.exe": "ba54d82ea8848f7e5d0e65251e61cd18699fb4e499ea587dde8e703b9d74bad6"
+  }
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "base"
+  },
+  {
+    "id": "arc85",
+    "arc_nm": 85.0
+  },
+  {
+    "id": "arc85_quality",
+    "arc_nm": 85.0,
+    "quality": true
+  }
+]

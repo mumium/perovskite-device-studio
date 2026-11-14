@@ -1,0 +1,22 @@
+[
+  {
+    "id": "validated_peak_0",
+    "peak": 100000000000000.0
+  },
+  {
+    "id": "validated_peak_1",
+    "peak": 1000000000000000.0
+  },
+  {
+    "id": "validated_peak_2",
+    "peak": 1e+16
+  },
+  {
+    "id": "validated_peak_3",
+    "peak": 1e+17
+  },
+  {
+    "id": "validated_peak_4",
+    "peak": 1e+18
+  }
+]

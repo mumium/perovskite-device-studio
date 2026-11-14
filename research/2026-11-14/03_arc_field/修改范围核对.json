@@ -1,0 +1,16 @@
+{
+  "direct": {
+    "only_ARC_changed": true,
+    "front_before": "Air, 200nm",
+    "front_after": "SiO2, 85nm",
+    "electrical_layers_unchanged": true,
+    "interconnect_added": false
+  },
+  "graded_np": {
+    "only_ARC_changed": true,
+    "front_before": "Air, 200nm",
+    "front_after": "SiO2, 85nm",
+    "electrical_layers_unchanged": true,
+    "interconnect_added": false
+  }
+}

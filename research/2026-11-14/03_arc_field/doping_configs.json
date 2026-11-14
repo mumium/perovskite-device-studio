@@ -1,0 +1,105 @@
+[
+  {
+    "id": "base"
+  },
+  {
+    "id": "pn_0",
+    "role": "pn",
+    "doping": 10000000000000.0
+  },
+  {
+    "id": "pn_1",
+    "role": "pn",
+    "doping": 100000000000000.0
+  },
+  {
+    "id": "pn_2",
+    "role": "pn",
+    "doping": 1000000000000000.0
+  },
+  {
+    "id": "pn_3",
+    "role": "pn",
+    "doping": 1e+16
+  },
+  {
+    "id": "pn_4",
+    "role": "pn",
+    "doping": 1e+17
+  },
+  {
+    "id": "np_0",
+    "role": "np",
+    "doping": 10000000000000.0
+  },
+  {
+    "id": "np_1",
+    "role": "np",
+    "doping": 100000000000000.0
+  },
+  {
+    "id": "np_2",
+    "role": "np",
+    "doping": 1000000000000000.0
+  },
+  {
+    "id": "np_3",
+    "role": "np",
+    "doping": 1e+16
+  },
+  {
+    "id": "np_4",
+    "role": "np",
+    "doping": 1e+17
+  },
+  {
+    "id": "nn_0",
+    "role": "nn",
+    "doping": 10000000000000.0
+  },
+  {
+    "id": "nn_1",
+    "role": "nn",
+    "doping": 100000000000000.0
+  },
+  {
+    "id": "nn_2",
+    "role": "nn",
+    "doping": 1000000000000000.0
+  },
+  {
+    "id": "nn_3",
+    "role": "nn",
+    "doping": 1e+16
+  },
+  {
+    "id": "nn_4",
+    "role": "nn",
+    "doping": 1e+17
+  },
+  {
+    "id": "pp_0",
+    "role": "pp",
+    "doping": 10000000000000.0
+  },
+  {
+    "id": "pp_1",
+    "role": "pp",
+    "doping": 100000000000000.0
+  },
+  {
+    "id": "pp_2",
+    "role": "pp",
+    "doping": 1000000000000000.0
+  },
+  {
+    "id": "pp_3",
+    "role": "pp",
+    "doping": 1e+16
+  },
+  {
+    "id": "pp_4",
+    "role": "pp",
+    "doping": 1e+17
+  }
+]

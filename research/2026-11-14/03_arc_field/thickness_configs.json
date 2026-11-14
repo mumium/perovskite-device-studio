@@ -1,0 +1,47 @@
+[
+  {
+    "id": "w50",
+    "arc_nm": 85.0,
+    "wide_total": 50
+  },
+  {
+    "id": "w100",
+    "arc_nm": 85.0,
+    "wide_total": 100
+  },
+  {
+    "id": "w200",
+    "arc_nm": 85.0,
+    "wide_total": 200
+  },
+  {
+    "id": "w300",
+    "arc_nm": 85.0,
+    "wide_total": 300
+  },
+  {
+    "id": "w400",
+    "arc_nm": 85.0,
+    "wide_total": 400
+  },
+  {
+    "id": "w500",
+    "arc_nm": 85.0,
+    "wide_total": 500
+  },
+  {
+    "id": "w600",
+    "arc_nm": 85.0,
+    "wide_total": 600
+  },
+  {
+    "id": "w700",
+    "arc_nm": 85.0,
+    "wide_total": 700
+  },
+  {
+    "id": "w800",
+    "arc_nm": 85.0,
+    "wide_total": 800
+  }
+]

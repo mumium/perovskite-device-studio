@@ -1,0 +1,37 @@
+[
+  {
+    "id": "w50_arc60",
+    "arc_nm": 60,
+    "wide_total": 50
+  },
+  {
+    "id": "w50_arc70",
+    "arc_nm": 70,
+    "wide_total": 50
+  },
+  {
+    "id": "w50_arc80",
+    "arc_nm": 80,
+    "wide_total": 50
+  },
+  {
+    "id": "w50_arc90",
+    "arc_nm": 90,
+    "wide_total": 50
+  },
+  {
+    "id": "w50_arc100",
+    "arc_nm": 100,
+    "wide_total": 50
+  },
+  {
+    "id": "w50_arc110",
+    "arc_nm": 110,
+    "wide_total": 50
+  },
+  {
+    "id": "w50_arc120",
+    "arc_nm": 120,
+    "wide_total": 50
+  }
+]

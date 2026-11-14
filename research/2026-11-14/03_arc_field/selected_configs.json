@@ -1,0 +1,18 @@
+[
+  {
+    "id": "arc85",
+    "arc_nm": 85.0
+  },
+  {
+    "id": "thin50",
+    "arc_nm": 85.0,
+    "wide_total": 50
+  },
+  {
+    "id": "thin50_quality_rs01",
+    "arc_nm": 85.0,
+    "wide_total": 50,
+    "quality": true,
+    "rs": 0.1
+  }
+]
