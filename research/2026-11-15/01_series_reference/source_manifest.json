@@ -1,0 +1,12 @@
+{
+  "original_nk": {
+    "original_path": "results\\2026-11-13_双结构_实测光学与近红外补全\\updated1100\\graded_np.json",
+    "original_sha256": "da9e77b242de483d4804937ae7eb58b5f8efb1e3699107f755f07ac4df475750",
+    "compact_sha256": "049f1b805a8cd1d1a41db135e0d0106760cdb003465acb2c4774c76b68987a58"
+  },
+  "aligned_ARC": {
+    "original_path": "results\\2026-11-14_电场与减反优化\\grid2000\\graded_np_arc85.json",
+    "original_sha256": "ae7d063331f250773ee04656a4feaa1da9086d71bf738b65de7e667572a28cfd",
+    "compact_sha256": "f71caa087d3b210d968d2ab98e0d1b3452f5e25b5f95bfd0232f3b171eefeed6"
+  }
+}

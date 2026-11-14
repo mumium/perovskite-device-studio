@@ -2,7 +2,9 @@
 
 <img src="assets/logo.png" width="96" alt="钙钛矿器件模拟工作台图标">
 
-Python / Windows 桌面工具，将能带分析和器件性能模拟整合到两个独立页面。能带页查看真空参考排列、自洽热平衡能带、电场与载流子浓度；性能页用 SimSS 计算均匀或渐变器件的稳态 J–V、Jsc、Voc、FF、PCE。版本 **1.4.0**。
+Python / Windows 桌面工具，将能带分析和器件性能模拟整合到两个独立页面。能带页查看真空参考排列、自洽热平衡能带、电场与载流子浓度；性能页用 SimSS 计算均匀或渐变器件的稳态 J–V、Jsc、Voc、FF、PCE。版本 **1.4.1**。
+
+1.4.1 更新：新增独立的两子电池串联参考模式，使用完整结构的同一G(x)、相同电流下电压相加；虚拟内接触及连接电阻假设明确标注，不等于已实现真实n/p隧穿连接。详见[操作与适用范围](docs/tandem-reference.md)。
 
 1.4.0 更新：两个页面统一为 macOS 风格的浅灰 / 白色界面，采用圆角按钮、输入框、下拉栏和分段式页签，复选框、滚动条、菜单、器件结构卡片及图表工具栏同步调整。J–V / EQE 保持同尺寸大按钮，分别使用蓝色 / 紫色；保留 MK Design 签名。详见 [界面样式与验证](docs/macos-theme.md)。
 
@@ -22,9 +24,9 @@ Python / Windows 桌面工具，将能带分析和器件性能模拟整合到两
 
 双击 `start.bat`，或执行 `python run.py`。依赖：`pip install -r requirements.txt`。
 
-Windows 打包版：双击 `dist/1.4.0/PerovskiteDeviceStudio.exe`，无需安装 Python 或 SimSS。可单独复制 EXE 到其他 Windows 64 位电脑运行。历史文件按版本目录归档，未标注版本的早期文件在 `dist/legacy-unversioned/`。
+Windows 打包版：双击 `dist/1.4.1/PerovskiteDeviceStudio.exe`，无需安装 Python 或 SimSS。可单独复制 EXE 到其他 Windows 64 位电脑运行。历史文件按版本目录归档，未标注版本的早期文件在 `dist/legacy-unversioned/`。
 
-[下载 Windows 1.4.0 单文件版](https://github.com/mumium/perovskite-device-studio/releases/download/v1.4.0/PerovskiteDeviceStudio.exe) · [下载文件夹版 ZIP](https://github.com/mumium/perovskite-device-studio/releases/download/v1.4.0/PerovskiteDeviceStudio-1.4.0-portable.zip) · [版本发布页](https://github.com/mumium/perovskite-device-studio/releases/tag/v1.4.0)
+[下载 Windows 1.4.1 单文件版](https://github.com/mumium/perovskite-device-studio/releases/download/v1.4.1/PerovskiteDeviceStudio.exe) · [下载文件夹版 ZIP](https://github.com/mumium/perovskite-device-studio/releases/download/v1.4.1/PerovskiteDeviceStudio-1.4.1-portable.zip) · [版本发布页](https://github.com/mumium/perovskite-device-studio/releases/tag/v1.4.1)
 
 重新打包：安装项目依赖及 `pyinstaller`，再运行 `build_exe.bat`。程序为单文件无控制台版本，首次启动需要解压运行依赖，可能稍慢。
 
@@ -51,6 +53,8 @@ Windows 打包版：双击 `dist/1.4.0/PerovskiteDeviceStudio.exe`，无需安�
 性能页的入射光说明跟随「光谱与光学 → 照射方向」，该物理设置继续参与光学计算。能带页不再提供入射方向选择，固定显示左到右的结构示意，**能带求解仍为暗态**；旧项目中的示意方向字段可读取但忽略，新保存的能带项目不再写入该字段。结构图对应当前编辑输入，保留的 J–V / EQE 曲线仍对应最近成功计算的参数快照。
 
 ## 研究结果与完整源数据
+
+[2026-11-15：两子电池串联参考重建](research/2026-11-15/01_series_reference/README.md)：1.4.1新增同电流、电压相加的独立参考，Voc约2.07–2.09V；使用虚拟选择性内接触，未证明真实20n/20p连接有效。提供原始能级与先前能级/减反设计的分开对照、连接电阻扫描、网格核对和软件实算。
 
 **叠层适用范围更正（2026-11-14）：** 此前1.78/1.25eV双吸收层及n/p过渡结构尚未建立和验证两子电池的有效串联；约0.92V及28%–29%的结果不能作为正常两结全钙叠层预测。中央连接模型缺失、扫描范围与电流加和证据见 [叠层拓扑核查](research/2026-11-14/04_tandem_audit/README.md)。历史数据保留供追溯。
 

@@ -86,9 +86,13 @@ class PerformancePage(ttk.Frame):
             self.input_widgets.append(button)
         self.run_button = actions.button('▶ 运行 J–V 模拟', self.run, style='Accent.TButton', width=17)
         self.eqe_button = actions.button('▶ 运行 EQE 模拟', self.run_eqe, style='EQE.Accent.TButton', width=17)
+        self.tandem_button = actions.button('两子电池串联参考…', self.open_tandem_reference)
+        self.input_widgets.append(self.tandem_button)
         self.cancel_button = actions.button('取消', self.cancel, state='disabled')
         self.export_buttons = [actions.menu('导出结果', [('当前曲线与参数 CSV', self.export_csv),
                                   ('完整结果 JSON', self.export_result), ('图像与参数 PNG / SVG', self.export_image)], state='disabled')]
+        ttk.Label(self, text='常规 J–V：整体异质结模型；两子电池串联请用独立参考模式校核，真实连接仍需验证。',
+                  foreground='#6e6e73').pack(anchor='w', pady=(0, 5))
 
         body = ttk.Panedwindow(self, orient='horizontal')
         body.pack(fill='both', expand=True)
@@ -763,6 +767,15 @@ class PerformancePage(ttk.Frame):
         self.update_interface_controls()
         self.update_grading_controls()
 
+    def open_tandem_reference(self):
+        try:
+            layers, settings = self.collect()
+        except Exception as e:
+            messagebox.showerror('无法打开串联参考', str(e), parent=self)
+            return
+        from .tandem_window import TandemReferenceWindow
+        return TandemReferenceWindow(self, layers, settings)
+
     def run(self):
         if self.running:
             return
@@ -1060,6 +1073,9 @@ class PerformancePage(ttk.Frame):
             return
         try:
             data = json.loads(Path(path).read_text(encoding='utf-8-sig'))
+            if data.get('model') in ('tandem_series_reference_input', 'tandem_series_reference'):
+                from .tandem_window import open_reference_file
+                return open_reference_file(self, data)
             if data.get('schema') != 1 or data.get('model') != 'simss' or data.get('engine') != ENGINE_VERSION:
                 raise ValueError('请选择本工具保存的 SimSS 5.36 性能参数文件；能带项目请在能带页打开后导入。')
             data['settings'].setdefault('grading_slices', DEFAULT_SETTINGS['grading_slices'])

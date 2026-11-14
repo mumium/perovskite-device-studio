@@ -1,0 +1,30 @@
+{
+  "actual_portable_run": true,
+  "metrics_delta": {
+    "Jsc": 0.0,
+    "Voc": 0.0,
+    "FF": 0.0,
+    "PCE": 0.0
+  },
+  "packaged_code": {
+    "onefile": {
+      "latest_close_handler": true,
+      "final_small_screen_handler": true
+    },
+    "portable": {
+      "latest_close_handler": true,
+      "final_small_screen_handler": true
+    }
+  },
+  "generation": {
+    "split_integral_sum": 35.69819136518852,
+    "native_photo_sum": 35.620226911479634,
+    "remap_delta": -0.07796445370887994
+  },
+  "onefile_startup_verified": true,
+  "full_suite_tests": 79,
+  "additional_checks": [
+    "parent destroy cancellation",
+    "900x560 reference layout"
+  ]
+}
