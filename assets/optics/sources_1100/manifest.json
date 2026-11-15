@@ -1,0 +1,58 @@
+{
+  "database_commit": "e6d15e364f70de1cad8a96a20f75689f2fba8b21",
+  "database_license": "CC0 1.0",
+  "sources": {
+    "nk_ITO_Minenkov.txt": {
+      "source": "Minenkov-glass.yml",
+      "source_sha256": "2861e8774e0d8a95f485ea56721a70d239bf43ff7e11f48c1f60b12a551fad78",
+      "table_sha256": "cefc102a2de5d5a5236c04a5388b35749c572619616eb42e2389c1d646af051e",
+      "range_nm": [
+        191.46,
+        1688.69
+      ]
+    },
+    "nk_MAPI_Phillips.txt": {
+      "source": "Phillips.yml",
+      "source_sha256": "32a66c0ccf6e77efeafadd0ba11e1e563e1b23253b131d79404030d0efb427f2",
+      "table_sha256": "6cd51ef0c33a4057782d50f245132c940624bf8fa2ab3364cc67b0d47a4ee468",
+      "range_nm": [
+        300.0,
+        1501.3
+      ]
+    },
+    "nk_Ag_Johnson.txt": {
+      "source": "Ag-Johnson.yml",
+      "source_sha256": "8c79d5e2529e4d3a51e1502b42f2e96e63b3cb49e1036c66b86eb9dbdd0c65a5",
+      "table_sha256": "e19ce409c0bc068dd2d3da7a019248e8da48c45710ae4a6baff149d69fde969d",
+      "range_nm": [
+        187.9,
+        1936.9999999999998
+      ]
+    },
+    "nk_Au_Johnson.txt": {
+      "source": "Au-Johnson.yml",
+      "source_sha256": "9f4bdab6bd49f7c6a1c48b5fb5482c7448caf4b6de39594a34ecd66dcf592774",
+      "table_sha256": "b7e1445ff0fbad11d7f52059d67a3560d1e3778d40cc6741969fffc48b5f8b3f",
+      "range_nm": [
+        187.9,
+        1936.9999999999998
+      ]
+    },
+    "nk_Air_1100.txt": {
+      "model": "n=1,k=0",
+      "table_sha256": "dd859e9ce6d207741523a5195cd2846e174ec8f075579d6b3831a8e246681302",
+      "range_nm": [
+        300.0,
+        1100.0
+      ]
+    },
+    "nk_SiO2_Malitson.txt": {
+      "model": "Malitson 1965 Sellmeier; k=0 assumption",
+      "table_sha256": "f454b98e182f7ad6cb43aae15b9a9731d7812dee0931fba99904a96ec1c68346",
+      "range_nm": [
+        300.0,
+        1100.0
+      ]
+    }
+  }
+}

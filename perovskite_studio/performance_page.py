@@ -438,6 +438,7 @@ class PerformancePage(ttk.Frame):
             self.input_widgets.append(entry)
             var.trace_add('write', self.mark_dirty)
         ttk.Label(form, text='每层 n,k 在左侧「光学参数」中选择。光学基底及额外电极不改变电学层。\n'
+                  '新建默认 300–1100 nm；旧 n,k 覆盖不足时须另选宽波段数据。\n'
                   '效率分母采用完整光谱；光生仅计算指定波段。CSV 光谱单位：nm、W/m²/nm。',
                   wraplength=450, foreground='#6e6e73').grid(row=10, column=0, columnspan=3, sticky='w', padx=4, pady=8)
 

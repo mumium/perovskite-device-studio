@@ -74,8 +74,8 @@ class AnalysisInputs(unittest.TestCase):
 
     def test_requested_defaults_and_old_interface_fallback(self):
         o = get_optics({})
-        self.assertEqual(o['substrate']['name'], 'ITO')
-        self.assertEqual(o['back']['name'], 'Ag')
+        self.assertEqual(o['substrate']['name'], 'ITO · Minenkov')
+        self.assertEqual(o['back']['name'], 'Ag · Johnson')
         self.assertEqual(o['tco_thickness'], 200)
         for a in self.layers:
             a.pop('interface')
@@ -160,7 +160,8 @@ class NativeAnalysis(unittest.TestCase):
     def test_eqe_wavelength_response_probe_linearity_and_cutoff(self):
         settings = dict(self.settings, eqe=dict(step_nm=100))
         e = run_eqe(self.layers, settings)
-        self.assertTrue(all(v > .1 for v in e['EQE'][:-1]))
+        self.assertTrue(all(v > .1 for v in e['EQE'][:5]))  # 300–700 nm above Eg.
+        np.testing.assert_allclose(e['EQE'][5:], 0., atol=1e-10)
         np.testing.assert_allclose(e['EQE'], e['active_absorptance'], rtol=.002, atol=1e-4)
         half = run_eqe(self.layers, dict(settings, eqe=dict(step_nm=100, photon_flux_cm2_s=5e13)))
         np.testing.assert_allclose(e['EQE'], half['EQE'], rtol=.002, atol=1e-4)
@@ -189,10 +190,10 @@ class NativeAnalysis(unittest.TestCase):
     def test_eqe_transparency_and_mid_run_cancellation(self):
         layers = deepcopy(self.layers)
         for a in layers:
-            a['optical_nk'] = dict(kind='builtin', name='Air')
+            a['optical_nk'] = dict(kind='builtin', name='Air · 1100')
         settings = dict(self.settings, eqe=dict(step_nm=100))
         e = run_eqe(layers, settings)
-        np.testing.assert_array_equal(e['EQE'], np.zeros(6))
+        np.testing.assert_array_equal(e['EQE'], np.zeros(len(e['EQE'])))
         cancel = threading.Event()
         def stop_after_first(i, n):
             if i == 1:

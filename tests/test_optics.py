@@ -49,9 +49,21 @@ class OpticalInputs(unittest.TestCase):
             path.write_text('300,2,-0.1\n800,2,0\n')
             with self.assertRaisesRegex(ValueError, 'k'):
                 read_csv(path, 3)
-        self.settings['optics']['wavelength_max'] = 900
+        self.settings['optics']['wavelength_max'] = 1100
+        self.settings['optics']['substrate'] = dict(kind='builtin', name='ITO')
         with self.assertRaisesRegex(ValueError, '覆盖'):
             validate_device(self.layers, self.settings)
+
+    def test_default_1100_sources_cover_band_and_saved_800_is_preserved(self):
+        o = get_optics(self.settings)
+        self.assertEqual((o['wavelength_min'], o['wavelength_max']), (300., 1100.))
+        validate_device(self.layers, self.settings)
+        for spec in [o['substrate'], o['tco'], o['back']]+[a['optical_nk'] for a in self.layers]:
+            a = nk_table(spec)
+            self.assertLessEqual(a[0, 0], 300.)
+            self.assertGreaterEqual(a[-1, 0], 1100.)
+        self.assertEqual(get_optics(dict(optics=dict(wavelength_max=800)))['wavelength_max'], 800)
+        self.assertEqual(nk_table(dict(kind='builtin', name='ITO'))[-1, 0], 800.)
 
     def test_manual_legacy_settings_do_not_require_optical_files(self):
         self.layers[0]['optical_nk'] = None
@@ -93,10 +105,10 @@ class RealTMM(unittest.TestCase):
     def test_zero_absorption_and_custom_spectrum(self):
         transparent = deepcopy(self.layers)
         for a in transparent:
-            a['optical_nk'] = dict(kind='builtin', name='Air')
+            a['optical_nk'] = dict(kind='builtin', name='Air · 1100')
         settings = deepcopy(self.settings)
-        settings['optics'].update(substrate=dict(kind='builtin', name='Air'),
-                                 back=dict(kind='builtin', name='Air'), tco_thickness=0)
+        settings['optics'].update(substrate=dict(kind='builtin', name='Air · 1100'),
+                                 back=dict(kind='builtin', name='Air · 1100'), tco_thickness=0)
         settings.update(vmin=0, vmax=.1, vstep=.05)
         r = run_simulation(transparent, settings)
         self.assertEqual(r['generated_current'], 0)

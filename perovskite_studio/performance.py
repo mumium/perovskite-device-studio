@@ -76,7 +76,9 @@ def import_layers(layers):
         a.update(Nt=1e15, Et=a['Eg']/2, B=1e-10,
                  transfer_n=1e5, transfer_p=1e5, absorber=i == absorber)
         a.setdefault('optical_nk', default_nk(i, absorber))
-        ref_gap = 1.55 if a['optical_nk'] == dict(kind='builtin', name='MAPI') else a['Eg']
+        mapi = (a['optical_nk'].get('kind') == 'builtin' and
+                a['optical_nk'].get('name') in ('MAPI', 'MAPI · Phillips'))
+        ref_gap = 1.55 if mapi else a['Eg']
         a.setdefault('optical_model', dict(mode='edge' if i == absorber else 'fixed', reference_gap=ref_gap))
         a.setdefault('interface', deepcopy(INTERFACE_DEFAULTS))
         result.append(a)

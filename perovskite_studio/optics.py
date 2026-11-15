@@ -17,12 +17,15 @@ integrate = np.trapezoid if hasattr(np, 'trapezoid') else np.trapz
 DATA_DIR = RESOURCE_ROOT/'assets'/'optics'
 NK_LIBRARY = {'PTAA': 'nk_PTAA.txt', 'MAPI': 'nk_MAPI.txt', 'C60': 'nk_C60_1.txt',
               'ITO': 'nk_ITO.txt', 'Au': 'nk_Au.txt', 'Ag': 'nk_Ag.txt',
-              'SiO2': 'nk_SiO2.txt', 'Air': 'nk_Air.txt'}
-OPTICS_DEFAULTS = dict(mode='manual', illumination='left', wavelength_min=300., wavelength_max=800.,
+              'SiO2': 'nk_SiO2.txt', 'Air': 'nk_Air.txt',
+              'ITO · Minenkov': 'nk_ITO_Minenkov.txt', 'MAPI · Phillips': 'nk_MAPI_Phillips.txt',
+              'Ag · Johnson': 'nk_Ag_Johnson.txt', 'Au · Johnson': 'nk_Au_Johnson.txt',
+              'Air · 1100': 'nk_Air_1100.txt', 'SiO2 · Malitson': 'nk_SiO2_Malitson.txt'}
+OPTICS_DEFAULTS = dict(mode='manual', illumination='left', wavelength_min=300., wavelength_max=1100.,
                        spectrum={'kind': 'builtin', 'name': 'AM1.5G'},
-                       substrate={'kind': 'builtin', 'name': 'ITO'},
-                       tco={'kind': 'builtin', 'name': 'ITO'}, tco_thickness=200.,
-                       back={'kind': 'builtin', 'name': 'Ag'}, back_thickness=100.)
+                       substrate={'kind': 'builtin', 'name': 'ITO · Minenkov'},
+                       tco={'kind': 'builtin', 'name': 'ITO · Minenkov'}, tco_thickness=200.,
+                       back={'kind': 'builtin', 'name': 'Ag · Johnson'}, back_thickness=100.)
 HC_EV_NM = 1239.8419843320026
 
 
@@ -69,7 +72,7 @@ def get_optics(settings):
 
 
 def default_nk(index, absorber):
-    return dict(kind='builtin', name='MAPI' if index == absorber else 'PTAA' if index < absorber else 'C60')
+    return dict(kind='builtin', name='MAPI · Phillips' if index == absorber else 'PTAA' if index < absorber else 'C60')
 
 
 def _validate_table(values, columns, label):

@@ -97,7 +97,7 @@ class EngineDiagnostics(unittest.TestCase):
                 return np.array([(0., 0., 0.)], dtype=[('Vext', float), ('Jext', float), ('errJ', float)]), ''
             raise RuntimeError(context)
         with patch('perovskite_studio.performance._run_engine', side_effect=fake_engine):
-            with self.assertRaisesRegex(RuntimeError, 'EQE 第 1/6 个波长（300 nm）'):
+            with self.assertRaisesRegex(RuntimeError, 'EQE 第 1/9 个波长（300 nm）'):
                 run_eqe(layers, settings)
 
     def test_226_recovers_to_real_jv_with_identical_inputs_and_visible_warning(self):

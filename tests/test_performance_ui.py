@@ -34,6 +34,8 @@ class PerformanceUI(unittest.TestCase):
 
     def test_parameter_independence_and_project_roundtrip(self):
         p = self.page
+        self.assertEqual(p.optical_numbers['wavelength_min'].get(), '300')
+        self.assertEqual(p.optical_numbers['wavelength_max'].get(), '1100')
         original = deepcopy(self.app.layers)
         p.vars['mun'].set('7')
         p.collect()
@@ -276,7 +278,7 @@ class PerformanceUI(unittest.TestCase):
         self.assertEqual(str(p.G_entry['state']), 'disabled')
         with tempfile.TemporaryDirectory() as folder:
             nk_path = Path(folder)/'nk.csv'
-            nk_path.write_text('wavelength_nm,n,k\n300,1.7,0.01\n800,1.7,0.01\n')
+            nk_path.write_text('wavelength_nm,n,k\n300,1.7,0.01\n1100,1.7,0.01\n')
             with patch('perovskite_studio.performance_page.filedialog.askopenfilename', return_value=str(nk_path)):
                 p.import_layer_nk()
             self.assertEqual(p.layers[0]['optical_nk']['kind'], 'custom')

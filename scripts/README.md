@@ -21,3 +21,5 @@ python scripts/check_interface_jacobian.py --fpc-root build/fpc-portable/app
 ```
 
 测试仅在临时副本中导出内部例程，不修改正式源码或求解器。测试程序源文件为 `tests/interface_jacobian.pas`。
+
+`build_optics_1100.py` 从 `assets/optics/sources_1100/` 的固定文献源表重建新建配置所用的宽波段数据和哈希清单，不联网、不修改旧内置表。数据范围、样品限制和波长坐标量化说明见 [光学来源](../assets/optics/PROVENANCE.md)。
