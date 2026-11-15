@@ -2,7 +2,9 @@
 
 <img src="assets/logo.png" width="96" alt="钙钛矿器件模拟工作台图标">
 
-Python / Windows 桌面工具，将能带分析和器件性能模拟整合到两个独立页面。能带页查看真空参考排列、自洽热平衡能带、电场与载流子浓度；性能页用 SimSS 计算均匀或渐变器件的稳态 J–V、Jsc、Voc、FF、PCE。版本 **1.4.1**。
+Python / Windows 桌面工具，将能带分析和器件性能模拟整合到两个独立页面。能带页查看真空参考排列、自洽热平衡能带、电场与载流子浓度；性能页用 SimSS 计算均匀或渐变器件的稳态 J–V、Jsc、Voc、FF、PCE。版本 **1.4.2**。
+
+1.4.2 更新：修正原生界面 SRH 数值雅可比，改善强界面复合的收敛；保留原有页面和运行方式。未新增隧穿模型，也未把普通 J–V 自动转换为理想串联参考。见[验证记录](docs/verification-1.4.2.md)和[完整器件中央连接核查](research/2026-11-15/02_native_connection/README.md)。
 
 1.4.1 更新：新增独立的两子电池串联参考模式，使用完整结构的同一G(x)、相同电流下电压相加；虚拟内接触及连接电阻假设明确标注，不等于已实现真实n/p隧穿连接。详见[操作与适用范围](docs/tandem-reference.md)。
 
@@ -24,9 +26,9 @@ Python / Windows 桌面工具，将能带分析和器件性能模拟整合到两
 
 双击 `start.bat`，或执行 `python run.py`。依赖：`pip install -r requirements.txt`。
 
-Windows 打包版：双击 `dist/1.4.1/PerovskiteDeviceStudio.exe`，无需安装 Python 或 SimSS。可单独复制 EXE 到其他 Windows 64 位电脑运行。历史文件按版本目录归档，未标注版本的早期文件在 `dist/legacy-unversioned/`。
+Windows 打包版：双击 `dist/1.4.2/PerovskiteDeviceStudio.exe`，无需安装 Python 或 SimSS。可单独复制 EXE 到其他 Windows 64 位电脑运行。历史文件按版本目录归档，未标注版本的早期文件在 `dist/legacy-unversioned/`。
 
-[下载 Windows 1.4.1 单文件版](https://github.com/mumium/perovskite-device-studio/releases/download/v1.4.1/PerovskiteDeviceStudio.exe) · [下载文件夹版 ZIP](https://github.com/mumium/perovskite-device-studio/releases/download/v1.4.1/PerovskiteDeviceStudio-1.4.1-portable.zip) · [版本发布页](https://github.com/mumium/perovskite-device-studio/releases/tag/v1.4.1)
+[下载 Windows 1.4.2 单文件版](https://github.com/mumium/perovskite-device-studio/releases/download/v1.4.2/PerovskiteDeviceStudio.exe) · [下载文件夹版 ZIP](https://github.com/mumium/perovskite-device-studio/releases/download/v1.4.2/PerovskiteDeviceStudio-1.4.2-portable.zip) · [版本发布页](https://github.com/mumium/perovskite-device-studio/releases/tag/v1.4.2)
 
 重新打包：安装项目依赖及 `pyinstaller`，再运行 `build_exe.bat`。程序为单文件无控制台版本，首次启动需要解压运行依赖，可能稍慢。
 
@@ -133,7 +135,7 @@ EQE 与 J–V 各自保存最近成功快照；**四项指标始终属于最近 
 
 ### 模型与单位
 
-- 引擎基于 **SIMsalabim / SimSS 5.36**，本地构建标识为 **5.36-pds1**。它求解一维稳态泊松方程、漂移–扩散与载流子连续性方程；不使用能带页热平衡载流子浓度代替工作态浓度。为多子层修正网格预算并将网格上限设为 2000，物理方程未改变；修改源码随程序提供。
+- 引擎基于 **SIMsalabim / SimSS 5.36**，本地构建标识为 **5.36-pds2**。它求解一维稳态泊松方程、漂移–扩散与载流子连续性方程；不使用能带页热平衡载流子浓度代替工作态浓度。数值修正包括多子层网格预算、2000 点上限和稳态界面 SRH 雅可比；复合率及物理方程未改变，修改源码随程序提供。
 - 支持均匀层，以及 Eg 线性渐变、Nd/Na 线性或对数渐变、χ 独立线性端点或随 Eg 分配。仍要求 **Nc = Nv**（SimSS 只有一个共同态密度参数），不相等时会明确提示。
 - 渐变层按指定数量拆为薄子层，端点采样子层为半宽，保留总厚度和接触端精确参数；均匀层不拆分。虚拟子层界面不添加陷阱复合，并按求解器实际网格间距设置 `ν=μ·Vt/Δx`，维持原材料体迁移率；用户填写的界面传输速度只用于真实材料界面。
 - 渐变模拟是分段近似，默认 16 段；建议比较 8、16、32 段及更密空间网格的结果，确认指标稳定。不是任意梯度下的精确连续解；强梯度仍可能不收敛。总子层数上限 120，网格不足时自动增大并提示，最多 2000 点；超过限制须减少分段数或材料层数。结果 JSON 保存实际分段与网格设置，便于复现。

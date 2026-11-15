@@ -25,7 +25,7 @@ from .optics import get_optics, default_nk, validate_optics, prepare_optical_fil
 from .paths import RESOURCE_ROOT
 
 ENGINE_VERSION = '5.36'
-ENGINE_BUILD = '5.36-pds1'
+ENGINE_BUILD = '5.36-pds2'
 ENGINE_DIR = RESOURCE_ROOT / 'vendor' / 'simsalabim'
 DEFAULT_SETTINGS = dict(T=300., left=5., right=4.1, left_anode=1,
                         G=3e21, pin=100., vmin=-.04, vmax=1.5, vstep=.02,
@@ -284,6 +284,14 @@ def write_inputs(folder, layers, settings):
         convVar=4, failureMode=0, Vmin=s['vmin'], Vmax=s['vmax'], Vstep=s['vstep'],
         Vscan=1, untilVoc=0, timeout=int(s['timeout']), autoTidy=0,
         varFile='OpticalProfile.dat' if spectral else 'none', limitDigits=0)
+    # Strong interface SRH is stiff under the upstream density iteration.
+    # Change only its relaxation/iteration budget, retaining both convergence
+    # tests, fail-fast behavior, the requested timeout and all physical inputs.
+    interface_srh = any(interface_parameters(a)['Nt'] > 0 and
+                        interface_parameters(a)['Cn'] > 0 and
+                        interface_parameters(a)['Cp'] > 0 for a in layers[:-1])
+    numerical = dict(minAcc=.05, maxAcc=.05, maxItSS=100000) if interface_srh else {}
+    replacements.update(numerical)
     if spectral:
         o = get_optics(s)
         replacements.update(spectrum='spectrum.txt', nkSubstrate='substrate.txt', nkTCO='tco.txt', nkBE='back.txt',
@@ -325,7 +333,7 @@ def write_inputs(folder, layers, settings):
     mesh = dict(grading_slices=int(s.get('grading_slices', 16)), sublayers=len(pieces),
                 requested_points=int(s['points']), effective_points=points,
                 method='endpoint-centred sublayers; bulk mobility at virtual interfaces', pieces=pieces,
-                mirrored=mirrored, optical=optical)
+                mirrored=mirrored, optical=optical, numerical_overrides=numerical)
     (folder/'inputs.json').write_text(json.dumps(dict(engine=ENGINE_VERSION, layers=layers,
                                                      settings=s, mesh=mesh), ensure_ascii=False, indent=2), encoding='utf-8')
     return mesh

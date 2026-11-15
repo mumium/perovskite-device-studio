@@ -2016,28 +2016,20 @@ BEGIN
 				Rn.int[ii]:=Rn.int[ii] + iiw*(ai*n[ii] * (sum_bj + sum_cj) - ciR * (sum_aj + sum_dj)) * f_ti_level_inv_denom;
 				Rn.int[ii+1]:=Rn.int[ii+1] + iiw*(ai*n[ii+1] * (sum_bj + sum_cj) - ciL* (sum_aj + sum_dj)) * f_ti_level_inv_denom;
 
-				{Calculate the partial derivative of recombination to n[ii-1], n[ii], n[ii+1]}
-				dum1:=ciR * ai / f_ti_level_inv_denom;
-				dum1:=dum1 - ai * (ai*n[ii] * (sum_bj + sum_cj) - ciR * (sum_aj + sum_dj));
-				dum2:=ciL * ai / f_ti_level_inv_denom;
-				dum2:=dum2 - ai * (ai*n[ii+1] * (sum_bj + sum_cj) - ciL * (sum_aj + sum_dj));
-				Rn.int_cont_lo[ii]:=Rn.int_cont_lo[ii] + iiw*dum1 * SQR(f_ti_level_inv_denom);
-				Rn.int_cont_lo[ii+1]:=Rn.int_cont_lo[ii+1] + iiw*dum2 * SQR(f_ti_level_inv_denom);
-		
-				dum1:=-ciR* ai / f_ti_level_inv_denom;
-				dum1:=dum1 - ai * (ai*n[ii] * (sum_bj + sum_cj) - ciR * (sum_aj + sum_dj));
-				dum2:=-ciL * ai / f_ti_level_inv_denom;
-				dum2:=dum2 - ai * (ai*n[ii+1] * (sum_bj + sum_cj) - ciL * (sum_aj + sum_dj));
-				Rn.int_cont_up[ii]:= Rn.int_cont_up[ii] + iiw*dum1 * SQR(f_ti_level_inv_denom);
-				Rn.int_cont_up[ii+1]:=Rn.int_cont_up[ii+1] + iiw*dum2 * SQR(f_ti_level_inv_denom);
-				
-				dum1:=(-ciR + sum_bj + sum_cj) * ai  / f_ti_level_inv_denom;
-				dum1:=dum1 - ai * (ai*n[ii] * (sum_bj + sum_cj) - ciR * (sum_aj + sum_dj));
-				dum2:=(-ciL + sum_bj + sum_cj) * ai  / f_ti_level_inv_denom;
-				dum2:=dum2 - ai * (ai*n[ii+1] * (sum_bj + sum_cj) - ciL * (sum_aj + sum_dj));
-				Rn.int_cont_m[ii]:=Rn.int_cont_m[ii] + iiw*dum1 * SQR(f_ti_level_inv_denom);
-				Rn.int_cont_m[ii+1]:=Rn.int_cont_m[ii+1] + iiw*dum2 * SQR(f_ti_level_inv_denom);
-			
+				{PDS modification 2026-11-15: exact interface-SRH Jacobian.
+                 No dependence on the point outside the two-point interface.}
+                dum1:=iiw*ai*(((sum_bj + sum_cj) - ciR)*f_ti_level_inv_denom - (ai*n[ii]*(sum_bj + sum_cj) - ciR*(sum_aj + sum_dj))*SQR(f_ti_level_inv_denom));
+                dum2:=iiw*ai*(-ciR*f_ti_level_inv_denom - (ai*n[ii]*(sum_bj + sum_cj) - ciR*(sum_aj + sum_dj))*SQR(f_ti_level_inv_denom));
+                Rn.int_cont_m[ii]:=Rn.int_cont_m[ii] + dum1;
+                Rn.int_cont_up[ii]:=Rn.int_cont_up[ii] + dum2;
+
+{PDS modification 2026-11-15: exact interface-SRH Jacobian.
+                 No dependence on the point outside the two-point interface.}
+                dum1:=iiw*ai*(((sum_bj + sum_cj) - ciL)*f_ti_level_inv_denom - (ai*n[ii+1]*(sum_bj + sum_cj) - ciL*(sum_aj + sum_dj))*SQR(f_ti_level_inv_denom));
+                dum2:=iiw*ai*(-ciL*f_ti_level_inv_denom - (ai*n[ii+1]*(sum_bj + sum_cj) - ciL*(sum_aj + sum_dj))*SQR(f_ti_level_inv_denom));
+                Rn.int_cont_m[ii+1]:=Rn.int_cont_m[ii+1] + dum1;
+                Rn.int_cont_lo[ii+1]:=Rn.int_cont_lo[ii+1] + dum2;
+
 			END; {steady-state, loop over trap levels}
 			
 			{The right hand side of the continuity equation contains the recombination term, but because we linearize in n we add the linearization terms as well.}
@@ -2146,27 +2138,20 @@ BEGIN
 				Rp.int[ii]:=Rp.int[ii] + iiw*(bi*p[ii] * (sum_aj + sum_dj) - diR * (sum_bj + sum_cj)) / (sum_aj+sum_bj+sum_cj+sum_dj);
 				Rp.int[ii+1]:=Rp.int[ii+1] + iiw*(bi*p[ii+1] * (sum_aj + sum_dj) - diL * (sum_bj + sum_cj)) / (sum_aj+sum_bj+sum_cj+sum_dj);
 	
-				{Calculate the partial derivative of recombination to p[ii-1], p[ii], p[ii+1]}
-				dum1:=-diR * bi / f_ti_level_inv_denom;
-				dum1:=dum1 - bi * (bi*p[ii] * (sum_aj + sum_dj) - diR * (sum_bj + sum_cj));
-				dum2:=-diL * bi / f_ti_level_inv_denom;
-				dum2:=dum2 - bi * (bi*p[ii+1] * (sum_aj + sum_dj) - diL * (sum_bj + sum_dj));
-				Rp.int_cont_lo[ii]:=Rp.int_cont_lo[ii] + iiw*dum1 * SQR(f_ti_level_inv_denom);
-				Rp.int_cont_lo[ii+1]:=Rp.int_cont_lo[ii+1] + iiw*dum2 * SQR(f_ti_level_inv_denom);
+				{PDS modification 2026-11-15: exact interface-SRH Jacobian.
+                 No dependence on the point outside the two-point interface.}
+                dum1:=iiw*bi*(((sum_aj + sum_dj) - diR)*f_ti_level_inv_denom - (bi*p[ii]*(sum_aj + sum_dj) - diR*(sum_bj + sum_cj))*SQR(f_ti_level_inv_denom));
+                dum2:=iiw*bi*(-diR*f_ti_level_inv_denom - (bi*p[ii]*(sum_aj + sum_dj) - diR*(sum_bj + sum_cj))*SQR(f_ti_level_inv_denom));
+                Rp.int_cont_m[ii]:=Rp.int_cont_m[ii] + dum1;
+                Rp.int_cont_up[ii]:=Rp.int_cont_up[ii] + dum2;
 
-				dum1:=-diR * bi / f_ti_level_inv_denom;
-				dum1:=dum1 - bi * (bi*n[ii] * (sum_aj + sum_dj) - diR * (sum_bj + sum_cj));
-				dum2:=-diL * bi / f_ti_level_inv_denom;
-				dum2:=dum2 - bi * (bi*p[ii+1] * (sum_aj + sum_dj) - diL * (sum_bj + sum_cj));
-				Rp.int_cont_up[ii]:= Rp.int_cont_up[ii] + iiw*dum1 * SQR(f_ti_level_inv_denom);
-				Rp.int_cont_up[ii+1]:=Rp.int_cont_up[ii+1] + iiw*dum2 * SQR(f_ti_level_inv_denom);
-				
-				dum1:=(-diR + sum_aj + sum_dj) * bi  / f_ti_level_inv_denom;
-				dum1:=dum1 - bi * (bi*p[ii] * (sum_aj + sum_dj) - diR * (sum_bj + sum_cj));
-				dum2:=(-diL + sum_aj + sum_dj) * bi  / f_ti_level_inv_denom;
-				dum2:=dum2 - bi * (bi*p[ii+1] * (sum_aj + sum_dj) - diL * (sum_bj + sum_cj));
-				Rp.int_cont_m[ii]:=Rp.int_cont_m[ii] + iiw*dum1 * SQR(f_ti_level_inv_denom);
-				Rp.int_cont_m[ii+1]:=Rp.int_cont_m[ii+1] + iiw*dum2 * SQR(f_ti_level_inv_denom)		
+{PDS modification 2026-11-15: exact interface-SRH Jacobian.
+                 No dependence on the point outside the two-point interface.}
+                dum1:=iiw*bi*(((sum_aj + sum_dj) - diL)*f_ti_level_inv_denom - (bi*p[ii+1]*(sum_aj + sum_dj) - diL*(sum_bj + sum_cj))*SQR(f_ti_level_inv_denom));
+                dum2:=iiw*bi*(-diL*f_ti_level_inv_denom - (bi*p[ii+1]*(sum_aj + sum_dj) - diL*(sum_bj + sum_cj))*SQR(f_ti_level_inv_denom));
+                Rp.int_cont_m[ii+1]:=Rp.int_cont_m[ii+1] + dum1;
+                Rp.int_cont_lo[ii+1]:=Rp.int_cont_lo[ii+1] + dum2;
+
 			END; {steady-state, loop over trap levels}
 			
 			{The right hand side of the continuity equation contains the recombination term, but because we linearize in n we add the linearization terms as well.}

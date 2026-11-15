@@ -1,4 +1,4 @@
-"""Reproduce PDS mesh fixes from a checkout of upstream SIMsalabim v5.36.
+"""Reproduce PDS numerical fixes from a checkout of upstream SIMsalabim v5.36.
 
 Usage: python scripts/prepare_simss_source.py path/to/SIMsalabim-5.36
 The exact resulting sources are distributed in vendor/simsalabim/source.
@@ -6,6 +6,8 @@ The exact resulting sources are distributed in vendor/simsalabim/source.
 from pathlib import Path
 import shutil
 import sys
+
+from interface_jacobian import correct_interface_jacobian
 
 
 def prepare(upstream):
@@ -29,7 +31,7 @@ def prepare(upstream):
     block = block.replace('(par.NP-NumThinLayers*MinGridPointsPerLayer)',
                           '(GridBudget-NumThinLayers*MinGridPointsPerLayer)')
     text = text[:start]+block+text[end:]
-    path.write_text(text, encoding='utf-8')
+    path.write_text(correct_interface_jacobian(text), encoding='utf-8')
     path = target/'Units'/'TypesAndConstants.pp'
     text = path.read_text(encoding='utf-8-sig')
     text = text.replace('Max_NP\t = 1000;', 'Max_NP\t = 2000; {PDS: support the UI grid limit}')
