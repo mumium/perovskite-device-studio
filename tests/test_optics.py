@@ -67,6 +67,7 @@ class OpticalInputs(unittest.TestCase):
 
     def test_manual_legacy_settings_do_not_require_optical_files(self):
         self.layers[0]['optical_nk'] = None
+        self.assertIsNone(import_layers(self.layers)[0]['optical_nk'])
         validate_device(self.layers, dict(DEFAULT_SETTINGS))
         self.assertEqual(get_optics(DEFAULT_SETTINGS)['mode'], 'manual')
 
