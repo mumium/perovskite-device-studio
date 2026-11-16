@@ -78,6 +78,7 @@ def main():
     html=f'''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>无减反层叠层掺杂优化与数值复核</title><style>body{{font:16px/1.8 system-ui,"Microsoft YaHei",sans-serif;background:#f5f5f7;color:#1d1d1f;max-width:1050px;margin:auto;padding:28px}}section{{background:white;border:1px solid #e5e5ea;border-radius:14px;padding:22px;margin:18px 0}}h1{{font-size:28px}}h2{{font-size:21px}}table{{border-collapse:collapse;width:100%;font-size:14px}}td,th{{padding:10px;border-bottom:1px solid #e5e5ea;text-align:right}}td:first-child,th:first-child{{text-align:left}}img{{max-width:100%;height:auto}}a{{color:#007aff}}.note{{color:#895c00;background:#fff8e8;padding:12px;border-radius:8px}}.big{{font-size:30px;color:#168564;font-weight:700}}code{{overflow-wrap:anywhere}}</style>
 <h1>无减反层叠层掺杂优化与数值复核</h1><p>2026-11-16 · Perovskite Device Studio 1.5.1 · MK Design</p>
+<p class="note"><b>结构适用范围更正：</b>本报告改了两主吸收层掺杂，并反转了中间n/p梯度方向，偏离“仅中央高掺杂、向两侧降低”的原设计。26.7191%属于扩展结构及条件串联边界，不能作为原设计的成绩。历史数据保留；正确结构见<a href="../02_center_peak_np/报告.html">中央高掺杂纠正重算</a>。</p>
 <section><h2>结果</h2><p class="big">{a['metrics']['PCE']:.3f}% → {b['metrics']['PCE']:.3f}%</p>
 <p>仅改变四个钙钛矿功能层的 Nd / Na 及其渐变方式，效率提高 {changes['PCE']:.3f} 个百分点。厚度、Eg、χ、电极功函数、迁移率、寿命、复合系数、n,k、光谱、入射功率和电路参数保持原值。<b>本次未得到经过数值复核达到 30% 的方案。</b></p>
 <table><tr><th>结构</th><th>Jsc / mA·cm⁻²</th><th>Voc / V</th><th>FF / %</th><th>PCE / %</th></tr>{primary}</table>

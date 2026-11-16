@@ -1,0 +1,186 @@
+Version 5.36
+Size of reals used in simulation: 8 bytes
+Timestamp at start: 2026/11/16 15:16:35
+Reading in of parameters:
+Read parameters for layer 1 from layer_1.txt
+Read parameters for layer 2 from layer_2.txt
+Read parameters for layer 3 from layer_3.txt
+Read parameters for layer 4 from layer_4.txt
+Read parameters for layer 5 from layer_5.txt
+Read parameters for layer 6 from layer_6.txt
+Read parameters for layer 7 from layer_7.txt
+Read parameters for layer 8 from layer_8.txt
+Read parameters for layer 9 from layer_9.txt
+Read parameters for layer 10 from layer_10.txt
+Read parameters for layer 11 from layer_11.txt
+Read parameters for layer 12 from layer_12.txt
+Read parameters for layer 13 from layer_13.txt
+Read parameters for layer 14 from layer_14.txt
+Read parameters for layer 15 from layer_15.txt
+Read parameters for layer 16 from layer_16.txt
+Read parameters for layer 17 from layer_17.txt
+Read parameters for layer 18 from layer_18.txt
+Read parameters for layer 19 from layer_19.txt
+Read parameters for layer 20 from layer_20.txt
+Read parameters for layer 21 from layer_21.txt
+Read parameters for layer 22 from layer_22.txt
+Read parameters for layer 23 from layer_23.txt
+Read parameters for layer 24 from layer_24.txt
+Read parameters for layer 25 from layer_25.txt
+Read parameters for layer 26 from layer_26.txt
+Read parameters for layer 27 from layer_27.txt
+Read parameters for layer 28 from layer_28.txt
+Read parameters for layer 29 from layer_29.txt
+Read parameters for layer 30 from layer_30.txt
+Read parameters for layer 31 from layer_31.txt
+Read parameters for layer 32 from layer_32.txt
+Read parameters for layer 33 from layer_33.txt
+Read parameters for layer 34 from layer_34.txt
+Read parameters for layer 35 from layer_35.txt
+Read parameters for layer 36 from layer_36.txt
+Read parameters for layer 37 from layer_37.txt
+Read parameters for layer 38 from layer_38.txt
+Read parameters for layer 39 from layer_39.txt
+Read parameters for layer 40 from layer_40.txt
+Read parameters for layer 41 from layer_41.txt
+Read parameters for layer 42 from layer_42.txt
+Read parameters for layer 43 from layer_43.txt
+Read parameters for layer 44 from layer_44.txt
+Read parameters for layer 45 from layer_45.txt
+Read parameters for layer 46 from layer_46.txt
+Read parameters for layer 47 from layer_47.txt
+Read parameters for layer 48 from layer_48.txt
+Read parameters for layer 49 from layer_49.txt
+Read parameters for layer 50 from layer_50.txt
+Read parameters for layer 51 from layer_51.txt
+Read parameters for layer 52 from layer_52.txt
+Read parameters for layer 53 from layer_53.txt
+Read parameters for layer 54 from layer_54.txt
+Read parameters for layer 55 from layer_55.txt
+Read parameters for layer 56 from layer_56.txt
+Read parameters for layer 57 from layer_57.txt
+Read parameters for layer 58 from layer_58.txt
+Read parameters for layer 59 from layer_59.txt
+Read parameters for layer 60 from layer_60.txt
+Read parameters for layer 61 from layer_61.txt
+Read parameters for layer 62 from layer_62.txt
+Read parameters for layer 63 from layer_63.txt
+Read parameters for layer 64 from layer_64.txt
+Read parameters for layer 65 from layer_65.txt
+Read parameters for layer 66 from layer_66.txt
+Read parameters for layer 67 from layer_67.txt
+Read parameters for layer 68 from layer_68.txt
+Read parameters for layer 69 from layer_69.txt
+Read parameters for layer 70 from layer_70.txt
+Read parameters for layer 71 from layer_71.txt
+Read parameters for layer 72 from layer_72.txt
+Read parameters for layer 73 from layer_73.txt
+Read parameters for layer 74 from layer_74.txt
+Read parameters for layer 75 from layer_75.txt
+Read parameters for layer 76 from layer_76.txt
+Read parameters for layer 77 from layer_77.txt
+Read parameters for layer 78 from layer_78.txt
+Read parameters for layer 79 from layer_79.txt
+Read parameters for layer 80 from layer_80.txt
+Read parameters for layer 81 from layer_81.txt
+Read parameters for layer 82 from layer_82.txt
+Read parameters for layer 83 from layer_83.txt
+Read parameters for layer 84 from layer_84.txt
+Read simulation setup from simulation_setup.txt
+
+The following voltages will be simulated:
+  i       V    UpdateIons   Store
+  1     1.315     TRUE      TRUE
+
+
+Files used to calculate the generation profile:
+- tco.txt
+- nk_layer_1.txt
+- nk_layer_2.txt
+- nk_layer_3.txt
+- nk_layer_4.txt
+- nk_layer_5.txt
+- nk_layer_6.txt
+- nk_layer_7.txt
+- nk_layer_8.txt
+- nk_layer_9.txt
+- nk_layer_10.txt
+- nk_layer_11.txt
+- nk_layer_12.txt
+- nk_layer_13.txt
+- nk_layer_14.txt
+- nk_layer_15.txt
+- nk_layer_16.txt
+- nk_layer_17.txt
+- nk_layer_18.txt
+- nk_layer_19.txt
+- nk_layer_20.txt
+- nk_layer_21.txt
+- nk_layer_22.txt
+- nk_layer_23.txt
+- nk_layer_24.txt
+- nk_layer_25.txt
+- nk_layer_26.txt
+- nk_layer_27.txt
+- nk_layer_28.txt
+- nk_layer_29.txt
+- nk_layer_30.txt
+- nk_layer_31.txt
+- nk_layer_32.txt
+- nk_layer_33.txt
+- nk_layer_34.txt
+- nk_layer_35.txt
+- nk_layer_36.txt
+- nk_layer_37.txt
+- nk_layer_38.txt
+- nk_layer_39.txt
+- nk_layer_40.txt
+- nk_layer_41.txt
+- nk_layer_42.txt
+- nk_layer_43.txt
+- nk_layer_44.txt
+- nk_layer_45.txt
+- nk_layer_46.txt
+- nk_layer_47.txt
+- nk_layer_48.txt
+- nk_layer_49.txt
+- nk_layer_50.txt
+- nk_layer_51.txt
+- nk_layer_52.txt
+- nk_layer_53.txt
+- nk_layer_54.txt
+- nk_layer_55.txt
+- nk_layer_56.txt
+- nk_layer_57.txt
+- nk_layer_58.txt
+- nk_layer_59.txt
+- nk_layer_60.txt
+- nk_layer_61.txt
+- nk_layer_62.txt
+- nk_layer_63.txt
+- nk_layer_64.txt
+- nk_layer_65.txt
+- nk_layer_66.txt
+- nk_layer_67.txt
+- nk_layer_68.txt
+- nk_layer_69.txt
+- nk_layer_70.txt
+- nk_layer_71.txt
+- nk_layer_72.txt
+- nk_layer_73.txt
+- nk_layer_74.txt
+- nk_layer_75.txt
+- nk_layer_76.txt
+- nk_layer_77.txt
+- nk_layer_78.txt
+- nk_layer_79.txt
+- nk_layer_80.txt
+- nk_layer_81.txt
+- nk_layer_82.txt
+- nk_layer_83.txt
+- nk_layer_84.txt
+- back.txt
+- spectrum.txt
+
+Timestamp at end: 2026/11/16 15:16:37
+Total run time:  2.582 seconds.

@@ -1,0 +1,32 @@
+[
+  {
+    "peak_cm3": 1e+16,
+    "width_nm": 416.83140934593155,
+    "ratio_to_DOS": 0.0033333333333333335,
+    "scope": "illustrative abrupt-junction scale, fixed 1.2V; not tunneling prediction"
+  },
+  {
+    "peak_cm3": 1e+17,
+    "width_nm": 131.81366538311403,
+    "ratio_to_DOS": 0.03333333333333333,
+    "scope": "illustrative abrupt-junction scale, fixed 1.2V; not tunneling prediction"
+  },
+  {
+    "peak_cm3": 3e+17,
+    "width_nm": 76.10265519181213,
+    "ratio_to_DOS": 0.1,
+    "scope": "illustrative abrupt-junction scale, fixed 1.2V; not tunneling prediction"
+  },
+  {
+    "peak_cm3": 1e+18,
+    "width_nm": 41.683140934593155,
+    "ratio_to_DOS": 0.3333333333333333,
+    "scope": "illustrative abrupt-junction scale, fixed 1.2V; not tunneling prediction"
+  },
+  {
+    "peak_cm3": 1e+19,
+    "width_nm": 13.181366538311403,
+    "ratio_to_DOS": 3.3333333333333335,
+    "scope": "illustrative abrupt-junction scale, fixed 1.2V; not tunneling prediction"
+  }
+]

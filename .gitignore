@@ -22,3 +22,16 @@ research/2026-11-16/01_no_arc_doping/sensitivity/*
 !research/2026-11-16/01_no_arc_doping/sensitivity/linear_fine_input.json
 !research/2026-11-16/01_no_arc_doping/sensitivity/linear_fine_JV.csv
 research/2026-11-16/01_no_arc_doping/convergence/*
+# Central-high n/p study: full native runs are in the research release ZIP.
+research/2026-11-16/02_center_peak_np/native/
+research/2026-11-16/02_center_peak_np/physical/*_result.json.gz
+research/2026-11-16/02_center_peak_np/conditional/*_result.json.gz
+research/2026-11-16/02_center_peak_np/physical/*_input.json
+research/2026-11-16/02_center_peak_np/conditional/*_input.json
+!research/2026-11-16/02_center_peak_np/physical/dense_base_input.json
+!research/2026-11-16/02_center_peak_np/physical/dense_peak3e17_input.json
+!research/2026-11-16/02_center_peak_np/physical/dense_peak3e17_Nt1e11_input.json
+!research/2026-11-16/02_center_peak_np/conditional/dense_base_input.json
+!research/2026-11-16/02_center_peak_np/conditional/dense_peak3e17_input.json
+!research/2026-11-16/02_center_peak_np/conditional/fixed_base_input.json
+!research/2026-11-16/02_center_peak_np/conditional/fixed_peak3e17_input.json

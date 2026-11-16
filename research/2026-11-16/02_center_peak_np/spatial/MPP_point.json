@@ -1,0 +1,25 @@
+{
+  "label": "MPP",
+  "target_Vext": 0.8609308310236357,
+  "Vext": 0.8609223393777907,
+  "Vint": 0.865,
+  "J_output_mA_cm2": 13.59220207403104,
+  "top_extraction_QF_V": 1.0029014134468017,
+  "bottom_extraction_QF_V": 0.7843243076526125,
+  "central_QF_loss_V": 0.7972821750557753,
+  "outer_QF_V": 0.989943546043639,
+  "outer_minus_terminal_V": 0.12902120666584826,
+  "native_flux_mA_cm2": {
+    "n_side": {
+      "Jn": -6.81077211577373,
+      "Jp": -6.8030727175621255,
+      "Jint": -13.613844833335856
+    },
+    "p_side": {
+      "Jn": 1.9477801802493702,
+      "Jp": -15.561591247375414,
+      "Jint": -13.613811067126045
+    }
+  },
+  "scope": "Same full-device state; top/bottom are not independently solved subcell Voc"
+}

@@ -1,0 +1,25 @@
+{
+  "label": "SC",
+  "target_Vext": 0.0,
+  "Vext": 0.000389753903420542,
+  "Vint": 0.005000000000000001,
+  "J_output_mA_cm2": 15.367486988598197,
+  "top_extraction_QF_V": 0.1591844964610205,
+  "bottom_extraction_QF_V": 0.8091693754978309,
+  "central_QF_loss_V": 0.8225422077542177,
+  "outer_QF_V": 0.14581166420463365,
+  "outer_minus_terminal_V": 0.1454219103012131,
+  "native_flux_mA_cm2": {
+    "n_side": {
+      "Jn": -7.872876620414097,
+      "Jp": -7.494194227485392,
+      "Jint": -15.367070847899488
+    },
+    "p_side": {
+      "Jn": -0.17604996795562045,
+      "Jp": -15.192543452275382,
+      "Jint": -15.368593420231003
+    }
+  },
+  "scope": "Same full-device state; top/bottom are not independently solved subcell Voc"
+}

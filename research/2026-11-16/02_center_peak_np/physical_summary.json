@@ -1,0 +1,722 @@
+[
+  {
+    "name": "N1e+16_P1e+16_Nt0e+00",
+    "nd_peak": 1e+16,
+    "na_peak": 1e+16,
+    "interface_Nt": 0.0,
+    "input_hash": "ab59951d5904f10040f73b3dd2d0c84914db2b46d299ccb92eb24e11b779beaf",
+    "mode": "full-device drift diffusion; interface SRH; no tunnel model",
+    "success": true,
+    "metrics": {
+      "Jsc": 15.491876117517922,
+      "Voc": 1.3056096081205284,
+      "FF": 56.552305428482406,
+      "PCE": 11.43846287837697,
+      "Vmp": 0.8157936188957225,
+      "Jmp": 14.02127034759152,
+      "Pmax": 11.43846287837697
+    },
+    "elapsed": 1.8297969000414014,
+    "pv_current_error": 9.901837121087595e-06,
+    "central_R_MPP": 0.0,
+    "central_R_SC": 0.0,
+    "generated_current": 31.52279964913272,
+    "settings": {
+      "T": 300.0,
+      "G": 3e+21,
+      "pin": 100.0,
+      "vmin": -0.02,
+      "vmax": 1.5,
+      "vstep": 0.02,
+      "left": 5.0,
+      "right": 4.1,
+      "sn_left": 0.0,
+      "sp_left": 10000000.0,
+      "sn_right": 10000000.0,
+      "sp_right": 0.0,
+      "rs": 0.3,
+      "rsh": 40000.0,
+      "points": 700,
+      "timeout": 120,
+      "grading_slices": 12,
+      "left_anode": 1,
+      "optics": {
+        "spectrum": {
+          "kind": "builtin",
+          "name": "AM1.5G"
+        },
+        "substrate": {
+          "kind": "custom",
+          "name": "Air_n1_k0_300-1100nm",
+          "sha256": "56095188ec20d0d46a3f04996c8cda34d7099266436b1c855036c6c4572e5ac9",
+          "provenance": {
+            "method": "same lossless nondispersive n=1,k=0 approximation as original Air table; analytical definition, not spectral extrapolation"
+          }
+        },
+        "tco": {
+          "kind": "custom",
+          "name": "Air_n1_k0_300-1100nm",
+          "sha256": "56095188ec20d0d46a3f04996c8cda34d7099266436b1c855036c6c4572e5ac9",
+          "provenance": {
+            "method": "same lossless nondispersive n=1,k=0 approximation as original Air table; analytical definition, not spectral extrapolation"
+          }
+        },
+        "back": {
+          "kind": "custom",
+          "name": "Ag_Johnson_Christy_1972",
+          "sha256": "cc2b8c828c7a4af38f088081ac11a4529028b3b1046a759f9794b60be8dc0b18",
+          "provenance": {
+            "commit": "e6d15e364f70de1cad8a96a20f75689f2fba8b21",
+            "url": "https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/e6d15e364f70de1cad8a96a20f75689f2fba8b21/database/data/main/Ag/nk/Johnson.yml",
+            "sha256": "8c79d5e2529e4d3a51e1502b42f2e96e63b3cb49e1036c66b86eb9dbdd0c65a5",
+            "citation": "P. B. Johnson and R. W. Christy, Phys. Rev. B 6, 4370–4379 (1972). DOI:10.1103/PhysRevB.6.4370",
+            "database_license": "CC0 1.0",
+            "unit_wavelength": "micrometre"
+          }
+        },
+        "mode": "spectrum",
+        "illumination": "left",
+        "wavelength_min": 300.0,
+        "wavelength_max": 1100.0,
+        "tco_thickness": 200.0,
+        "back_thickness": 100.0
+      },
+      "eqe": {
+        "step_nm": 20.0,
+        "photon_flux_cm2_s": 100000000000000.0,
+        "background_scale": 1.0
+      }
+    },
+    "engine_build": "5.36-pds3"
+  },
+  {
+    "name": "N1e+17_P1e+17_Nt0e+00",
+    "nd_peak": 1e+17,
+    "na_peak": 1e+17,
+    "interface_Nt": 0.0,
+    "input_hash": "3330bbbdd19c1f597008a6c7e5330b6f1988ed8d4ebcaea371a8d37abfcd1b4d",
+    "mode": "full-device drift diffusion; interface SRH; no tunnel model",
+    "success": true,
+    "metrics": {
+      "Jsc": 15.473571570487982,
+      "Voc": 1.3092271844009404,
+      "FF": 58.483633506953765,
+      "PCE": 11.847860422827074,
+      "Vmp": 0.8558469700175779,
+      "Jmp": 13.843433274740383,
+      "Pmax": 11.847860422827074
+    },
+    "elapsed": 1.3141361000016332,
+    "pv_current_error": 1.043412901285955e-05,
+    "central_R_MPP": 0.0,
+    "central_R_SC": 0.0,
+    "generated_current": 31.52279964913272,
+    "settings": {
+      "T": 300.0,
+      "G": 3e+21,
+      "pin": 100.0,
+      "vmin": -0.02,
+      "vmax": 1.5,
+      "vstep": 0.02,
+      "left": 5.0,
+      "right": 4.1,
+      "sn_left": 0.0,
+      "sp_left": 10000000.0,
+      "sn_right": 10000000.0,
+      "sp_right": 0.0,
+      "rs": 0.3,
+      "rsh": 40000.0,
+      "points": 700,
+      "timeout": 120,
+      "grading_slices": 12,
+      "left_anode": 1,
+      "optics": {
+        "spectrum": {
+          "kind": "builtin",
+          "name": "AM1.5G"
+        },
+        "substrate": {
+          "kind": "custom",
+          "name": "Air_n1_k0_300-1100nm",
+          "sha256": "56095188ec20d0d46a3f04996c8cda34d7099266436b1c855036c6c4572e5ac9",
+          "provenance": {
+            "method": "same lossless nondispersive n=1,k=0 approximation as original Air table; analytical definition, not spectral extrapolation"
+          }
+        },
+        "tco": {
+          "kind": "custom",
+          "name": "Air_n1_k0_300-1100nm",
+          "sha256": "56095188ec20d0d46a3f04996c8cda34d7099266436b1c855036c6c4572e5ac9",
+          "provenance": {
+            "method": "same lossless nondispersive n=1,k=0 approximation as original Air table; analytical definition, not spectral extrapolation"
+          }
+        },
+        "back": {
+          "kind": "custom",
+          "name": "Ag_Johnson_Christy_1972",
+          "sha256": "cc2b8c828c7a4af38f088081ac11a4529028b3b1046a759f9794b60be8dc0b18",
+          "provenance": {
+            "commit": "e6d15e364f70de1cad8a96a20f75689f2fba8b21",
+            "url": "https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/e6d15e364f70de1cad8a96a20f75689f2fba8b21/database/data/main/Ag/nk/Johnson.yml",
+            "sha256": "8c79d5e2529e4d3a51e1502b42f2e96e63b3cb49e1036c66b86eb9dbdd0c65a5",
+            "citation": "P. B. Johnson and R. W. Christy, Phys. Rev. B 6, 4370–4379 (1972). DOI:10.1103/PhysRevB.6.4370",
+            "database_license": "CC0 1.0",
+            "unit_wavelength": "micrometre"
+          }
+        },
+        "mode": "spectrum",
+        "illumination": "left",
+        "wavelength_min": 300.0,
+        "wavelength_max": 1100.0,
+        "tco_thickness": 200.0,
+        "back_thickness": 100.0
+      },
+      "eqe": {
+        "step_nm": 20.0,
+        "photon_flux_cm2_s": 100000000000000.0,
+        "background_scale": 1.0
+      }
+    },
+    "engine_build": "5.36-pds3"
+  },
+  {
+    "name": "N1e+16_P1e+16_Nt1e+12",
+    "nd_peak": 1e+16,
+    "na_peak": 1e+16,
+    "interface_Nt": 1000000000000.0,
+    "input_hash": "770ae4cba68fcbf2b99553ee31070488d6b5ae97a3f2d481c58332ce9eb198c5",
+    "mode": "full-device drift diffusion; interface SRH; no tunnel model",
+    "success": true,
+    "metrics": {
+      "Jsc": 15.470100297363834,
+      "Voc": 1.3014760415752449,
+      "FF": 46.255835644905886,
+      "PCE": 9.31313371192252,
+      "Vmp": 0.7362049424658592,
+      "Jmp": 12.650191780469346,
+      "Pmax": 9.31313371192252
+    },
+    "elapsed": 5.607969400007278,
+    "pv_current_error": 0.0004506406473729456,
+    "central_R_MPP": 18.847231918132373,
+    "central_R_SC": 15.792040009601516,
+    "generated_current": 31.52279964913272,
+    "settings": {
+      "T": 300.0,
+      "G": 3e+21,
+      "pin": 100.0,
+      "vmin": -0.02,
+      "vmax": 1.5,
+      "vstep": 0.02,
+      "left": 5.0,
+      "right": 4.1,
+      "sn_left": 0.0,
+      "sp_left": 10000000.0,
+      "sn_right": 10000000.0,
+      "sp_right": 0.0,
+      "rs": 0.3,
+      "rsh": 40000.0,
+      "points": 700,
+      "timeout": 120,
+      "grading_slices": 12,
+      "left_anode": 1,
+      "optics": {
+        "spectrum": {
+          "kind": "builtin",
+          "name": "AM1.5G"
+        },
+        "substrate": {
+          "kind": "custom",
+          "name": "Air_n1_k0_300-1100nm",
+          "sha256": "56095188ec20d0d46a3f04996c8cda34d7099266436b1c855036c6c4572e5ac9",
+          "provenance": {
+            "method": "same lossless nondispersive n=1,k=0 approximation as original Air table; analytical definition, not spectral extrapolation"
+          }
+        },
+        "tco": {
+          "kind": "custom",
+          "name": "Air_n1_k0_300-1100nm",
+          "sha256": "56095188ec20d0d46a3f04996c8cda34d7099266436b1c855036c6c4572e5ac9",
+          "provenance": {
+            "method": "same lossless nondispersive n=1,k=0 approximation as original Air table; analytical definition, not spectral extrapolation"
+          }
+        },
+        "back": {
+          "kind": "custom",
+          "name": "Ag_Johnson_Christy_1972",
+          "sha256": "cc2b8c828c7a4af38f088081ac11a4529028b3b1046a759f9794b60be8dc0b18",
+          "provenance": {
+            "commit": "e6d15e364f70de1cad8a96a20f75689f2fba8b21",
+            "url": "https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/e6d15e364f70de1cad8a96a20f75689f2fba8b21/database/data/main/Ag/nk/Johnson.yml",
+            "sha256": "8c79d5e2529e4d3a51e1502b42f2e96e63b3cb49e1036c66b86eb9dbdd0c65a5",
+            "citation": "P. B. Johnson and R. W. Christy, Phys. Rev. B 6, 4370–4379 (1972). DOI:10.1103/PhysRevB.6.4370",
+            "database_license": "CC0 1.0",
+            "unit_wavelength": "micrometre"
+          }
+        },
+        "mode": "spectrum",
+        "illumination": "left",
+        "wavelength_min": 300.0,
+        "wavelength_max": 1100.0,
+        "tco_thickness": 200.0,
+        "back_thickness": 100.0
+      },
+      "eqe": {
+        "step_nm": 20.0,
+        "photon_flux_cm2_s": 100000000000000.0,
+        "background_scale": 1.0
+      }
+    },
+    "engine_build": "5.36-pds3"
+  },
+  {
+    "name": "N1e+17_P1e+17_Nt1e+11",
+    "nd_peak": 1e+17,
+    "na_peak": 1e+17,
+    "interface_Nt": 100000000000.0,
+    "input_hash": "66853c710a39f895928bc48e35705c940600730fa1b8d6ee1875fccd2788a516",
+    "mode": "full-device drift diffusion; interface SRH; no tunnel model",
+    "success": true,
+    "metrics": {
+      "Jsc": 15.464950072889053,
+      "Voc": 1.3066956116863229,
+      "FF": 52.31032349506392,
+      "PCE": 10.570860962750608,
+      "Vmp": 0.8079430125438815,
+      "Jmp": 13.083671494932915,
+      "Pmax": 10.570860962750608
+    },
+    "elapsed": 5.1403568999958225,
+    "pv_current_error": 0.00010851607895393916,
+    "central_R_MPP": 18.30548186484306,
+    "central_R_SC": 14.150329078873884,
+    "generated_current": 31.52279964913272,
+    "settings": {
+      "T": 300.0,
+      "G": 3e+21,
+      "pin": 100.0,
+      "vmin": -0.02,
+      "vmax": 1.5,
+      "vstep": 0.02,
+      "left": 5.0,
+      "right": 4.1,
+      "sn_left": 0.0,
+      "sp_left": 10000000.0,
+      "sn_right": 10000000.0,
+      "sp_right": 0.0,
+      "rs": 0.3,
+      "rsh": 40000.0,
+      "points": 700,
+      "timeout": 120,
+      "grading_slices": 12,
+      "left_anode": 1,
+      "optics": {
+        "spectrum": {
+          "kind": "builtin",
+          "name": "AM1.5G"
+        },
+        "substrate": {
+          "kind": "custom",
+          "name": "Air_n1_k0_300-1100nm",
+          "sha256": "56095188ec20d0d46a3f04996c8cda34d7099266436b1c855036c6c4572e5ac9",
+          "provenance": {
+            "method": "same lossless nondispersive n=1,k=0 approximation as original Air table; analytical definition, not spectral extrapolation"
+          }
+        },
+        "tco": {
+          "kind": "custom",
+          "name": "Air_n1_k0_300-1100nm",
+          "sha256": "56095188ec20d0d46a3f04996c8cda34d7099266436b1c855036c6c4572e5ac9",
+          "provenance": {
+            "method": "same lossless nondispersive n=1,k=0 approximation as original Air table; analytical definition, not spectral extrapolation"
+          }
+        },
+        "back": {
+          "kind": "custom",
+          "name": "Ag_Johnson_Christy_1972",
+          "sha256": "cc2b8c828c7a4af38f088081ac11a4529028b3b1046a759f9794b60be8dc0b18",
+          "provenance": {
+            "commit": "e6d15e364f70de1cad8a96a20f75689f2fba8b21",
+            "url": "https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/e6d15e364f70de1cad8a96a20f75689f2fba8b21/database/data/main/Ag/nk/Johnson.yml",
+            "sha256": "8c79d5e2529e4d3a51e1502b42f2e96e63b3cb49e1036c66b86eb9dbdd0c65a5",
+            "citation": "P. B. Johnson and R. W. Christy, Phys. Rev. B 6, 4370–4379 (1972). DOI:10.1103/PhysRevB.6.4370",
+            "database_license": "CC0 1.0",
+            "unit_wavelength": "micrometre"
+          }
+        },
+        "mode": "spectrum",
+        "illumination": "left",
+        "wavelength_min": 300.0,
+        "wavelength_max": 1100.0,
+        "tco_thickness": 200.0,
+        "back_thickness": 100.0
+      },
+      "eqe": {
+        "step_nm": 20.0,
+        "photon_flux_cm2_s": 100000000000000.0,
+        "background_scale": 1.0
+      }
+    },
+    "engine_build": "5.36-pds3"
+  },
+  {
+    "name": "N1e+17_P1e+17_Nt1e+12",
+    "nd_peak": 1e+17,
+    "na_peak": 1e+17,
+    "interface_Nt": 1000000000000.0,
+    "input_hash": "a4ad1888a8852a6be719e34fe791f7b4d045e7abb2547805df0ff71d6630b27b",
+    "mode": "full-device drift diffusion; interface SRH; no tunnel model",
+    "success": true,
+    "metrics": {
+      "Jsc": 15.452419394598476,
+      "Voc": 1.3076242366549844,
+      "FF": 48.760174453036676,
+      "PCE": 9.852460426944628,
+      "Vmp": 0.7761920013049424,
+      "Jmp": 12.693328983525424,
+      "Pmax": 9.852460426944628
+    },
+    "elapsed": 5.178566999966279,
+    "pv_current_error": 0.0004587805041843236,
+    "central_R_MPP": 18.79997819298766,
+    "central_R_SC": 15.9179515304658,
+    "generated_current": 31.52279964913272,
+    "settings": {
+      "T": 300.0,
+      "G": 3e+21,
+      "pin": 100.0,
+      "vmin": -0.02,
+      "vmax": 1.5,
+      "vstep": 0.02,
+      "left": 5.0,
+      "right": 4.1,
+      "sn_left": 0.0,
+      "sp_left": 10000000.0,
+      "sn_right": 10000000.0,
+      "sp_right": 0.0,
+      "rs": 0.3,
+      "rsh": 40000.0,
+      "points": 700,
+      "timeout": 120,
+      "grading_slices": 12,
+      "left_anode": 1,
+      "optics": {
+        "spectrum": {
+          "kind": "builtin",
+          "name": "AM1.5G"
+        },
+        "substrate": {
+          "kind": "custom",
+          "name": "Air_n1_k0_300-1100nm",
+          "sha256": "56095188ec20d0d46a3f04996c8cda34d7099266436b1c855036c6c4572e5ac9",
+          "provenance": {
+            "method": "same lossless nondispersive n=1,k=0 approximation as original Air table; analytical definition, not spectral extrapolation"
+          }
+        },
+        "tco": {
+          "kind": "custom",
+          "name": "Air_n1_k0_300-1100nm",
+          "sha256": "56095188ec20d0d46a3f04996c8cda34d7099266436b1c855036c6c4572e5ac9",
+          "provenance": {
+            "method": "same lossless nondispersive n=1,k=0 approximation as original Air table; analytical definition, not spectral extrapolation"
+          }
+        },
+        "back": {
+          "kind": "custom",
+          "name": "Ag_Johnson_Christy_1972",
+          "sha256": "cc2b8c828c7a4af38f088081ac11a4529028b3b1046a759f9794b60be8dc0b18",
+          "provenance": {
+            "commit": "e6d15e364f70de1cad8a96a20f75689f2fba8b21",
+            "url": "https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/e6d15e364f70de1cad8a96a20f75689f2fba8b21/database/data/main/Ag/nk/Johnson.yml",
+            "sha256": "8c79d5e2529e4d3a51e1502b42f2e96e63b3cb49e1036c66b86eb9dbdd0c65a5",
+            "citation": "P. B. Johnson and R. W. Christy, Phys. Rev. B 6, 4370–4379 (1972). DOI:10.1103/PhysRevB.6.4370",
+            "database_license": "CC0 1.0",
+            "unit_wavelength": "micrometre"
+          }
+        },
+        "mode": "spectrum",
+        "illumination": "left",
+        "wavelength_min": 300.0,
+        "wavelength_max": 1100.0,
+        "tco_thickness": 200.0,
+        "back_thickness": 100.0
+      },
+      "eqe": {
+        "step_nm": 20.0,
+        "photon_flux_cm2_s": 100000000000000.0,
+        "background_scale": 1.0
+      }
+    },
+    "engine_build": "5.36-pds3"
+  },
+  {
+    "name": "N3e+17_P3e+17_Nt0e+00",
+    "nd_peak": 3e+17,
+    "na_peak": 3e+17,
+    "interface_Nt": 0.0,
+    "input_hash": "ed64465405c4bd14739d2abba2b7033fb27423ad924997496988b1232f26dd6c",
+    "mode": "full-device drift diffusion; interface SRH; no tunnel model",
+    "success": true,
+    "metrics": {
+      "Jsc": 15.45124716352788,
+      "Voc": 1.3173290235950035,
+      "FF": 62.28807539927145,
+      "PCE": 12.678349281246778,
+      "Vmp": 0.8957538504776218,
+      "Jmp": 14.15383174126084,
+      "Pmax": 12.67834928124678
+    },
+    "elapsed": 1.2820504999835975,
+    "pv_current_error": 4.070819727755432e-06,
+    "central_R_MPP": 0.0,
+    "central_R_SC": 0.0,
+    "generated_current": 31.52279964913272,
+    "settings": {
+      "T": 300.0,
+      "G": 3e+21,
+      "pin": 100.0,
+      "vmin": -0.02,
+      "vmax": 1.5,
+      "vstep": 0.02,
+      "left": 5.0,
+      "right": 4.1,
+      "sn_left": 0.0,
+      "sp_left": 10000000.0,
+      "sn_right": 10000000.0,
+      "sp_right": 0.0,
+      "rs": 0.3,
+      "rsh": 40000.0,
+      "points": 700,
+      "timeout": 120,
+      "grading_slices": 12,
+      "left_anode": 1,
+      "optics": {
+        "spectrum": {
+          "kind": "builtin",
+          "name": "AM1.5G"
+        },
+        "substrate": {
+          "kind": "custom",
+          "name": "Air_n1_k0_300-1100nm",
+          "sha256": "56095188ec20d0d46a3f04996c8cda34d7099266436b1c855036c6c4572e5ac9",
+          "provenance": {
+            "method": "same lossless nondispersive n=1,k=0 approximation as original Air table; analytical definition, not spectral extrapolation"
+          }
+        },
+        "tco": {
+          "kind": "custom",
+          "name": "Air_n1_k0_300-1100nm",
+          "sha256": "56095188ec20d0d46a3f04996c8cda34d7099266436b1c855036c6c4572e5ac9",
+          "provenance": {
+            "method": "same lossless nondispersive n=1,k=0 approximation as original Air table; analytical definition, not spectral extrapolation"
+          }
+        },
+        "back": {
+          "kind": "custom",
+          "name": "Ag_Johnson_Christy_1972",
+          "sha256": "cc2b8c828c7a4af38f088081ac11a4529028b3b1046a759f9794b60be8dc0b18",
+          "provenance": {
+            "commit": "e6d15e364f70de1cad8a96a20f75689f2fba8b21",
+            "url": "https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/e6d15e364f70de1cad8a96a20f75689f2fba8b21/database/data/main/Ag/nk/Johnson.yml",
+            "sha256": "8c79d5e2529e4d3a51e1502b42f2e96e63b3cb49e1036c66b86eb9dbdd0c65a5",
+            "citation": "P. B. Johnson and R. W. Christy, Phys. Rev. B 6, 4370–4379 (1972). DOI:10.1103/PhysRevB.6.4370",
+            "database_license": "CC0 1.0",
+            "unit_wavelength": "micrometre"
+          }
+        },
+        "mode": "spectrum",
+        "illumination": "left",
+        "wavelength_min": 300.0,
+        "wavelength_max": 1100.0,
+        "tco_thickness": 200.0,
+        "back_thickness": 100.0
+      },
+      "eqe": {
+        "step_nm": 20.0,
+        "photon_flux_cm2_s": 100000000000000.0,
+        "background_scale": 1.0
+      }
+    },
+    "engine_build": "5.36-pds3"
+  },
+  {
+    "name": "N3e+17_P3e+17_Nt1e+11",
+    "nd_peak": 3e+17,
+    "na_peak": 3e+17,
+    "interface_Nt": 100000000000.0,
+    "input_hash": "3c324be5aeacbeb566c85445fca3c7a0243d10725005ed750001364477826b46",
+    "mode": "full-device drift diffusion; interface SRH; no tunnel model",
+    "success": true,
+    "metrics": {
+      "Jsc": 15.440762239152782,
+      "Voc": 1.314504689730305,
+      "FF": 58.65376671724074,
+      "PCE": 11.904928270624914,
+      "Vmp": 0.8759226095522146,
+      "Jmp": 13.591301492618053,
+      "Pmax": 11.904928270624914
+    },
+    "elapsed": 5.317030399979558,
+    "pv_current_error": 5.819742398828761e-05,
+    "central_R_MPP": 17.476026680118373,
+    "central_R_SC": 15.44198677692425,
+    "generated_current": 31.52279964913272,
+    "settings": {
+      "T": 300.0,
+      "G": 3e+21,
+      "pin": 100.0,
+      "vmin": -0.02,
+      "vmax": 1.5,
+      "vstep": 0.02,
+      "left": 5.0,
+      "right": 4.1,
+      "sn_left": 0.0,
+      "sp_left": 10000000.0,
+      "sn_right": 10000000.0,
+      "sp_right": 0.0,
+      "rs": 0.3,
+      "rsh": 40000.0,
+      "points": 700,
+      "timeout": 120,
+      "grading_slices": 12,
+      "left_anode": 1,
+      "optics": {
+        "spectrum": {
+          "kind": "builtin",
+          "name": "AM1.5G"
+        },
+        "substrate": {
+          "kind": "custom",
+          "name": "Air_n1_k0_300-1100nm",
+          "sha256": "56095188ec20d0d46a3f04996c8cda34d7099266436b1c855036c6c4572e5ac9",
+          "provenance": {
+            "method": "same lossless nondispersive n=1,k=0 approximation as original Air table; analytical definition, not spectral extrapolation"
+          }
+        },
+        "tco": {
+          "kind": "custom",
+          "name": "Air_n1_k0_300-1100nm",
+          "sha256": "56095188ec20d0d46a3f04996c8cda34d7099266436b1c855036c6c4572e5ac9",
+          "provenance": {
+            "method": "same lossless nondispersive n=1,k=0 approximation as original Air table; analytical definition, not spectral extrapolation"
+          }
+        },
+        "back": {
+          "kind": "custom",
+          "name": "Ag_Johnson_Christy_1972",
+          "sha256": "cc2b8c828c7a4af38f088081ac11a4529028b3b1046a759f9794b60be8dc0b18",
+          "provenance": {
+            "commit": "e6d15e364f70de1cad8a96a20f75689f2fba8b21",
+            "url": "https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/e6d15e364f70de1cad8a96a20f75689f2fba8b21/database/data/main/Ag/nk/Johnson.yml",
+            "sha256": "8c79d5e2529e4d3a51e1502b42f2e96e63b3cb49e1036c66b86eb9dbdd0c65a5",
+            "citation": "P. B. Johnson and R. W. Christy, Phys. Rev. B 6, 4370–4379 (1972). DOI:10.1103/PhysRevB.6.4370",
+            "database_license": "CC0 1.0",
+            "unit_wavelength": "micrometre"
+          }
+        },
+        "mode": "spectrum",
+        "illumination": "left",
+        "wavelength_min": 300.0,
+        "wavelength_max": 1100.0,
+        "tco_thickness": 200.0,
+        "back_thickness": 100.0
+      },
+      "eqe": {
+        "step_nm": 20.0,
+        "photon_flux_cm2_s": 100000000000000.0,
+        "background_scale": 1.0
+      }
+    },
+    "engine_build": "5.36-pds3"
+  },
+  {
+    "name": "N3e+17_P3e+17_Nt1e+12",
+    "nd_peak": 3e+17,
+    "na_peak": 3e+17,
+    "interface_Nt": 1000000000000.0,
+    "input_hash": "39abe5d8154503cd017f017849f89c4cab6ccd041f9b975059475014616dce1d",
+    "mode": "full-device drift diffusion; interface SRH; no tunnel model",
+    "success": true,
+    "metrics": {
+      "Jsc": 15.425800395121096,
+      "Voc": 1.316124437822846,
+      "FF": 54.55938266415477,
+      "PCE": 11.076794746298878,
+      "Vmp": 0.8360251934391838,
+      "Jmp": 13.249355202720519,
+      "Pmax": 11.076794746298878
+    },
+    "elapsed": 6.437164000002667,
+    "pv_current_error": 0.0004738910578934862,
+    "central_R_MPP": 18.228452968853542,
+    "central_R_SC": 16.063402791799135,
+    "generated_current": 31.52279964913272,
+    "settings": {
+      "T": 300.0,
+      "G": 3e+21,
+      "pin": 100.0,
+      "vmin": -0.02,
+      "vmax": 1.5,
+      "vstep": 0.02,
+      "left": 5.0,
+      "right": 4.1,
+      "sn_left": 0.0,
+      "sp_left": 10000000.0,
+      "sn_right": 10000000.0,
+      "sp_right": 0.0,
+      "rs": 0.3,
+      "rsh": 40000.0,
+      "points": 700,
+      "timeout": 120,
+      "grading_slices": 12,
+      "left_anode": 1,
+      "optics": {
+        "spectrum": {
+          "kind": "builtin",
+          "name": "AM1.5G"
+        },
+        "substrate": {
+          "kind": "custom",
+          "name": "Air_n1_k0_300-1100nm",
+          "sha256": "56095188ec20d0d46a3f04996c8cda34d7099266436b1c855036c6c4572e5ac9",
+          "provenance": {
+            "method": "same lossless nondispersive n=1,k=0 approximation as original Air table; analytical definition, not spectral extrapolation"
+          }
+        },
+        "tco": {
+          "kind": "custom",
+          "name": "Air_n1_k0_300-1100nm",
+          "sha256": "56095188ec20d0d46a3f04996c8cda34d7099266436b1c855036c6c4572e5ac9",
+          "provenance": {
+            "method": "same lossless nondispersive n=1,k=0 approximation as original Air table; analytical definition, not spectral extrapolation"
+          }
+        },
+        "back": {
+          "kind": "custom",
+          "name": "Ag_Johnson_Christy_1972",
+          "sha256": "cc2b8c828c7a4af38f088081ac11a4529028b3b1046a759f9794b60be8dc0b18",
+          "provenance": {
+            "commit": "e6d15e364f70de1cad8a96a20f75689f2fba8b21",
+            "url": "https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/e6d15e364f70de1cad8a96a20f75689f2fba8b21/database/data/main/Ag/nk/Johnson.yml",
+            "sha256": "8c79d5e2529e4d3a51e1502b42f2e96e63b3cb49e1036c66b86eb9dbdd0c65a5",
+            "citation": "P. B. Johnson and R. W. Christy, Phys. Rev. B 6, 4370–4379 (1972). DOI:10.1103/PhysRevB.6.4370",
+            "database_license": "CC0 1.0",
+            "unit_wavelength": "micrometre"
+          }
+        },
+        "mode": "spectrum",
+        "illumination": "left",
+        "wavelength_min": 300.0,
+        "wavelength_max": 1100.0,
+        "tco_thickness": 200.0,
+        "back_thickness": 100.0
+      },
+      "eqe": {
+        "step_nm": 20.0,
+        "photon_flux_cm2_s": 100000000000000.0,
+        "background_scale": 1.0
+      }
+    },
+    "engine_build": "5.36-pds3"
+  }
+]

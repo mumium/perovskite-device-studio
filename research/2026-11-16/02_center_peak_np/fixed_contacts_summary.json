@@ -1,0 +1,80 @@
+[
+  {
+    "name": "fixed_peak3e17",
+    "nd_peak": 3e+17,
+    "na_peak": 3e+17,
+    "matched_contacts": false,
+    "mode": "conditional 2T reference; assumed selective inner contacts and 0.1 ohm cm2 connection",
+    "success": true,
+    "metrics": {
+      "Jsc": 15.191834608228552,
+      "Voc": 2.125972249737403,
+      "FF": 69.5820081512037,
+      "PCE": 22.47319258183161,
+      "Vmp": 1.637114776312836,
+      "Jmp": 13.727316439258146,
+      "Pmax": 22.473192581831615
+    },
+    "generation": {
+      "top": 15.532270955964782,
+      "bottom": 15.92491001841372,
+      "junction": 0.0,
+      "total": 31.457180974378502,
+      "remap_error": 0.06939435915213465
+    },
+    "tandem": {
+      "top_end": 3,
+      "bottom_start": 3,
+      "automatic_contacts": false,
+      "contact_offset": 0.15,
+      "top_work": 3.95,
+      "bottom_work": 5.0,
+      "mode": "ohmic",
+      "resistance": 0.1,
+      "j0": 100.0,
+      "ideality": 1.0,
+      "junction_collection": 1.0,
+      "eqe_voltage": 0.0
+    },
+    "elapsed": 19.535313400032464
+  },
+  {
+    "name": "fixed_base",
+    "nd_peak": 1e+16,
+    "na_peak": 1e+16,
+    "matched_contacts": false,
+    "mode": "conditional 2T reference; assumed selective inner contacts and 0.1 ohm cm2 connection",
+    "success": true,
+    "metrics": {
+      "Jsc": 15.273271660944934,
+      "Voc": 2.0923900056500515,
+      "FF": 65.70993143071749,
+      "PCE": 20.999343972821716,
+      "Vmp": 1.5715183016795884,
+      "Jmp": 13.362455881282637,
+      "Pmax": 20.999343972821716
+    },
+    "generation": {
+      "top": 15.532270955964782,
+      "bottom": 15.92491001841372,
+      "junction": 0.0,
+      "total": 31.457180974378502,
+      "remap_error": 0.06939435915213465
+    },
+    "tandem": {
+      "top_end": 3,
+      "bottom_start": 3,
+      "automatic_contacts": false,
+      "contact_offset": 0.15,
+      "top_work": 3.95,
+      "bottom_work": 5.0,
+      "mode": "ohmic",
+      "resistance": 0.1,
+      "j0": 100.0,
+      "ideality": 1.0,
+      "junction_collection": 1.0,
+      "eqe_voltage": 0.0
+    },
+    "elapsed": 19.93893780000508
+  }
+]

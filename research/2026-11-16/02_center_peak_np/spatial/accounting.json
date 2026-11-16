@@ -1,0 +1,80 @@
+{
+  "case": "dense_peak3e17_Nt1e11",
+  "points": [
+    {
+      "label": "SC",
+      "target_Vext": 0.0,
+      "Vext": 0.000389753903420542,
+      "Vint": 0.005000000000000001,
+      "J_output_mA_cm2": 15.367486988598197,
+      "top_extraction_QF_V": 0.1591844964610205,
+      "bottom_extraction_QF_V": 0.8091693754978309,
+      "central_QF_loss_V": 0.8225422077542177,
+      "outer_QF_V": 0.14581166420463365,
+      "outer_minus_terminal_V": 0.1454219103012131,
+      "native_flux_mA_cm2": {
+        "n_side": {
+          "Jn": -7.872876620414097,
+          "Jp": -7.494194227485392,
+          "Jint": -15.367070847899488
+        },
+        "p_side": {
+          "Jn": -0.17604996795562045,
+          "Jp": -15.192543452275382,
+          "Jint": -15.368593420231003
+        }
+      },
+      "scope": "Same full-device state; top/bottom are not independently solved subcell Voc"
+    },
+    {
+      "label": "MPP",
+      "target_Vext": 0.8609308310236357,
+      "Vext": 0.8609223393777907,
+      "Vint": 0.865,
+      "J_output_mA_cm2": 13.59220207403104,
+      "top_extraction_QF_V": 1.0029014134468017,
+      "bottom_extraction_QF_V": 0.7843243076526125,
+      "central_QF_loss_V": 0.7972821750557753,
+      "outer_QF_V": 0.989943546043639,
+      "outer_minus_terminal_V": 0.12902120666584826,
+      "native_flux_mA_cm2": {
+        "n_side": {
+          "Jn": -6.81077211577373,
+          "Jp": -6.8030727175621255,
+          "Jint": -13.613844833335856
+        },
+        "p_side": {
+          "Jn": 1.9477801802493702,
+          "Jp": -15.561591247375414,
+          "Jint": -13.613811067126045
+        }
+      },
+      "scope": "Same full-device state; top/bottom are not independently solved subcell Voc"
+    },
+    {
+      "label": "near_OC",
+      "target_Vext": 1.3140483626185206,
+      "Vext": 1.3150078727120562,
+      "Vint": 1.315,
+      "J_output_mA_cm2": -0.02624237352079841,
+      "top_extraction_QF_V": 1.313623544514635,
+      "bottom_extraction_QF_V": 0.8371417062204323,
+      "central_QF_loss_V": 0.8357282773072061,
+      "outer_QF_V": 1.315036973427861,
+      "outer_minus_terminal_V": 2.9100715804863952e-05,
+      "native_flux_mA_cm2": {
+        "n_side": {
+          "Jn": -0.5514658269759792,
+          "Jp": 0.5448377452468293,
+          "Jint": -0.006628081729149926
+        },
+        "p_side": {
+          "Jn": 14.445978672249893,
+          "Jp": -14.452610881774334,
+          "Jint": -0.0066322095244402135
+        }
+      },
+      "scope": "Same full-device state; top/bottom are not independently solved subcell Voc"
+    }
+  ]
+}

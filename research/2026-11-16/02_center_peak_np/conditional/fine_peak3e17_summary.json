@@ -1,0 +1,38 @@
+{
+  "name": "fine_peak3e17",
+  "nd_peak": 3e+17,
+  "na_peak": 3e+17,
+  "mode": "conditional 2T reference; assumed selective inner contacts and 0.1 ohm cm2 connection",
+  "success": true,
+  "metrics": {
+    "Jsc": 15.410262496095083,
+    "Voc": 2.187899230830439,
+    "FF": 74.4438191669257,
+    "PCE": 25.099553602584102,
+    "Vmp": 1.7474049798260338,
+    "Jmp": 14.363901838647006,
+    "Pmax": 25.099553602584102
+  },
+  "generation": {
+    "top": 15.532270955964782,
+    "bottom": 15.92491001841372,
+    "junction": 0.0,
+    "total": 31.457180974378502,
+    "remap_error": 0.06939435915213465
+  },
+  "tandem": {
+    "top_end": 3,
+    "bottom_start": 3,
+    "automatic_contacts": false,
+    "contact_offset": 0.15,
+    "top_work": 3.8595264293313285,
+    "bottom_work": 5.090473570668672,
+    "mode": "ohmic",
+    "resistance": 0.1,
+    "j0": 100.0,
+    "ideality": 1.0,
+    "junction_collection": 1.0,
+    "eqe_voltage": 0.0
+  },
+  "elapsed": 17.033949000004213
+}

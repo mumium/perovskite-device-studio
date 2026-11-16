@@ -1,0 +1,116 @@
+[
+  {
+    "name": "N1e+17_P1e+17",
+    "nd_peak": 1e+17,
+    "na_peak": 1e+17,
+    "mode": "conditional 2T reference; assumed selective inner contacts and 0.1 ohm cm2 connection",
+    "success": true,
+    "metrics": {
+      "Jsc": 15.418091001800226,
+      "Voc": 2.1502061104237553,
+      "FF": 71.65436835630202,
+      "PCE": 23.75490885136132,
+      "Vmp": 1.6917959141199332,
+      "Jmp": 14.041237866281612,
+      "Pmax": 23.75490885136132
+    },
+    "generation": {
+      "top": 15.598926595470514,
+      "bottom": 15.923873053662208,
+      "junction": 0.0,
+      "total": 31.52279964913272,
+      "remap_error": 0.0978162429837024
+    },
+    "tandem": {
+      "top_end": 3,
+      "bottom_start": 3,
+      "automatic_contacts": false,
+      "contact_offset": 0.15,
+      "top_work": 3.887927753982874,
+      "bottom_work": 5.062072246017126,
+      "mode": "ohmic",
+      "resistance": 0.1,
+      "j0": 100.0,
+      "ideality": 1.0,
+      "junction_collection": 1.0,
+      "eqe_voltage": 0.0
+    },
+    "elapsed": 5.887235300033353
+  },
+  {
+    "name": "N1e+16_P1e+16",
+    "nd_peak": 1e+16,
+    "na_peak": 1e+16,
+    "mode": "conditional 2T reference; assumed selective inner contacts and 0.1 ohm cm2 connection",
+    "success": true,
+    "metrics": {
+      "Jsc": 15.278951417201853,
+      "Voc": 2.0930437362206544,
+      "FF": 65.98149481570893,
+      "PCE": 21.100561081544427,
+      "Vmp": 1.571884741907851,
+      "Jmp": 13.423732999617991,
+      "Pmax": 21.100561081544427
+    },
+    "generation": {
+      "top": 15.598926595470514,
+      "bottom": 15.923873053662208,
+      "junction": 0.0,
+      "total": 31.52279964913272,
+      "remap_error": 0.0978162429837024
+    },
+    "tandem": {
+      "top_end": 3,
+      "bottom_start": 3,
+      "automatic_contacts": false,
+      "contact_offset": 0.15,
+      "top_work": 3.9474541833142025,
+      "bottom_work": 5.002545816685798,
+      "mode": "ohmic",
+      "resistance": 0.1,
+      "j0": 100.0,
+      "ideality": 1.0,
+      "junction_collection": 1.0,
+      "eqe_voltage": 0.0
+    },
+    "elapsed": 6.091607300040778
+  },
+  {
+    "name": "N3e+17_P3e+17",
+    "nd_peak": 3e+17,
+    "na_peak": 3e+17,
+    "mode": "conditional 2T reference; assumed selective inner contacts and 0.1 ohm cm2 connection",
+    "success": true,
+    "metrics": {
+      "Jsc": 15.415692270736074,
+      "Voc": 2.186726778363064,
+      "FF": 74.4315572876274,
+      "PCE": 25.0908088113358,
+      "Vmp": 1.7390631177574531,
+      "Jmp": 14.427773526524305,
+      "Pmax": 25.0908088113358
+    },
+    "generation": {
+      "top": 15.598926595470514,
+      "bottom": 15.923873053662208,
+      "junction": 0.0,
+      "total": 31.52279964913272,
+      "remap_error": 0.0978162429837024
+    },
+    "tandem": {
+      "top_end": 3,
+      "bottom_start": 3,
+      "automatic_contacts": false,
+      "contact_offset": 0.15,
+      "top_work": 3.8595264293313285,
+      "bottom_work": 5.090473570668672,
+      "mode": "ohmic",
+      "resistance": 0.1,
+      "j0": 100.0,
+      "ideality": 1.0,
+      "junction_collection": 1.0,
+      "eqe_voltage": 0.0
+    },
+    "elapsed": 4.9073511000024155
+  }
+]

@@ -1,0 +1,39 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>中央高掺杂 n/p 渐变层重算</title><style>body{max-width:1120px;margin:36px auto;padding:0 24px;font:16px/1.75 "Microsoft YaHei",sans-serif;color:#223044;background:#f8fafc}h1,h2{line-height:1.4;color:#16243b}h2{margin-top:2em}img{max-width:100%;height:auto;background:white;border:1px solid #dde5ef;border-radius:10px}table{border-collapse:collapse;width:100%;font-size:14px;background:white;display:block;overflow:auto}td,th{border:1px solid #dce3ed;padding:8px 12px;white-space:nowrap}th{background:#edf3fa}pre{background:#eaf0f7;padding:18px;overflow:auto;border-radius:8px}a{color:#136ac4}strong{color:#254d7c}</style><body><h1>中央高掺杂 n/p 渐变层：纠正结构后的重算</h1>
+<p>已纠正上一轮结构：380/780 nm 主吸收层恢复原来的均匀弱 n 型掺杂；只提高中间 20 nm n 层和 20 nm p 层在相互接触处的掺杂。没有增加独立互联材料或减反层。<strong>本次尚未证明真实中央接触能实现低损耗串联或 30% 效率。</strong></p>
+<p><a href="报告.html">离线图文报告</a> · <a href="final_performance.csv">最终性能 CSV</a> · <a href="../../../device_structures/README.md">输入参数库</a>。全部参数内嵌文献代理 n,k，需从对应页面打开参数文件，不能只改几项掺杂后与其他旧设置比较。</p>
+<h2>这次使用什么参数</h2>
+<p>层序为入射光 → NiOx 20 / 宽带隙 380 / n 渐变 20 / p 渐变 20 / 窄带隙 780 / C60 40 nm。下表沿此方向读取左右端值，浓度单位 cm⁻³：</p>
+<table><tr><th>区域</th><th>Eg / χ（eV）</th><th>Nd 左→右</th><th>Na 左→右</th></tr><tr><td>宽带隙主吸收层 380 nm</td><td>1.78 / 3.8</td><td>1e14，均匀</td><td>0</td></tr><tr><td>n 型渐变层 20 nm</td><td>1.78 / 3.8</td><td>1e14 → 3e17，线性</td><td>0</td></tr><tr><td>p 型渐变层 20 nm</td><td>1.25 / 3.9</td><td>0</td><td>3e17 → 1e14，线性</td></tr><tr><td>窄带隙主吸收层 780 nm</td><td>1.25 / 3.9</td><td>1e14，均匀</td><td>0</td></tr></table>
+<p>主吸收层 Nd=1e14、Na=0 与原始输入完全相同，窄带隙主层没有被擅自改成 p 型。p 渐变层外端 Na=1e14 也保留原设计。中央峰值测试 1e16、1e17、3e17；3e17 是本次非简并模型内的较高测试点，并非已确认的材料最优值。掺杂值按有效电离施主/受主处理，不能直接等同于前驱体加入量或界面自由载流子密度。</p>
+<p>四个钙钛矿区域均开启产生光载流子。保留 Nc=Nv=3e18、μn=μp=2 cm²/V/s、τn=τp=1e-4 s、体缺陷1e15 cm⁻³、B=1e-10 cm³/s；其余原材料参数、原χ、外功函数5.0/4.1 eV、Rs=0.3 Ωcm²、Rsh=4e4 Ωcm²不变。AM1.5G 300–1100 nm、100 mW/cm²，Air 前侧占位不提供减反作用，背面 Ag 100 nm。n,k 是已有组分代理，NiOx仍沿用原PTAA光学代理，未按实际薄膜标定。</p>
+<p><img alt="输入掺杂分布" src="figures/doping.png"></p>
+<h2>完整器件与条件串联分别得到什么</h2>
+<table><tr><th>模型与条件</th><th>Jsc / mA cm⁻²</th><th>Voc / V</th><th>FF / %</th><th>PCE / %</th></tr><tr><td>完整器件：原中央峰值1e16</td><td>15.4170</td><td>1.3057</td><td>56.5407</td><td>11.3820</td></tr><tr><td>完整器件：中央峰值3e17</td><td>15.3763</td><td>1.3168</td><td>62.1608</td><td>12.5863</td></tr><tr><td>完整器件：3e17，中央Nt=1e11</td><td>15.3659</td><td>1.3140</td><td>57.9405</td><td>11.6990</td></tr><tr><td>条件串联：固定内接触，峰值1e16</td><td>15.2733</td><td>2.0924</td><td>65.7099</td><td>20.9993</td></tr><tr><td>条件串联：固定内接触，峰值3e17</td><td>15.1918</td><td>2.1260</td><td>69.5820</td><td>22.4732</td></tr><tr><td>条件串联：匹配理想内接触，峰值3e17</td><td>15.4091</td><td>2.1883</td><td>74.4417</td><td>25.1011</td></tr></table>
+<p><strong>完整器件</strong>用同一空间解计算所有层、电势与中央界面，原中央 Nt=0；峰值提高后 PCE 从11.3820%到12.5863%，FF从56.5407%到62.1608%，但 Voc仅从1.3057到1.3168 V。这是现有完整漂移扩散/复合模型的结果，不是对实际样品的预测。</p>
+<p><strong>中央 SRH 诊断</strong>只在 n/p 接触处增加中性界面 Nt=1e11 cm⁻²、Cn=Cp=1e-8 cm³/s，能级取共同禁带中点，得到11.6990%。另测 Nt=1e12，1400/24网格为10.8094%；增大普通陷阱没有产生理想复合连接，反而损失FF。捕获系数、Nt属于机制敏感性假设，未由实验拟合，不作为推荐缺陷密度。</p>
+<p><strong>条件串联</strong>把完整光生分布分给两子电池，预设理想选择性内接触和中央连接电阻0.1 Ωcm²。固定内功函数3.95/5.00 eV时，峰值提高使20.9993%到22.4732%。再把理想内功函数改成随峰值平衡匹配的3.8595/5.0905 eV时，可得到25.1011%；<strong>这个额外提升同时包含内接触边界的改变，不能归因于纯掺杂，更不能说是真实 n/p 接触已实现25.1%。</strong> 内功函数计算采用 χ+kT ln(Nc/Nd) 和 χ+Eg−kT ln(Nv/Na)，只是理想边界设定；0.1 Ωcm²也不是从该掺杂推导出的真实连接电阻。叠层页不会由跨分界面的Nt自动求出连接电阻/复合J0。</p>
+<p><img alt="完整器件与条件串联 J–V" src="figures/JV.png"></p>
+<h2>为什么电子、空穴到了中央，电压仍相加不起来</h2>
+<p>你提出的方向是正确的：n 层向中央提高施主、p 层向中央提高受主，可在准中性梯度区域形成有利于相应多数载流子向中央输运的扩散场。但中央 n/p 结的耗尽区仍会产生势垒；电流到达界面，并不等于能在几乎零电化学势差下复合。</p>
+<p>对峰值3e17、Nt=1e11的同一次完整器件空间求解，接近开路的实际端电压为 1.315008 V，输出电流 -0.026242 mA/cm²。电压核算为：</p>
+<pre>宽侧抽取端准费米差      1.313624 V
++ 窄侧抽取端准费米差    0.837142 V
+− 中央 n/p 准费米差     0.835728 V
+= 两外侧吸收层抽取端差  1.315037 V
+器件端电压              1.315008 V</pre>
+<p>这是同一个完整状态的电压账本，上面两侧差值不是独立子电池的Voc；各边界取相邻对应材料网格点。其余差值来自外侧传输/接触。原生 Jn/Jp 的转换显示中央存在复合交换，同时仍有显著准费米差及非理想选择性。不能将界面复合电流大直接解释为高效率串联。</p>
+<table><tr><th>状态</th><th>实际端电压/V</th><th>输出电流/mA cm⁻²</th><th>宽侧准费米差/V</th><th>窄侧准费米差/V</th><th>中央差/V</th><th>外端差/V</th></tr><tr><td>SC</td><td>0.000390</td><td>15.367487</td><td>0.159184</td><td>0.809169</td><td>0.822542</td><td>0.145812</td></tr><tr><td>MPP</td><td>0.860922</td><td>13.592202</td><td>1.002901</td><td>0.784324</td><td>0.797282</td><td>0.989944</td></tr><tr><td>near_OC</td><td>1.315008</td><td>-0.026242</td><td>1.313624</td><td>0.837142</td><td>0.835728</td><td>1.315037</td></tr></table>
+<p>SC、MPP、near_OC为空间单点求解，选用完整JV中最近实际记录的内部电压Vint；不是精确短路/MPP/开路。已核验单点与原JV电流差小于0.01 mA/cm²，报告保留实际Vext。原生SI表和便读单位表均在spatial目录，电流原生正号与输出电流正号相反。</p>
+<p><img alt="最大功率点附近空间解" src="figures/state.png"></p>
+<h2>为什么没有直接把峰值填成1e19</h2>
+<p>本引擎使用非简并玻尔兹曼统计，没有费米–狄拉克简并统计、带间或非局域隧穿。当前 Nc/Nv=3e18 cm⁻³；若直接填1e19，已经大于有效态密度，不能凭一个能运行的数值就给出可靠效率。真实重掺杂还需要电离、缺陷、迁移率、Auger/带隙变化等材料数据；本次没有通过修改态密度或寿命掩盖这些限制。</p>
+<p>仅为理解尺度，按对称突变均匀结、εr=6.55、固定耗尽电势1.2V，W≈√(4εV/qN)：1e16、1e17、3e17、1e18、1e19对应约417、132、76、42、13 nm。<strong>这不是当前有限厚度渐变异质结的耗尽区解，也不是隧穿电流预测</strong>，只说明把两侧提高至1e16并不足以自动形成很薄的高效连接；即使估计宽度变薄，仍须有实际的复合/隧穿通道。</p>
+<p>可验证的下一步应是为这两层本身补充适用的重掺杂/隧穿或经实验标定的界面复合模型，而不一定增加独立材料层。现有模型能做上述提取趋势与损失对照，不能证明所有无独立互联材料的结构都不可行。</p>
+<h2>数值和复现</h2>
+<p>本次8组完整器件粗扫、4组细化、3组进一步细化，共15条完整器件JV；另9条条件串联参考。主完整器件结论采用2000点/40分段/0.005V；固定内接触对照为1400/24/0.01V，匹配内接触参考为2000/40/0.005V。全程沿用生产求解器、原始接受规则，未把扫描上限当Voc，未采用失败/部分/非有限结果。</p>
+<p>1400/24/0.01V → 2000/40/0.005V：完整器件原峰值11.3908→11.3820%，高峰值无界面陷阱12.6030→12.5863%，高峰值Nt1e11诊断11.7539→11.6990%；匹配内接触参考25.0996→25.1011%。网格/分段/步长共同变化，不分别归因，也不宣称严格数学收敛。粗/细Nt1e12诊断存在约0.27个百分点差异，因此不将其作定量优化方案；其FF下降的方向与其他对照一致。</p>
+<p>生产引擎5.36-pds3；各原生运行日志/电流误差与完整结果保留。完整器件光伏区最大原生errJ/总光生电流小于0.5%才接受，具体比值见summary与numerical_check.json。</p>
+<p>按顺序运行 study.py、refine.py、converge.py、fixed_contacts.py、report.py。Python环境安装项目requirements，使用配套SimSS 5.36-pds3。最终参数库的“完整器件/界面SRH诊断”文件在<strong>器件性能模拟</strong>页打开；两份“串联参考”在<strong>叠层电池模拟</strong>页打开。1.5.1程序可用，不需要重新打包。两种页面代表不同模型，结果不应混用。</p>
+<p>Git保留汇总、两列JV、所选自包含参数、空间原始数据与复现脚本；全部原生多列JV、日志、全部输入和完整JSON gzip另放在<a href="https://github.com/mumium/perovskite-device-studio/releases/tag/research-2026-11-16-center-peak-np">研究数据发布页</a>。ZIP中的SHA256清单可核对文件完整性。</p>
+<p>上一轮26.7191%改变了两主吸收层的Nd/Na及中间梯度方向，属于另一种扩展结构，<strong>不是你要求的中央高掺杂方案</strong>；其原数据保留作为历史对照，不应继续作为本设计的优化结果。</p>
+<p>依据：<a href="https://github.com/kostergroup/SIMsalabim/tree/v5.36">SIMsalabim 5.36源码</a>、<a href="../../../vendor/simsalabim/PROVENANCE.md">本项目求解器修改记录</a>。<a href="https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/adma.202314289">Schramm等2024年电掺杂与PN结实验</a>支持钙钛矿n/p电掺杂及费米能级调节的可行性，但不是本次峰值浓度、隧穿能力或效率的验证。光学来源沿用<a href="../../2026-11-13/02_extended_optics/README.md">300–1100nm文献代理研究</a>。</p></body></html>
