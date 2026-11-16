@@ -61,7 +61,7 @@ def jv_export_figure(result, previous=None, limits=None):
 
 
 class PerformancePage(ttk.Frame):
-    def __init__(self, parent, app):
+    def __init__(self, parent, app, *, tandem=False):
         super().__init__(parent, padding=10)
         self.app = app
         self.layers = import_layers(app.layers)
@@ -80,21 +80,24 @@ class PerformancePage(ttk.Frame):
         self.input_widgets = []
         actions = FlowToolbar(self, padding=(0, 2))
         actions.pack(fill='x', pady=(0, 7))
-        for title, command in [('导入能带参数', self.import_from_band),
+        for title, command in [('复制性能页参数' if tandem else '导入能带参数', self.import_from_band),
                                ('打开参数', self.load), ('保存参数', self.save)]:
             button = actions.button(title, command)
             self.input_widgets.append(button)
         self.run_button = actions.button('▶ 运行 J–V 模拟', self.run, style='Accent.TButton', width=17)
         self.eqe_button = actions.button('▶ 运行 EQE 模拟', self.run_eqe, style='EQE.Accent.TButton', width=17)
-        self.tandem_button = actions.button('两子电池串联参考…', self.open_tandem_reference)
-        self.input_widgets.append(self.tandem_button)
+        if not tandem:
+            self.tandem_button = actions.button('叠层电池模拟 →', self.open_tandem_reference)
+            self.input_widgets.append(self.tandem_button)
         self.cancel_button = actions.button('取消', self.cancel, state='disabled')
         self.export_buttons = [actions.menu('导出结果', [('当前曲线与参数 CSV', self.export_csv),
                                   ('完整结果 JSON', self.export_result), ('图像与参数 PNG / SVG', self.export_image)], state='disabled')]
-        ttk.Label(self, text='常规 J–V：整体异质结模型；两子电池串联请用独立参考模式校核，真实连接仍需验证。',
-                  foreground='#6e6e73').pack(anchor='w', pady=(0, 5))
+        ttk.Label(self, text=('2T 多尺度：整栈光学 + 子电池输运 + 等效连接；内接触为选择性假设，连接参数需标定。' if tandem else
+                  '常规 J–V：整体异质结模型；两端叠层请使用「叠层电池模拟」选项卡。'),
+                  foreground='#6e6e73', wraplength=850).pack(anchor='w', pady=(0, 5))
 
         body = ttk.Panedwindow(self, orient='horizontal')
+        self.body = body
         body.pack(fill='both', expand=True)
         left = ttk.Frame(body, width=370)
         right = ttk.Frame(body)
@@ -293,7 +296,8 @@ class PerformancePage(ttk.Frame):
             ttk.Label(eqe_tab.content, text=unit).grid(row=i, column=2, sticky='w')
             self.input_widgets.append(entry)
             var.trace_add('write', self.mark_dirty)
-        ttk.Label(eqe_tab.content, text='短路微分 EQE；使用光学波段，逐波长叠加 1 nm 探测光。\n计算包含输运/复合；EQE 单独保存，切回 J–V 查看其指标。',
+        ttk.Label(eqe_tab.content, text=('工作点微分 EQE；外部偏压在「叠层与连接」设置，背景比例须 > 0。\n积分响应不等于 Jsc；本功能不模拟独立偏置光测量。' if tandem else
+                  '短路微分 EQE；使用光学波段，逐波长叠加 1 nm 探测光。\n计算包含输运/复合；EQE 单独保存，切回 J–V 查看其指标。'),
                   foreground='#6e6e73').grid(row=3, column=0, columnspan=3, sticky='w', padx=5, pady=5)
         summary = ttk.Frame(right, padding=(4, 2))
         self.summary = summary
@@ -321,6 +325,7 @@ class PerformancePage(ttk.Frame):
         self.plot_view = tk.StringVar(value='J–V 曲线')
         choice = ttk.Combobox(plot_controls, textvariable=self.plot_view, state='readonly',
                               values=['J–V 曲线', '入射光谱', '光生分布', '损失分析', 'EQE'], width=11)
+        self.plot_choice = choice
         plot_controls.add(choice)
         choice.bind('<<ComboboxSelected>>', lambda e: self.plot())
         plot_controls.add(ttk.Checkbutton(plot_controls, text='完整扫描', variable=self.full_scan, command=self.plot))
@@ -675,9 +680,12 @@ class PerformancePage(ttk.Frame):
             s['eqe'] = {key: float(var.get()) for key, var in self.eqe_vars.items()}
         except ValueError:
             raise ValueError('EQE 设置请输入有效数值') from None
-        validate_device(self.layers, s)
+        self.validate_collected(self.layers, s)
         self.refresh_list()
         return deepcopy(self.layers), s
+
+    def validate_collected(self, layers, settings):
+        validate_device(layers, settings)
 
     def select(self, event=None):
         chosen = self.listbox.curselection()
@@ -774,6 +782,8 @@ class PerformancePage(ttk.Frame):
         except Exception as e:
             messagebox.showerror('无法打开串联参考', str(e), parent=self)
             return
+        if hasattr(self.app, 'open_tandem_page'):
+            return self.app.open_tandem_page(layers, settings)
         from .tandem_window import TandemReferenceWindow
         return TandemReferenceWindow(self, layers, settings)
 
@@ -1079,60 +1089,65 @@ class PerformancePage(ttk.Frame):
                 return open_reference_file(self, data)
             if data.get('schema') != 1 or data.get('model') != 'simss' or data.get('engine') != ENGINE_VERSION:
                 raise ValueError('请选择本工具保存的 SimSS 5.36 性能参数文件；能带项目请在能带页打开后导入。')
-            data['settings'].setdefault('grading_slices', DEFAULT_SETTINGS['grading_slices'])
-            from .physics import normalize
-            data['layers'] = [normalize(a) for a in data['layers']]
-            absorber = min(range(len(data['layers'])), key=lambda i: data['layers'][i]['Eg'])
-            for i, a in enumerate(data['layers']):
-                a.setdefault('optical_nk', default_nk(i, absorber))
-            validate_device(data['layers'], data['settings'])
-            # Check every value rendered by the UI before replacing live inputs.
-            # Manual-G validation intentionally skips inactive optical settings.
-            eqe = dict(EQE_DEFAULTS) | data['settings'].get('eqe', {})
-            for key in self.eqe_vars:
-                if not np.isfinite(eqe[key]):
-                    raise ValueError('EQE 设置须为有限数值')
-                format(eqe[key], 'g')
-            o = get_optics(data['settings'])
-            for key in self.optical_numbers:
-                if not np.isfinite(o[key]):
-                    raise ValueError('光学设置须为有限数值')
-                format(o[key], 'g')
-            for key in self.optical_specs:
-                spec = o[key]
-                if not isinstance(spec['name'], str):
-                    raise ValueError('光学数据名称须为文本')
-                (spectrum_table if key == 'spectrum' else nk_table)(spec)
-            for a in data['layers']:
-                for key in self.vars:
-                    if key != 'name' and not key.endswith('_mode'):
-                        format(a[key], '.12g')
-                nk_table(a['optical_nk'])
-                if not isinstance(a['optical_nk']['name'], str):
-                    raise ValueError('光学数据名称须为文本')
-                format(optical_model(a)['reference_gap'], 'g')
-                inter = interface_parameters(a)
-                for key in self.interface_vars:
-                    format(inter[key], 'g')
-                if inter['trap_type'] not in (-1, 0, 1):
-                    raise ValueError('界面陷阱类型无效')
-            self.loading = True
-            self.layers = data['layers']
-            self.index = 0
-            for key, var in self.settings.items():
-                var.set(f"{data['settings'][key]:g}")
-            self.left_anode.set(bool(data['settings']['left_anode']))
-            self.show_optical_settings(data['settings'])
-            for key, var in self.eqe_vars.items():
-                var.set(f'{eqe[key]:g}')
-            self.show_fields()
-            self.refresh_list()
-            self.loading = False
-            self.mark_dirty()
+            self.apply_parameters(data)
             self.status.set('性能参数已打开，请点击运行。')
         except Exception as e:
             self.loading = False
             messagebox.showerror('打开失败', str(e), parent=self)
+
+    def apply_parameters(self, data, validator=None):
+        data = deepcopy(data)
+        data['settings'].setdefault('grading_slices', DEFAULT_SETTINGS['grading_slices'])
+        from .physics import normalize
+        data['layers'] = [normalize(a) for a in data['layers']]
+        absorber = min(range(len(data['layers'])), key=lambda i: data['layers'][i]['Eg'])
+        for i, a in enumerate(data['layers']):
+            a.setdefault('optical_nk', default_nk(i, absorber))
+        (validator or self.validate_collected)(data['layers'], data['settings'])
+        # Check every value rendered by the UI before replacing live inputs.
+        # Manual-G validation intentionally skips inactive optical settings.
+        eqe = dict(EQE_DEFAULTS) | data['settings'].get('eqe', {})
+        for key in self.eqe_vars:
+            if not np.isfinite(eqe[key]):
+                raise ValueError('EQE 设置须为有限数值')
+            format(eqe[key], 'g')
+        o = get_optics(data['settings'])
+        for key in self.optical_numbers:
+            if not np.isfinite(o[key]):
+                raise ValueError('光学设置须为有限数值')
+            format(o[key], 'g')
+        for key in self.optical_specs:
+            spec = o[key]
+            if not isinstance(spec['name'], str):
+                raise ValueError('光学数据名称须为文本')
+            (spectrum_table if key == 'spectrum' else nk_table)(spec)
+        for a in data['layers']:
+            for key in self.vars:
+                if key != 'name' and not key.endswith('_mode'):
+                    format(a[key], '.12g')
+            nk_table(a['optical_nk'])
+            if not isinstance(a['optical_nk']['name'], str):
+                raise ValueError('光学数据名称须为文本')
+            format(optical_model(a)['reference_gap'], 'g')
+            inter = interface_parameters(a)
+            for key in self.interface_vars:
+                format(inter[key], 'g')
+            if inter['trap_type'] not in (-1, 0, 1):
+                raise ValueError('界面陷阱类型无效')
+        self.loading = True
+        self.layers = data['layers']
+        self.index = 0
+        for key, var in self.settings.items():
+            var.set(f"{data['settings'][key]:g}")
+        self.left_anode.set(bool(data['settings']['left_anode']))
+        self.show_optical_settings(data['settings'])
+        for key, var in self.eqe_vars.items():
+            var.set(f'{eqe[key]:g}')
+        self.show_fields()
+        self.refresh_list()
+        self.loading = False
+        self.mark_dirty()
+
 
     def export_csv(self):
         if self.plot_view.get() == 'EQE':

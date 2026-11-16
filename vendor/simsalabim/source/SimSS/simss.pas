@@ -86,6 +86,8 @@ VAR parameterFile : ShortString;
 	quit_Voc, Conv_Main, acceptNewSolution : BOOLEAN;
 
 	uitv , log : TEXT; {the output files}
+    PDSOpticalFile : TEXT;
+    PDSOpticalIndex : INTEGER;
 
 	JVSim, JVExp : TJVList; {stores the current-voltage characteristics}
     
@@ -607,6 +609,22 @@ BEGIN {main program}
 	Init_Voltages_and_Tasks(JVSim, JVExp, VCount, log, stv, par);
 
     Init_Generation_Profile(stv, log, par); {init. the stv.orgGm array. This is the SHAPE of the profile}
+
+    {PDS modification 2026-11-16: opt-in optical-only run. Uses the exact
+     upstream TMM and grid; no electrical state is solved or reported.}
+    IF GetEnvironmentVariable('PDS_OPTICS_ONLY') = '1' THEN
+    BEGIN
+        Assign(PDSOpticalFile, 'OpticsOnly.dat');
+        Rewrite(PDSOpticalFile);
+        WriteLn(PDSOpticalFile, 'x G_ehp lid');
+        FOR PDSOpticalIndex:=0 TO par.NP+1 DO
+            WriteLn(PDSOpticalFile, stv.x[PDSOpticalIndex]:29, ' ',
+                (stv.orgGm[PDSOpticalIndex]*par.G_frac):29, ' ', stv.lid[PDSOpticalIndex]);
+        Close(PDSOpticalFile);
+        Finalize_Log_File(log, 'PDS optical-only: no electrical solution or J-V metrics.');
+        Halt(0);
+    END;
+
 	Init_States(prev, curr, new, JVSim[VCount].Vint, stv, par); {inits new (time, Va, G_ehp, V, n, p, etc) and sets curr:=new and prev:=curr}
     Prepare_tJV_File(uitv, par.JVFile, FALSE, stv, par);   {create the JV-file}
     IF par.StoreVarFile THEN Prepare_Var_File(stv, par, FALSE); {Create a new var_file with appropriate heading if required}

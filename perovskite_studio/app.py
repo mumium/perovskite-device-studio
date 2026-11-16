@@ -18,7 +18,7 @@ from .physics import (FIELDS, example, layer, solve, validate, normalize, alignm
                      profile, shift_band)
 from .analysis_views import analysis_segments, interface_offsets, sample_position
 from .performance_page import PerformancePage
-from .app_info import APP_NAME, APP_ENGLISH_NAME, APP_ID, APP_SIGNATURE
+from .app_info import APP_NAME, APP_ENGLISH_NAME, APP_ID, APP_SIGNATURE, APP_VERSION
 from .ui_helpers import ScrollableFrame, FlowToolbar, configure_theme, active_grading_inputs
 from .device_structure import DeviceStructure, preview_layers
 from .paths import RESOURCE_ROOT
@@ -43,7 +43,7 @@ class App(tk.Tk):
         else:
             self._app_icon = tk.PhotoImage(file=str(assets / 'logo-window.png'))
             self.iconphoto(True, self._app_icon)
-        self.title(f'{APP_NAME} · {APP_ENGLISH_NAME} · {APP_SIGNATURE}')
+        self.title(f'{APP_NAME} {APP_VERSION} · {APP_ENGLISH_NAME} · {APP_SIGNATURE}')
         width=min(1320,max(900,self.winfo_screenwidth()-50))
         height=min(880,max(560,self.winfo_screenheight()-110))
         self.geometry(f'{width}x{height}'); self.minsize(900,560)
@@ -184,9 +184,28 @@ class App(tk.Tk):
         self.refresh_list(); self.show_fields(); self.calculate()
         self.performance=PerformancePage(self.pages,self)
         self.pages.add(self.performance,text='器件性能模拟')
+        self.tandem = None
+        self.tandem_host = ttk.Frame(self.pages)
+        self.pages.add(self.tandem_host, text='叠层电池模拟')
+        self.pages.bind('<<NotebookTabChanged>>', self.page_changed)
+
+    def page_changed(self, event=None):
+        if self.pages.select() == str(self.tandem_host):
+            self.open_tandem_page()
+
+    def open_tandem_page(self, layers=None, settings=None):
+        if self.tandem is None:
+            from .tandem_page import TandemPage
+            self.tandem = TandemPage(self.tandem_host, self)
+            self.tandem.pack(fill='both', expand=True)
+        if layers is not None:
+            self.tandem.import_snapshot(layers, settings)
+        self.pages.select(self.tandem_host)
+        return self.tandem
 
     def destroy(self):
         if hasattr(self,'performance'):self.performance.shutdown()
+        if getattr(self,'tandem',None) is not None:self.tandem.shutdown()
         if self.pending:
             self.after_cancel(self.pending);self.pending=None
         super().destroy()

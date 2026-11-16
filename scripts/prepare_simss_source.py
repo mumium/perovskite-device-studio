@@ -8,6 +8,7 @@ import shutil
 import sys
 
 from interface_jacobian import correct_interface_jacobian
+from native_optics_only import patch_optics_only
 
 
 def prepare(upstream):
@@ -17,6 +18,8 @@ def prepare(upstream):
     shutil.copytree(upstream/'Units', target/'Units', dirs_exist_ok=True)
     (target/'SimSS').mkdir(exist_ok=True)
     shutil.copy2(upstream/'SimSS'/'simss.pas', target/'SimSS'/'simss.pas')
+    simss = target/'SimSS'/'simss.pas'
+    simss.write_text(patch_optics_only(simss.read_text(encoding='utf-8-sig')), encoding='utf-8')
     path = target/'Units'/'DDRoutines.pas'
     text = path.read_text(encoding='utf-8-sig')
     start = text.index('PROCEDURE Make_Grid(VAR stv', text.index('IMPLEMENTATION'))

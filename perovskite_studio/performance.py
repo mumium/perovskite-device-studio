@@ -25,7 +25,7 @@ from .optics import get_optics, default_nk, validate_optics, prepare_optical_fil
 from .paths import RESOURCE_ROOT
 
 ENGINE_VERSION = '5.36'
-ENGINE_BUILD = '5.36-pds2'
+ENGINE_BUILD = '5.36-pds3'
 ENGINE_DIR = RESOURCE_ROOT / 'vendor' / 'simsalabim'
 DEFAULT_SETTINGS = dict(T=300., left=5., right=4.1, left_anode=1,
                         G=3e21, pin=100., vmin=-.04, vmax=1.5, vstep=.02,
@@ -470,7 +470,7 @@ def _engine_failure(folder, context, message, stdout='', stderr='', log='', retu
     return EngineFailure('\n\n'.join(sections), returncode, saved)
 
 
-def _run_engine_once(folder, settings, cancel=None, started=None, context='J–V 计算'):
+def _run_engine_once(folder, settings, cancel=None, started=None, context='J–V 计算', optics_only=False):
     """Execute one native run; never return partial or nonfinite output."""
     if cancel is not None and cancel.is_set():
         raise SimulationCancelled('模拟已取消')
@@ -482,10 +482,14 @@ def _run_engine_once(folder, settings, cancel=None, started=None, context='J–V
     # EQE reuses a directory. No previous run's log or result may describe or
     # validate a new attempt that crashes before opening its output files.
     for name in ('log.txt', 'JV.dat', 'OpticalProfile.dat', 'scPars.txt', 'Var.dat',
-                 'stdout.txt', 'stderr.txt', 'diagnostics.json'):
+                 'stdout.txt', 'stderr.txt', 'diagnostics.json', 'OpticsOnly.dat'):
         (folder/name).unlink(missing_ok=True)
     try:
-        process = subprocess.Popen([str(exe), 'simulation_setup.txt'], cwd=folder,
+        engine_env = dict(os.environ)
+        engine_env.pop('PDS_OPTICS_ONLY', None)
+        if optics_only:
+            engine_env['PDS_OPTICS_ONLY'] = '1'
+        process = subprocess.Popen([str(exe), 'simulation_setup.txt'], cwd=folder, env=engine_env,
                                    stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                                    creationflags=subprocess.CREATE_NO_WINDOW if sys.platform == 'win32' else 0)
     except OSError as error:
@@ -518,30 +522,32 @@ def _run_engine_once(folder, settings, cancel=None, started=None, context='J–V
         raise failed('SimSS 计算超时；请减少计算点数或调整超时设置。')
     if process.returncode != 0:
         raise failed(f'SimSS 未完成计算（退出码 {process.returncode}），未采用部分曲线。')
-    data_path = Path(folder)/'JV.dat'
+    data_path = Path(folder)/('OpticsOnly.dat' if optics_only else 'JV.dat')
     if not data_path.exists():
-        raise failed('SimSS 未生成本次 J–V 文件。')
+        raise failed('SimSS 未生成本次光学独立输出；请使用配套求解器。' if optics_only else 'SimSS 未生成本次 J–V 文件。')
     try:
         data = np.atleast_1d(np.genfromtxt(data_path, names=True))
     except (ValueError, OSError) as error:
         raise failed('SimSS 输出无法读取：'+str(error)) from error
-    if data.size == 0 or not {'Vext', 'Jext', 'errJ'}.issubset(data.dtype.names or ()):
+    required = ('x', 'G_ehp', 'lid') if optics_only else ('Vext', 'Jext', 'errJ')
+    if data.size == 0 or not set(required).issubset(data.dtype.names or ()):
         raise failed('SimSS 输出列不匹配，要求 Vext、Jext、errJ。')
-    if not np.all(np.isfinite([data['Vext'], data['Jext'], data['errJ']])):
+    if not np.all(np.isfinite([data[k] for k in required])):
         raise failed('SimSS 电流或收敛误差包含无效数值')
     if cancel is not None and cancel.is_set():
         raise SimulationCancelled('模拟已取消')
     return data, log
 
 
-def _run_engine(folder, settings, cancel=None, started=None, context='J–V 计算'):
+def _run_engine(folder, settings, cancel=None, started=None, context='J–V 计算', optics_only=False):
     """Only transient runtime 226 may restart, with identical inputs and deadline."""
     started = time.monotonic() if started is None else started
     failures = []
     for attempt in range(1, 4):
         try:
+            options = dict(optics_only=True) if optics_only else {}
             data, log = _run_engine_once(folder, settings, cancel, started,
-                                         context=f'{context}（尝试 {attempt}/3）')
+                                         context=f'{context}（尝试 {attempt}/3）', **options)
         except EngineFailure as error:
             if error.returncode != 226 or attempt == 3:
                 raise

@@ -1,17 +1,17 @@
 # Bundled SIMsalabim / SimSS
 
 Upstream version: **5.36**, pinned to tag `v5.36`.
-Local build: **5.36-pds2**, modified 2026-11-15 for Perovskite Device Studio.
+Local build: **5.36-pds3**, modified 2026-11-16 for Perovskite Device Studio.
 
 - Project and documentation: https://github.com/kostergroup/SIMsalabim
 - Exact source: https://github.com/kostergroup/SIMsalabim/tree/v5.36
 - Source archive: https://github.com/kostergroup/SIMsalabim/archive/refs/tags/v5.36.zip
 - Original Windows executable: https://github.com/kostergroup/SIMsalabim/releases/download/v5.36/simss.exe
 - Original SHA256: `beb3ad8e231346e3f6d4cda4147ac5b9102912d389c21a2bae069b600ab2595c`
-- **Bundled modified executable SHA256**: `6d251ec931832854ee35045e3deb6273d60af360c244b8e55159c7e202db9d72`
+- **Bundled modified executable SHA256**: `8e40de0941f50797ddfaf85be45876956efb703e466979b6aff6fac9ff495d6d`
 
 The executable is compiled from the exact corresponding source in `source/`.
-Three targeted modifications to upstream source are marked with PDS comments:
+Four targeted modifications to upstream source are marked with PDS comments:
 
 1. `Units/DDRoutines.pas`, `Make_Grid`: reserve `NLayers-1` extra intervals
    before distributing the grid. This prevents the final layer from receiving
@@ -25,6 +25,12 @@ Three targeted modifications to upstream source are marked with PDS comments:
    derivative. The recombination rates and physical equations are unchanged.
    Actual Pascal routines pass 128 central finite-difference checks, including
    asymmetric capture coefficients (maximum relative error 7.5e-9).
+
+4. `SimSS/simss.pas`: opt-in `PDS_OPTICS_ONLY=1` exits immediately after native
+   `Init_Generation_Profile`, exporting the same x/G/layer grid as an ordinary
+   run, without solving electrical equations or reporting J–V metrics. This
+   decouples tandem optical generation from central electrical convergence.
+   Ordinary electrical runs explicitly remove the environment switch.
 
 The Python adapter selects fixed density relaxation 0.05 and at most 100000
 iterations when an active electron-and-hole interface trap is present. It

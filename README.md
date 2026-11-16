@@ -2,7 +2,9 @@
 
 <img src="assets/logo.png" width="96" alt="钙钛矿器件模拟工作台图标">
 
-Python / Windows 桌面工具，将能带分析和器件性能模拟整合到两个独立页面。能带页查看真空参考排列、自洽热平衡能带、电场与载流子浓度；性能页用 SimSS 计算均匀或渐变器件的稳态 J–V、Jsc、Voc、FF、PCE。版本 **1.4.3**。
+Python / Windows 桌面工具，将能带分析和器件性能模拟整合到三个独立页面。能带页查看真空参考排列、自洽热平衡能带、电场与载流子浓度；性能页用 SimSS 计算均匀或渐变器件的稳态 J–V、Jsc、Voc、FF、PCE。版本 **1.5.0**。
+
+1.5.0 更新：新增独立「叠层电池模拟」选项卡，整栈 TMM + 两子电池漂移扩散 + 等效连接，支持共同电流 J–V、电流匹配、连接功率收支、工作点微分 EQE、参数及完整结果导出。无需新增材料层；选择性内接触和连接特性为需标定的假设，不能据此证明真实 n/p 接触已形成高效连接。见[使用与模型说明](docs/tandem-simulation.md)。
 
 1.4.3 更新：新建光生波段默认 **300–1100 nm**，同步提供覆盖该范围的默认光学数据；旧项目显式波段和旧数据条目保持原样。见[光学来源说明](assets/optics/PROVENANCE.md)。
 
@@ -28,9 +30,9 @@ Python / Windows 桌面工具，将能带分析和器件性能模拟整合到两
 
 双击 `start.bat`，或执行 `python run.py`。依赖：`pip install -r requirements.txt`。
 
-Windows 打包版：双击 `dist/1.4.3/PerovskiteDeviceStudio.exe`，无需安装 Python 或 SimSS。可单独复制 EXE 到其他 Windows 64 位电脑运行。历史文件按版本目录归档，未标注版本的早期文件在 `dist/legacy-unversioned/`。
+Windows 打包版：双击 `dist/1.5.0/PerovskiteDeviceStudio.exe`，无需安装 Python 或 SimSS。可单独复制 EXE 到其他 Windows 64 位电脑运行。历史文件按版本目录归档，未标注版本的早期文件在 `dist/legacy-unversioned/`。
 
-[下载 Windows 1.4.3 单文件版](https://github.com/mumium/perovskite-device-studio/releases/download/v1.4.3/PerovskiteDeviceStudio.exe) · [下载文件夹版 ZIP](https://github.com/mumium/perovskite-device-studio/releases/download/v1.4.3/PerovskiteDeviceStudio-1.4.3-portable.zip) · [版本发布页](https://github.com/mumium/perovskite-device-studio/releases/tag/v1.4.3)
+[下载 Windows 1.5.0 单文件版](https://github.com/mumium/perovskite-device-studio/releases/download/v1.5.0/PerovskiteDeviceStudio.exe) · [下载文件夹版 ZIP](https://github.com/mumium/perovskite-device-studio/releases/download/v1.5.0/PerovskiteDeviceStudio-1.5.0-portable.zip) · [版本发布页](https://github.com/mumium/perovskite-device-studio/releases/tag/v1.5.0)
 
 重新打包：安装项目依赖及 `pyinstaller`，再运行 `build_exe.bat`。程序为单文件无控制台版本，首次启动需要解压运行依赖，可能稍慢。
 
@@ -77,6 +79,12 @@ Windows 打包版：双击 `dist/1.4.3/PerovskiteDeviceStudio.exe`，无需安�
 [Air / 1.53 eV 全部95个厚度的光生分布补充](research/2026-10-15/02_air_1p53_scan/README.md)：逐组 G(x) CSV、原始节点长表、光生积分和32组数值复核，含可选择厚度的离线图表。
 
 [下载全部报告与完整源数据](https://github.com/mumium/perovskite-device-studio/releases/tag/research-2026-10-15)。解压后双击 `开始查看.html`，即可离线查看，无需安装 Python 或模拟软件。原参数结果与光学参考值敏感性检查分开保存，真实宽带隙材料的光学常数仍需按组分验证。
+
+## 叠层电池模拟
+
+点击第三个页签，直接运行内置 1.78/1.25 eV 示例，或复制性能页参数。选择顶电池末层和底电池首层，展开「叠层与连接」设置连接模型。结果与原两页独立，只有计算成功才更新。支持理想连接、电阻连接、含连接区光生反向电压的等效复合结；默认连接电阻和 J0 是演示参数，须自行标定。工作点 EQE 的积分响应不等同于 Jsc。详见[操作、公式和适用范围](docs/tandem-simulation.md)。
+
+![叠层模拟页面与串联 J–V](docs/images/preview_tandem.jpg)
 
 ## 器件性能模拟
 
