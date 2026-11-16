@@ -1,0 +1,122 @@
+[
+  {
+    "case": "fixed_dense_1e+16",
+    "model": "tandem_2t_multiscale",
+    "top_metrics": {
+      "Jsc": 15.410994077526444,
+      "Voc": 1.3247666029581109,
+      "FF": 65.47351625648648,
+      "PCE": 13.367053615148729,
+      "Vmp": 0.9349999999999998,
+      "Jmp": 14.296314026897038,
+      "Pmax": 13.367053615148729
+    },
+    "bottom_metrics": {
+      "Jsc": 14.935661863819655,
+      "Voc": 0.769324733265722,
+      "FF": 70.99414201802053,
+      "PCE": 8.1574924924234,
+      "Vmp": 0.6349999999999998,
+      "Jmp": 12.846444869958114,
+      "Pmax": 8.1574924924234
+    },
+    "relative_current_error": 8.819315569769864e-08,
+    "max_power_balance_residual": 7.294345986266575e-16,
+    "MPP": {
+      "series_current": 13.402275014930336,
+      "external_current": 13.362885583021487,
+      "top_voltage": 0.9769175038554028,
+      "bottom_voltage": 0.6000000000000001,
+      "connection_drop": 0.0013402275014930336,
+      "internal_voltage": 1.5755772763539098,
+      "external_voltage": 1.5715684106790033,
+      "top_power": 13.092917053569375,
+      "bottom_power": 8.041365008958202,
+      "connection_power": 0.01796209755758259,
+      "series_power": 0.05357001333147705,
+      "shunt_power": 0.06206109384407012,
+      "output_power": 21.000688857794447,
+      "power_residual": 0.0
+    }
+  },
+  {
+    "case": "fixed_dense_1e+17",
+    "model": "tandem_2t_multiscale",
+    "top_metrics": {
+      "Jsc": 15.40031172649825,
+      "Voc": 1.3280157406058548,
+      "FF": 66.31935354619806,
+      "PCE": 13.563538941420088,
+      "Vmp": 0.95,
+      "Jmp": 14.277409412021147,
+      "Pmax": 13.563538941420088
+    },
+    "bottom_metrics": {
+      "Jsc": 14.910923725009749,
+      "Voc": 0.7766791565464018,
+      "FF": 72.53954353677778,
+      "PCE": 8.400807193441866,
+      "Vmp": 0.645,
+      "Jmp": 13.024507276654054,
+      "Pmax": 8.400807193441866
+    },
+    "relative_current_error": 1.0802957910172488e-07,
+    "max_power_balance_residual": 2.2847972598355904e-17,
+    "MPP": {
+      "series_current": 13.493757000919562,
+      "external_current": 13.453755697568571,
+      "top_voltage": 0.9864015097397114,
+      "bottom_voltage": 0.6149999999999998,
+      "connection_drop": 0.001349375700091956,
+      "internal_voltage": 1.6000521340396192,
+      "external_voltage": 1.5960160073303487,
+      "top_power": 13.310262277767857,
+      "bottom_power": 8.298660555565528,
+      "connection_power": 0.018208147799986567,
+      "series_power": 0.05430106271095764,
+      "shunt_power": 0.06400417079111849,
+      "output_power": 21.47240945203132,
+      "power_residual": 0.0
+    }
+  },
+  {
+    "case": "fixed_dense_3e+17",
+    "model": "tandem_2t_multiscale",
+    "top_metrics": {
+      "Jsc": 15.383807512950844,
+      "Voc": 1.3359772630809594,
+      "FF": 67.99583868030044,
+      "PCE": 13.974788346923406,
+      "Vmp": 0.97,
+      "Jmp": 14.406998295797326,
+      "Pmax": 13.974788346923406
+    },
+    "bottom_metrics": {
+      "Jsc": 14.92137447739238,
+      "Voc": 0.7914069932799307,
+      "FF": 75.445592279216,
+      "PCE": 8.909279541103158,
+      "Vmp": 0.665,
+      "Jmp": 13.397412843764148,
+      "Pmax": 8.909279541103158
+    },
+    "relative_current_error": 2.0420988857260467e-07,
+    "max_power_balance_residual": 3.552713678800501e-15,
+    "MPP": {
+      "series_current": 13.711032139831701,
+      "external_current": 13.669821229288571,
+      "top_voltage": 1.0048075249391946,
+      "bottom_voltage": 0.645,
+      "connection_drop": 0.0013711032139831702,
+      "internal_voltage": 1.6484364217252114,
+      "external_voltage": 1.6443354753564248,
+      "top_power": 13.77694826878604,
+      "bottom_power": 8.843615730191447,
+      "connection_power": 0.01879924023394979,
+      "series_power": 0.05605920373221255,
+      "shunt_power": 0.06793356591175548,
+      "output_power": 22.47777198909957,
+      "power_residual": 3.552713678800501e-15
+    }
+  }
+]

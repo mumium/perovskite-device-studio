@@ -1,0 +1,39 @@
+{
+  "name": "fixed_dense_3e+17",
+  "nd_peak": 3e+17,
+  "na_peak": 3e+17,
+  "matched_contacts": false,
+  "mode": "conditional 2T reference; assumed selective inner contacts and 0.1 ohm cm2 connection",
+  "success": true,
+  "metrics": {
+    "Jsc": 15.191155922984889,
+    "Voc": 2.126341490426823,
+    "FF": 69.58721035209865,
+    "PCE": 22.477771989099573,
+    "Vmp": 1.6443354753564248,
+    "Jmp": 13.669821229288573,
+    "Pmax": 22.477771989099573
+  },
+  "generation": {
+    "top": 15.521265008151174,
+    "bottom": 15.925182458809784,
+    "junction": 0.0,
+    "total": 31.446447466960958,
+    "remap_error": 0.06909006996127864
+  },
+  "tandem": {
+    "top_end": 3,
+    "bottom_start": 3,
+    "automatic_contacts": false,
+    "contact_offset": 0.15,
+    "top_work": 3.95,
+    "bottom_work": 5.0,
+    "mode": "ohmic",
+    "resistance": 0.1,
+    "j0": 100.0,
+    "ideality": 1.0,
+    "junction_collection": 1.0,
+    "eqe_voltage": 0.0
+  },
+  "elapsed": 37.55930229998194
+}
