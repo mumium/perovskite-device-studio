@@ -130,11 +130,25 @@ def main():
             for a,b in zip(dense,refined)]
     s.save_json(H/'numerical_check.json',checks)
     near=next(z for z in audit['points'] if z['label']=='near_OC')
+    carriers=read(H/'spatial_no_traps/accounting.json')
+    no_trap_near=next(z for z in carriers['points'] if z['label']=='near_OC')
+    a=np.genfromtxt(H/'spatial_no_traps/near_OC_readable.csv',delimiter=',',names=True)
+    a=a[(a['parent_index']>=1)&(a['parent_index']<=4)]
+    fig,ax=plt.subplots(figsize=(7,3.8),layout='constrained')
+    ax.plot(a['x_nm'],a['n_cm3']/3e18,label='n / Nc')
+    ax.plot(a['x_nm'],a['p_cm3']/3e18,label='p / Nv')
+    ax.axhline(1,color='#bd3838',ls='--',label='载流子浓度 = 态密度')
+    ax.set(xlim=(18,100),yscale='log',ylim=(1e-9,10),xlabel='位置 / nm',ylabel='浓度与有效态密度之比',
+           title='无界面陷阱方案：接近开路时入光侧载流子堆积')
+    ax.grid(alpha=.2);ax.legend(fontsize=9)
+    fig.savefig(figdir/'statistics_limit.png');plt.close(fig)
     table='\n'.join('| '+r['label']+' | '+' | '.join(f"{r[k]:.4f}" for k in ['Jsc','Voc','FF','PCE'])+' |' for r in rows)
     states='\n'.join('| '+z['label']+' | '+' | '.join(f"{z[k]:.6f}" for k in ['Vext','J_output_mA_cm2','top_extraction_QF_V','bottom_extraction_QF_V','central_QF_loss_V','outer_QF_V'])+' |' for z in audit['points'])
     text=f'''# 中央高掺杂 n/p 渐变层：纠正结构后的重算
 
 已纠正上一轮结构：380/780 nm 主吸收层恢复原来的均匀弱 n 型掺杂；只提高中间 20 nm n 层和 20 nm p 层在相互接触处的掺杂。没有增加独立互联材料或减反层。**本次尚未证明真实中央接触能实现低损耗串联或 30% 效率。**
+
+**物理适用范围核查：即使峰值只取3e17，完整解在接近开路时也出现局部电子堆积，n/Nc最大约{no_trap_near['max_perovskite_carrier_over_DOS']:.2f}（无界面陷阱方案）。现有玻尔兹曼统计在这里不够可靠。因此下面12.59%等数值属于当前近似模型的诊断输出，不能当作已验证的真实器件效率。数值收敛与物理模型适用性是两项不同检查。**
 
 [离线图文报告](报告.html) · [最终性能 CSV](final_performance.csv) · [输入参数库](../../../device_structures/README.md)。全部参数内嵌文献代理 n,k，需从对应页面打开参数文件，不能只改几项掺杂后与其他旧设置比较。
 
@@ -196,6 +210,10 @@ SC、MPP、near_OC为空间单点求解，选用完整JV中最近实际记录的
 ## 为什么没有直接把峰值填成1e19
 
 本引擎使用非简并玻尔兹曼统计，没有费米–狄拉克简并统计、带间或非局域隧穿。当前 Nc/Nv=3e18 cm⁻³；若直接填1e19，已经大于有效态密度，不能凭一个能运行的数值就给出可靠效率。真实重掺杂还需要电离、缺陷、迁移率、Auger/带隙变化等材料数据；本次没有通过修改态密度或寿命掩盖这些限制。
+
+另对完整状态检查了**求解得到的自由载流子浓度**，而不只检查输入掺杂。高峰值Nt=0方案接近开路时，约x={no_trap_near['carrier_peak_x_nm']:.2f}nm的宽带隙入光侧边界附近 n/Nc 达到{no_trap_near['max_perovskite_carrier_over_DOS']:.3f}；Nt=1e11诊断也约{near['max_perovskite_carrier_over_DOS']:.3f}。该局部积累已超出非简并低浓度范围，说明只把输入峰值限制到0.1Nc还不够。需同时核查外侧接触/能级造成的积累，并使用适合的统计模型，才能可靠评价绝对Voc/FF及效率。没有强制截断密度或调整材料来使该检查通过。
+
+![载流子统计适用性检查](figures/statistics_limit.png)
 
 仅为理解尺度，按对称突变均匀结、εr=6.55、固定耗尽电势1.2V，W≈√(4εV/qN)：1e16、1e17、3e17、1e18、1e19对应约417、132、76、42、13 nm。**这不是当前有限厚度渐变异质结的耗尽区解，也不是隧穿电流预测**，只说明把两侧提高至1e16并不足以自动形成很薄的高效连接；即使估计宽度变薄，仍须有实际的复合/隧穿通道。
 

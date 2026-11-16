@@ -18,3 +18,4 @@ if __name__=='__main__':
     if all(r['success'] for r in rows):
         from refine import states
         print('STATES',states('dense_peak3e17_Nt1e11'),flush=True)
+        print('NO TRAPS STATES',states('dense_peak3e17','spatial_no_traps'),flush=True)

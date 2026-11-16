@@ -21,5 +21,8 @@
       "Jint": -13.613811067126045
     }
   },
+  "max_perovskite_carrier_over_DOS": 0.004534831522950543,
+  "carrier_peak_x_nm": 1219.9208679519797,
+  "nondegenerate_limit_warning": false,
   "scope": "Same full-device state; top/bottom are not independently solved subcell Voc"
 }

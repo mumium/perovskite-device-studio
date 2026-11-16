@@ -24,6 +24,9 @@
           "Jint": -15.368593420231003
         }
       },
+      "max_perovskite_carrier_over_DOS": 0.009200907614330449,
+      "carrier_peak_x_nm": 1219.9208679519797,
+      "nondegenerate_limit_warning": false,
       "scope": "Same full-device state; top/bottom are not independently solved subcell Voc"
     },
     {
@@ -49,6 +52,9 @@
           "Jint": -13.613811067126045
         }
       },
+      "max_perovskite_carrier_over_DOS": 0.004534831522950543,
+      "carrier_peak_x_nm": 1219.9208679519797,
+      "nondegenerate_limit_warning": false,
       "scope": "Same full-device state; top/bottom are not independently solved subcell Voc"
     },
     {
@@ -74,6 +80,9 @@
           "Jint": -0.0066322095244402135
         }
       },
+      "max_perovskite_carrier_over_DOS": 2.813977820198426,
+      "carrier_peak_x_nm": 19.92537459950109,
+      "nondegenerate_limit_warning": true,
       "scope": "Same full-device state; top/bottom are not independently solved subcell Voc"
     }
   ]

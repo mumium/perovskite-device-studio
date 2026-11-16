@@ -1,6 +1,6 @@
 Version 5.36
 Size of reals used in simulation: 8 bytes
-Timestamp at start: 2026/11/16 15:16:35
+Timestamp at start: 2026/11/16 15:28:15
 Reading in of parameters:
 Read parameters for layer 1 from layer_1.txt
 Read parameters for layer 2 from layer_2.txt
@@ -182,5 +182,5 @@ Files used to calculate the generation profile:
 - back.txt
 - spectrum.txt
 
-Timestamp at end: 2026/11/16 15:16:37
-Total run time:  2.582 seconds.
+Timestamp at end: 2026/11/16 15:28:17
+Total run time:  2.713 seconds.

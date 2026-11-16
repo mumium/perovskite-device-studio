@@ -11,12 +11,12 @@ import numpy as np
 import study as s
 
 
-def states(name):
+def states(name,subfolder='spatial'):
     p=json.loads((s.HERE/'physical'/(name+'_input.json')).read_text(encoding='utf-8'))
     rec=json.loads((s.HERE/'physical'/(name+'_summary.json')).read_text(encoding='utf-8'))
     if not rec['success']:raise RuntimeError('No successful complete JV')
     raw=np.atleast_1d(np.genfromtxt(s.HERE/'native'/(name+'_JV_SI.csv'),delimiter=',',names=True))
-    folder=s.HERE/'spatial';folder.mkdir(exist_ok=True)
+    folder=s.HERE/subfolder;folder.mkdir(exist_ok=True)
     records=[]
     for label,target in [('SC',0.),('MPP',rec['metrics']['Vmp']),('near_OC',rec['metrics']['Voc'])]:
         row=raw[np.argmin(abs(raw['Vext']-target))]
@@ -41,10 +41,17 @@ def states(name):
             assert abs(top+bottom-center-outer)<1e-10
             flux={side:{k:float(a[k][idx]/10) for k in ['Jn','Jp','Jint']}
                   for side,idx in [('n_side',center_n),('p_side',center_p)]}
+            nc=np.array([z['Nc']*1e6 for z in mesh['pieces']])[a['lid'].astype(int)-1]
+            perov=(parents>=1)&(parents<=4)
+            ratios=np.maximum(a['n']/nc,a['p']/nc)
+            peak=int(np.flatnonzero(perov)[np.argmax(ratios[perov])])
             item=dict(label=label,target_Vext=target,Vext=float(jv['Vext'][0]),Vint=float(jv['Vint'][0]),
                       J_output_mA_cm2=float(-jv['Jext'][0]/10),top_extraction_QF_V=top,
                       bottom_extraction_QF_V=bottom,central_QF_loss_V=center,outer_QF_V=outer,
                       outer_minus_terminal_V=outer-float(jv['Vext'][0]),native_flux_mA_cm2=flux,
+                      max_perovskite_carrier_over_DOS=float(ratios[peak]),
+                      carrier_peak_x_nm=float(a['x'][peak]*1e9),
+                      nondegenerate_limit_warning=bool(np.max(ratios[perov])>.1),
                       scope='Same full-device state; top/bottom are not independently solved subcell Voc')
             records.append(item)
             np.savetxt(folder/(label+'_SI.csv'),np.column_stack([a[k] for k in a.dtype.names]),
