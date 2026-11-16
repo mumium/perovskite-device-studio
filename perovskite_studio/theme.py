@@ -67,7 +67,12 @@ def configure_macos_theme(root):
         ('Button.padding', dict(sticky='nsew', children=[('Button.label', dict(sticky='nsew'))]))]))]
     style.layout('TButton', button_layout('Mac.Button'))
     style.configure('TButton', padding=(9, 4), width=0, anchor='center', shiftrelief=0)
-    style.map('TButton', foreground=[('disabled', COLORS['disabled_text'])])
+    # The rounded assets have transparent corners. Clam's inherited active /
+    # pressed backgrounds otherwise paint a square behind the entire widget.
+    # Keep the backing surface fixed; interaction colours belong to the image.
+    button_background = [('disabled', COLORS['surface']), ('!disabled', COLORS['surface'])]
+    style.map('TButton', foreground=[('disabled', COLORS['disabled_text'])],
+              background=button_background)
     for name, color, hover, pressed in (
             ('Accent.TButton', COLORS['blue'], COLORS['blue_hover'], COLORS['blue_pressed']),
             ('EQE.Accent.TButton', COLORS['purple'], COLORS['purple_hover'], '#8336ac')):
@@ -92,7 +97,7 @@ def configure_macos_theme(root):
             ('Menubutton.label', dict(side='left', sticky='nsew'))]))]))])
     style.configure('TMenubutton', padding=(9, 4), width=0, background=COLORS['surface'])
     style.map('TMenubutton', foreground=[('disabled', COLORS['disabled_text'])],
-              background=[('disabled', COLORS['disabled']), ('!disabled', COLORS['surface'])])
+              background=button_background)
 
     element('Mac.Field', COLORS['surface'], COLORS['border'], states=(
         ('disabled', COLORS['disabled'], COLORS['separator']),
