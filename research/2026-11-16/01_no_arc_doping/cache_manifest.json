@@ -1,0 +1,6 @@
+{
+  "input_sha256": "6b9bb94d77ce951100d6ed3149956c20623658bb65650f0d15e6c417383b75bd",
+  "engine_sha256": "8e40de0941f50797ddfaf85be45876956efb703e466979b6aff6fac9ff495d6d",
+  "cache_schema": 1,
+  "description": "Coarse screen only; accepted results require full native verification."
+}

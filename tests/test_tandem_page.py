@@ -103,5 +103,30 @@ class TandemPageTests(unittest.TestCase):
         p.poll();self.assertIs(p.result,r)
         p.shutdown();self.assertTrue(p.cancel_event.is_set())
 
+    def test_metric_differences_follow_successful_snapshots(self):
+        p=self.p;first=self.synthetic();p.show_result(first)
+        self.assertFalse(p.comparison_label.winfo_manager())
+        second=deepcopy(first)
+        changes=dict(Jsc=.1234,Voc=-.015,FF=1.25,PCE=-.3)
+        for key,change in changes.items():second['metrics'][key]+=change
+        p.show_result(second);self.app.update()
+        text=p.comparison_text.get()
+        for expected in ['ΔJsc +0.123 mA/cm²','ΔVoc -0.015 V','ΔFF +1.250 百分点','ΔPCE -0.300 百分点']:
+            self.assertIn(expected,text)
+        self.assertEqual(p.comparison_label.winfo_manager(),'pack')
+        p.vars['thickness'].set('24')
+        self.assertEqual(p.comparison_text.get(),text)
+        p.plot_view.set('光生分布');p.plot()
+        self.assertEqual(p.comparison_label.winfo_manager(),'pack')
+        p.plot_view.set('EQE');p.plot()
+        self.assertFalse(p.comparison_label.winfo_manager())
+        p.plot_view.set('J–V 曲线');p.plot()
+        self.assertEqual(p.comparison_text.get(),text)
+        self.app.geometry('900x560');self.app.update()
+        self.assertGreater(p.canvas.get_tk_widget().winfo_height(),100)
+        p.clear_comparison();self.app.update()
+        self.assertFalse(p.comparison_label.winfo_manager())
+        self.assertEqual(p.comparison_text.get(),'')
+
 
 if __name__=='__main__':unittest.main()

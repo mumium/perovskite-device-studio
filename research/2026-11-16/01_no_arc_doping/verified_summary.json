@@ -1,0 +1,604 @@
+{
+  "selected": {
+    "top": {
+      "id": "f_3e+17_3e+17_1e+12",
+      "kind": "loggraded",
+      "left": -3e+17,
+      "right": 3e+17,
+      "center": 1e+17,
+      "floor": 1000000000000.0
+    },
+    "bottom": {
+      "id": "f_1e+17_3e+17_1e+14",
+      "kind": "loggraded",
+      "left": -1e+17,
+      "right": 3e+17,
+      "center": 1e+17,
+      "floor": 100000000000000.0
+    },
+    "metrics": {
+      "Jsc": 15.249556920657813,
+      "Voc": 2.2281315287587624,
+      "FF": 83.91367909332068,
+      "PCE": 28.51220546889082,
+      "Vmp": 1.9179189845936808,
+      "Jmp": 14.866219948769759,
+      "Pmax": 28.51220546889082
+    }
+  },
+  "energy_selected": {
+    "top": {
+      "id": "l_1e+17_3e+17_1e+17",
+      "kind": "loggraded",
+      "left": -1e+17,
+      "right": 3e+17,
+      "center": 1e+17
+    },
+    "bottom": {
+      "id": "l_1e+17_1e+17_1e+17",
+      "kind": "loggraded",
+      "left": -1e+17,
+      "right": 1e+17,
+      "center": 1e+17
+    },
+    "metrics": {
+      "Jsc": 15.289943453197365,
+      "Voc": 2.2134734029907084,
+      "FF": 89.30619085938008,
+      "PCE": 30.224682895243276,
+      "Vmp": 2.0177218782286857,
+      "Jmp": 14.979608052709857,
+      "Pmax": 30.224682895243276
+    }
+  },
+  "results": {
+    "baseline": {
+      "metrics": {
+        "Jsc": 15.274139612398024,
+        "Voc": 2.0923978719624348,
+        "FF": 65.70834894392512,
+        "PCE": 21.00011052140335,
+        "Vmp": 1.571667459937817,
+        "Jmp": 13.361675454064702,
+        "Pmax": 21.00011052140335
+      },
+      "generation": {
+        "top": 15.567362977170369,
+        "bottom": 15.924305138777083,
+        "junction": 0.0,
+        "total": 31.491668115947455,
+        "remap_error": 0.08725294835743824
+      },
+      "workpoints": {
+        "SC": {
+          "series_current": 15.274254168445117,
+          "external_current": 15.274139612398024,
+          "top_voltage": 0.6476418011170937,
+          "bottom_voltage": -0.6415321338165297,
+          "connection_drop": 0.0015274254168445116,
+          "internal_voltage": 0.0045822418837194075,
+          "external_voltage": 0.0,
+          "top_power": 9.892245480372072,
+          "bottom_power": -9.79892486913862,
+          "connection_power": 0.0233302840402263,
+          "series_power": 0.06998980226970794,
+          "shunt_power": 5.249235170228096e-07,
+          "output_power": 0.0,
+          "power_residual": 4.3588791921739126e-16
+        },
+        "MPP": {
+          "series_current": 13.40106735312905,
+          "external_current": 13.3616754540647,
+          "top_voltage": 0.9770160693093491,
+          "bottom_voltage": 0.6000000000000001,
+          "connection_drop": 0.0013401067353129052,
+          "internal_voltage": 1.5756759625740364,
+          "external_voltage": 1.571667459937817,
+          "top_power": 13.093058149903989,
+          "bottom_power": 8.040640411877432,
+          "connection_power": 0.017958860620310126,
+          "series_power": 0.05356031128192654,
+          "shunt_power": 0.06206886847584041,
+          "output_power": 21.000110521403347,
+          "power_residual": -3.552713678800501e-15
+        },
+        "OC": {
+          "series_current": 0.05230994679906542,
+          "external_current": 4.54282065524142e-15,
+          "top_voltage": 1.3233352284826563,
+          "bottom_voltage": 0.7690678744744585,
+          "connection_drop": 5.230994679906542e-06,
+          "internal_voltage": 2.0923978719624348,
+          "external_voltage": 2.0923978719624348,
+          "top_power": 0.06922359539925683,
+          "bottom_power": 0.04022989959862924,
+          "connection_power": 2.7363305341210546e-07,
+          "series_power": 6.191165851706425e-33,
+          "shunt_power": 0.10945322136482313,
+          "output_power": 9.50538827173414e-15,
+          "power_residual": 2.8651952234392333e-17
+        }
+      },
+      "subcells": {
+        "top": {
+          "metrics": {
+            "Jsc": 15.416391559151055,
+            "Voc": 1.3245355706977375,
+            "FF": 65.47852461934276,
+            "PCE": 13.370425961672414,
+            "Vmp": 0.9400000000000002,
+            "Jmp": 14.22385740603448,
+            "Pmax": 13.370425961672414
+          },
+          "error": 1.962755116009973e-09
+        },
+        "bottom": {
+          "metrics": {
+            "Jsc": 14.934779068780822,
+            "Voc": 0.7692811568599234,
+            "FF": 70.99016868608264,
+            "PCE": 8.156091800836656,
+            "Vmp": 0.6299999999999999,
+            "Jmp": 12.946177461645489,
+            "Pmax": 8.156091800836656
+          },
+          "error": 1.4038388455212567e-07
+        }
+      },
+      "elapsed": 14.090748400019947,
+      "tandem": {
+        "top_end": 3,
+        "bottom_start": 3,
+        "automatic_contacts": true,
+        "contact_offset": 0.15,
+        "top_work": 3.9499999999999997,
+        "bottom_work": 5.0,
+        "mode": "ohmic",
+        "resistance": 0.1,
+        "j0": 100.0,
+        "ideality": 1.0,
+        "junction_collection": 1.0,
+        "eqe_voltage": 0.0
+      }
+    },
+    "doping": {
+      "metrics": {
+        "Jsc": 15.234343842017635,
+        "Voc": 2.2274183870952706,
+        "FF": 83.14393435375203,
+        "PCE": 28.2134454139224,
+        "Vmp": 1.906331365070926,
+        "Jmp": 14.799864247563647,
+        "Pmax": 28.2134454139224
+      },
+      "generation": {
+        "top": 15.570609778804487,
+        "bottom": 15.918469616170636,
+        "junction": 0.0,
+        "total": 31.489079394975118,
+        "remap_error": 0.17040749344824668
+      },
+      "workpoints": {
+        "SC": {
+          "series_current": 15.23445809959645,
+          "external_current": 15.234343842017635,
+          "top_voltage": -0.7251428555302945,
+          "bottom_voltage": 0.7312366044928594,
+          "connection_drop": 0.0015234458099596452,
+          "internal_voltage": 0.004570303152605291,
+          "external_voltage": 0.0,
+          "top_power": -11.047158448797992,
+          "bottom_power": 11.139993412037649,
+          "connection_power": 0.02320887135883599,
+          "series_power": 0.0696255696890462,
+          "shunt_power": 5.221917726678465e-07,
+          "output_power": 0.0,
+          "power_residual": 1.931154757488934e-15
+        },
+        "MPP": {
+          "series_current": 14.847633530672274,
+          "external_current": 14.799864247563644,
+          "top_voltage": 1.18,
+          "bottom_voltage": 0.7322560876982623,
+          "connection_drop": 0.0014847633530672274,
+          "internal_voltage": 1.910771324345195,
+          "external_voltage": 1.906331365070926,
+          "top_power": 17.52020756619328,
+          "bottom_power": 10.872270040747617,
+          "connection_power": 0.022045222146114363,
+          "series_power": 0.06571079452389376,
+          "shunt_power": 0.09127617634849726,
+          "output_power": 28.213445413922393,
+          "power_residual": 0.0
+        },
+        "OC": {
+          "series_current": 0.05568545967739987,
+          "external_current": 1.8107694163549404e-14,
+          "top_voltage": 1.3832523294268042,
+          "bottom_voltage": 0.8441716262144339,
+          "connection_drop": 5.568545967739988e-06,
+          "internal_voltage": 2.2274183870952706,
+          "external_voltage": 2.2274183870952706,
+          "top_power": 0.07702704181396575,
+          "bottom_power": 0.047008085052368934,
+          "connection_power": 3.1008704194833275e-07,
+          "series_power": 9.836657637619234e-32,
+          "shunt_power": 0.12403481677925242,
+          "output_power": 4.033341092778766e-14,
+          "power_residual": -1.8437346086664618e-17
+        }
+      },
+      "subcells": {
+        "top": {
+          "metrics": {
+            "Jsc": 15.204258920633174,
+            "Voc": 1.3835041712394522,
+            "FF": 83.40935616447284,
+            "PCE": 17.545287885267282,
+            "Vmp": 1.1900000000000002,
+            "Jmp": 14.743939399384267,
+            "Pmax": 17.545287885267282
+          },
+          "error": 3.655298679716441e-08
+        },
+        "bottom": {
+          "metrics": {
+            "Jsc": 15.781496813288843,
+            "Voc": 0.8442918372859769,
+            "FF": 86.03657468862164,
+            "PCE": 11.46367576868443,
+            "Vmp": 0.73,
+            "Jmp": 15.703665436554013,
+            "Pmax": 11.46367576868443
+          },
+          "error": 8.489643830823253e-05
+        }
+      },
+      "elapsed": 17.24959309998667,
+      "tandem": {
+        "top_end": 3,
+        "bottom_start": 3,
+        "automatic_contacts": true,
+        "contact_offset": 0.15,
+        "top_work": 3.9499999999999997,
+        "bottom_work": 5.0,
+        "mode": "ohmic",
+        "resistance": 0.1,
+        "j0": 100.0,
+        "ideality": 1.0,
+        "junction_collection": 1.0,
+        "eqe_voltage": 0.0
+      }
+    },
+    "energy_baseline": {
+      "metrics": {
+        "Jsc": 15.382584149625805,
+        "Voc": 2.06294952730652,
+        "FF": 81.38116295752722,
+        "PCE": 25.825087034107003,
+        "Vmp": 1.847140177624054,
+        "Jmp": 13.981119217126983,
+        "Pmax": 25.825087034107007
+      },
+      "generation": {
+        "top": 15.567362977170369,
+        "bottom": 15.924305138777083,
+        "junction": 0.0,
+        "total": 31.491668115947455,
+        "remap_error": 0.08725294835743824
+      },
+      "workpoints": {
+        "SC": {
+          "series_current": 15.382699519006927,
+          "external_current": 15.382584149625805,
+          "top_voltage": 0.7789560051896761,
+          "bottom_voltage": -0.7728029599928876,
+          "connection_drop": 0.0015382699519006927,
+          "internal_voltage": 0.004614775244887742,
+          "external_voltage": 0.0,
+          "top_power": 11.982446166358788,
+          "bottom_power": -11.887795720969722,
+          "connection_power": 0.023662744449205596,
+          "series_power": 0.07098716853609571,
+          "shunt_power": 5.324037640207179e-07,
+          "output_power": 0.0,
+          "power_residual": 4.153667461251429e-16
+        },
+        "MPP": {
+          "series_current": 14.027402579961711,
+          "external_current": 13.981119217126981,
+          "top_voltage": 1.2227372536471883,
+          "bottom_voltage": 0.6299999999999999,
+          "connection_drop": 0.0014027402579961713,
+          "internal_voltage": 1.851334513389192,
+          "external_voltage": 1.847140177624054,
+          "top_power": 17.151827706425866,
+          "bottom_power": 8.837263625375876,
+          "connection_power": 0.019676802314031648,
+          "series_power": 0.058641508369055205,
+          "shunt_power": 0.08568598701164992,
+          "output_power": 25.825087034107007,
+          "power_residual": -3.552713678800501e-15
+        },
+        "OC": {
+          "series_current": 0.051573738182634575,
+          "external_current": -2.8417264201496817e-14,
+          "top_voltage": 1.2958276057051914,
+          "bottom_voltage": 0.7671270789751468,
+          "connection_drop": 5.157373818263457e-06,
+          "internal_voltage": 2.06294952730652,
+          "external_voltage": 2.06294952730652,
+          "top_power": 0.06683067366646978,
+          "bottom_power": 0.03956361112387346,
+          "connection_power": 2.6598504701309396e-07,
+          "series_power": 2.422622714093018e-31,
+          "shunt_power": 0.10639401880535486,
+          "output_power": -5.862338175182234e-14,
+          "power_residual": -1.0271736193736419e-17
+        }
+      },
+      "subcells": {
+        "top": {
+          "metrics": {
+            "Jsc": 15.447901380196267,
+            "Voc": 1.2959309071876897,
+            "FF": 88.33052927586516,
+            "PCE": 17.683253328134516,
+            "Vmp": 1.1900000000000002,
+            "Jmp": 14.859876746331523,
+            "Pmax": 17.683253328134516
+          },
+          "error": 8.736004731193826e-08
+        },
+        "bottom": {
+          "metrics": {
+            "Jsc": 15.086365106786616,
+            "Voc": 0.7672539623763955,
+            "FF": 78.0516536017394,
+            "PCE": 9.034536199028638,
+            "Vmp": 0.6699999999999999,
+            "Jmp": 13.484382386609909,
+            "Pmax": 9.034536199028638
+          },
+          "error": 1.026157984128853e-07
+        }
+      },
+      "elapsed": 13.155584499996621,
+      "tandem": {
+        "top_end": 3,
+        "bottom_start": 3,
+        "automatic_contacts": true,
+        "contact_offset": 0.15,
+        "top_work": 3.57,
+        "bottom_work": 5.1,
+        "mode": "ohmic",
+        "resistance": 0.1,
+        "j0": 100.0,
+        "ideality": 1.0,
+        "junction_collection": 1.0,
+        "eqe_voltage": 0.0
+      }
+    },
+    "energy_doping": {
+      "metrics": {
+        "Jsc": 15.279061431181137,
+        "Voc": 2.2095627782122893,
+        "FF": 88.3979936555552,
+        "PCE": 29.84320281233551,
+        "Vmp": 1.996750778932139,
+        "Jmp": 14.94588264455098,
+        "Pmax": 29.84320281233551
+      },
+      "generation": {
+        "top": 15.570609778804487,
+        "bottom": 15.918469616170636,
+        "junction": 0.0,
+        "total": 31.489079394975118,
+        "remap_error": 0.17040749344824668
+      },
+      "workpoints": {
+        "SC": {
+          "series_current": 15.279176024141872,
+          "external_current": 15.279061431181137,
+          "top_voltage": -0.7357098841496142,
+          "bottom_voltage": 0.7418215201813828,
+          "connection_drop": 0.0015279176024141873,
+          "internal_voltage": 0.0045837184293543425,
+          "external_voltage": 0.0,
+          "top_power": -11.241040822622981,
+          "bottom_power": 11.33442158534786,
+          "connection_power": 0.023345321997671184,
+          "series_power": 0.0700349154653421,
+          "shunt_power": 5.25261865990066e-07,
+          "output_power": 0.0,
+          "power_residual": -6.677531300120073e-16
+        },
+        "MPP": {
+          "series_current": 14.995913508144119,
+          "external_current": 14.94588264455098,
+          "top_voltage": 1.26,
+          "bottom_voltage": 0.7427341350763188,
+          "connection_drop": 0.0014995913508144118,
+          "internal_voltage": 2.0012345437255044,
+          "external_voltage": 1.996750778932139,
+          "top_power": 18.89485102026159,
+          "bottom_power": 11.137976849150707,
+          "connection_power": 0.022487742194373925,
+          "series_power": 0.06701382240740707,
+          "shunt_power": 0.1001234924750057,
+          "output_power": 29.84320281233551,
+          "power_residual": 0.0
+        },
+        "OC": {
+          "series_current": 0.055239069455289495,
+          "external_current": -1.7736192289147246e-14,
+          "top_voltage": 1.3779363337178316,
+          "bottom_voltage": 0.8316319684014032,
+          "connection_drop": 5.52390694552895e-06,
+          "internal_voltage": 2.2095627782122893,
+          "external_voltage": 2.2095627782122893,
+          "top_power": 0.07611592084320627,
+          "bottom_power": 0.04593857606376423,
+          "connection_power": 3.051354794286297e-07,
+          "series_power": 9.437175507528186e-32,
+          "shunt_power": 0.12205419177153026,
+          "output_power": -3.9189230309315574e-14,
+          "power_residual": 1.2235327855362936e-17
+        }
+      },
+      "subcells": {
+        "top": {
+          "metrics": {
+            "Jsc": 15.254699169075575,
+            "Voc": 1.3780445178196834,
+            "FF": 90.1334233725587,
+            "PCE": 18.947536905322604,
+            "Vmp": 1.28,
+            "Jmp": 14.802763207283284,
+            "Pmax": 18.947536905322604
+          },
+          "error": 4.451111593762182e-06
+        },
+        "bottom": {
+          "metrics": {
+            "Jsc": 15.89864832800896,
+            "Voc": 0.8317322933981117,
+            "FF": 88.66819186316883,
+            "PCE": 11.72496673885697,
+            "Vmp": 0.7399999999999998,
+            "Jmp": 15.844549647104017,
+            "Pmax": 11.724966738856969
+          },
+          "error": 2.080352879170898e-05
+        }
+      },
+      "elapsed": 14.784432599961292,
+      "tandem": {
+        "top_end": 3,
+        "bottom_start": 3,
+        "automatic_contacts": true,
+        "contact_offset": 0.15,
+        "top_work": 3.57,
+        "bottom_work": 5.1,
+        "mode": "ohmic",
+        "resistance": 0.1,
+        "j0": 100.0,
+        "ideality": 1.0,
+        "junction_collection": 1.0,
+        "eqe_voltage": 0.0
+      }
+    },
+    "energy_low_right": {
+      "metrics": {
+        "Jsc": 15.279060886394422,
+        "Voc": 2.209622285044053,
+        "FF": 88.39423821422241,
+        "PCE": 29.842737597530842,
+        "Vmp": 1.9967195480045872,
+        "Jmp": 14.945883425318316,
+        "Pmax": 29.84273759753084
+      },
+      "generation": {
+        "top": 15.570609778804487,
+        "bottom": 15.918469616170636,
+        "junction": 0.0,
+        "total": 31.489079394975118,
+        "remap_error": 0.17040749344824668
+      },
+      "workpoints": {
+        "SC": {
+          "series_current": 15.279175479351071,
+          "external_current": 15.279060886394422,
+          "top_voltage": -0.7356909792034866,
+          "bottom_voltage": 0.74180261501734,
+          "connection_drop": 0.0015279175479351072,
+          "internal_voltage": 0.004583718265918326,
+          "external_voltage": 0.0,
+          "top_power": -11.240751569825692,
+          "bottom_power": 11.334132325891444,
+          "connection_power": 0.023345320332880306,
+          "series_power": 0.07003491047104438,
+          "shunt_power": 5.252618285328325e-07,
+          "output_power": 0.0,
+          "power_residual": -1.1940248645364712e-15
+        },
+        "MPP": {
+          "series_current": 14.995913508144119,
+          "external_current": 14.945883425318314,
+          "top_voltage": 1.26,
+          "bottom_voltage": 0.7427029043829969,
+          "connection_drop": 0.0014995913508144118,
+          "internal_voltage": 2.0012033130321827,
+          "external_voltage": 1.9967195480045872,
+          "top_power": 18.89485102026159,
+          "bottom_power": 11.137508516374853,
+          "connection_power": 0.022487742194373925,
+          "series_power": 0.06701382940896142,
+          "shunt_power": 0.1001203675022746,
+          "output_power": 29.842737597530835,
+          "power_residual": -3.552713678800501e-15
+        },
+        "OC": {
+          "series_current": 0.055240557126069866,
+          "external_current": -3.1454602377606333e-14,
+          "top_voltage": 1.3779363308042718,
+          "bottom_voltage": 0.8316914782954936,
+          "connection_drop": 5.524055712606987e-06,
+          "internal_voltage": 2.209622285044053,
+          "external_voltage": 2.209622285044053,
+          "top_power": 0.07611797059788047,
+          "bottom_power": 0.04594310061804771,
+          "connection_power": 3.0515191515985885e-07,
+          "series_power": 2.968176032199954e-31,
+          "shunt_power": 0.12206076606408253,
+          "output_power": -6.950279038075861e-14,
+          "power_residual": 2.8290392238068834e-18
+        }
+      },
+      "subcells": {
+        "top": {
+          "metrics": {
+            "Jsc": 15.254699169075575,
+            "Voc": 1.3780445178196834,
+            "FF": 90.1334233725587,
+            "PCE": 18.947536905322604,
+            "Vmp": 1.28,
+            "Jmp": 14.802763207283284,
+            "Pmax": 18.947536905322604
+          },
+          "error": 4.451111593762182e-06
+        },
+        "bottom": {
+          "metrics": {
+            "Jsc": 15.900452537386737,
+            "Voc": 0.831793284711619,
+            "FF": 88.66164768218582,
+            "PCE": 11.726291679418335,
+            "Vmp": 0.7399999999999998,
+            "Jmp": 15.846340107322078,
+            "Pmax": 11.726291679418335
+          },
+          "error": 2.1975318744009863e-05
+        }
+      },
+      "elapsed": 15.825486799993087,
+      "tandem": {
+        "top_end": 3,
+        "bottom_start": 3,
+        "automatic_contacts": true,
+        "contact_offset": 0.15,
+        "top_work": 3.57,
+        "bottom_work": 5.1,
+        "mode": "ohmic",
+        "resistance": 0.1,
+        "j0": 100.0,
+        "ideality": 1.0,
+        "junction_collection": 1.0,
+        "eqe_voltage": 0.0
+      }
+    }
+  },
+  "errors": {
+    "energy_high_floor": "Non-monotonic subcell current; cannot safely invert"
+  }
+}

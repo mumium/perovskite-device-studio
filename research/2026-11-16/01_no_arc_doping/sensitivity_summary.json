@@ -1,0 +1,102 @@
+{
+  "energy_step": {
+    "success": true,
+    "metrics": {
+      "Jsc": 15.27917897480542,
+      "Voc": 2.209903205128484,
+      "FF": 88.55520984327535,
+      "PCE": 29.901115213784955,
+      "Vmp": 2.0054466963686406,
+      "Jmp": 14.909952614511447,
+      "Pmax": 29.901115213784955
+    },
+    "generation": {
+      "top": 15.570609778804487,
+      "bottom": 15.918469616170636,
+      "junction": 0.0,
+      "total": 31.489079394975118,
+      "remap_error": 0.17040749344824668
+    },
+    "continuity": 2.2520901626739138e-05,
+    "points": 1000,
+    "slices": 24,
+    "step": 0.005
+  },
+  "energy_mesh": {
+    "success": true,
+    "metrics": {
+      "Jsc": 15.27324719849519,
+      "Voc": 2.2091074976990908,
+      "FF": 87.97311591324122,
+      "PCE": 29.682344755646817,
+      "Vmp": 1.9870171606245286,
+      "Jmp": 14.938142127729547,
+      "Pmax": 29.68234475564682
+    },
+    "generation": {
+      "top": 15.516678538768312,
+      "bottom": 15.924189752698537,
+      "junction": 0.0,
+      "total": 31.440868291466842,
+      "remap_error": 0.10200564150297353
+    },
+    "continuity": 1.5715670516398167e-05,
+    "points": 2000,
+    "slices": 28,
+    "step": 0.01
+  },
+  "linear": {
+    "success": true,
+    "metrics": {
+      "Jsc": 15.051490987274075,
+      "Voc": 2.2316035247655184,
+      "FF": 80.47721186543698,
+      "PCE": 27.031458776362054,
+      "Vmp": 1.8764225391904612,
+      "Jmp": 14.405848475911053,
+      "Pmax": 27.031458776362054
+    },
+    "generation": {
+      "top": 15.570609778804487,
+      "bottom": 15.918469616170636,
+      "junction": 0.0,
+      "total": 31.489079394975118,
+      "remap_error": 0.17040749344824668
+    },
+    "continuity": 1.4204088562532562e-05,
+    "points": 1000,
+    "slices": 24,
+    "step": 0.01
+  },
+  "energy_linear": {
+    "success": false,
+    "error": "底电池（尝试 1/3）失败：SimSS 未完成计算（退出码 217），未采用部分曲线。\n\n本次失败输入与完整日志已保存：\n<home>\\AppData\\Local\\PerovskiteDeviceStudio\\diagnostics\\simss_failure_20261116T042026Z_d81a6325.zip\n\n本次错误输出：\nAn unhandled exception occurred at $000000010000719C:\r\nEOverflow: Floating point overflow\r\n  $000000010000719C\r\n  $000000010001CDD1\r\n  $000000010002B74F\r\n  $000000010002E945\r\n  $0000000100004813\r\n  $0000000100005046\r\n  $0000000100014D10\r\n  $0000000100001770\r\n  $00007FF80EB2DDA7\r\n  $00007FF810DB9C5C\r\n\r\n\n\n本次控制台输出：\nrom file layer_33.txt\r\nReading parameters of layer 34 from file layer_34.txt\r\nReading parameters of layer 35 from file layer_35.txt\r\nReading parameters of layer 36 from file layer_36.txt\r\nReading parameters of layer 37 from file layer_37.txt\r\nReading parameters of layer 38 from file layer_38.txt\r\nReading parameters of layer 39 from file layer_39.txt\r\nReading parameters of layer 40 from file layer_40.txt\r\nReading parameters of layer 41 from file layer_41.txt\r\nReading parameters of layer 42 from file layer_42.txt\r\nReading parameters of layer 43 from file layer_43.txt\r\nReading parameters of layer 44 from file layer_44.txt\r\nReading parameters of layer 45 from file layer_45.txt\r\nReading parameters of layer 46 from file layer_46.txt\r\nReading parameters of layer 47 from file layer_47.txt\r\nReading parameters of layer 48 from file layer_48.txt\r\nReading parameters of layer 49 from file layer_49.txt\r\nRead simulation setup from simulation_setup.txt\r\nReading generation profile from generation.txt\r\n\n\n本次计算日志：\n    TRUE\n255     0.940     TRUE      TRUE\n256     0.950     TRUE      TRUE\n257     0.960     TRUE      TRUE\n258     0.970     TRUE      TRUE\n259     0.980     TRUE      TRUE\n260     0.990     TRUE      TRUE\n261     1.000     TRUE      TRUE\n262     1.010     TRUE      TRUE\n263     1.020     TRUE      TRUE\n264     1.030     TRUE      TRUE\n265     1.040     TRUE      TRUE\n266     1.050     TRUE      TRUE\n267     1.060     TRUE      TRUE\n268     1.070     TRUE      TRUE\n269     1.080     TRUE      TRUE\n270     1.090     TRUE      TRUE\n271     1.100     TRUE      TRUE\n272     1.110     TRUE      TRUE\n273     1.120     TRUE      TRUE\n274     1.130     TRUE      TRUE\n275     1.140     TRUE      TRUE\n276     1.150     TRUE      TRUE\n277     1.160     TRUE      TRUE\n278     1.170     TRUE      TRUE\n279     1.180     TRUE      TRUE\n280     1.190     TRUE      TRUE\n281     1.200     TRUE      TRUE\n282     1.210     TRUE      TRUE\n283     1.220     TRUE      TRUE\n284     1.230     TRUE      TRUE\n\n"
+  },
+  "linear_fine": {
+    "success": true,
+    "metrics": {
+      "Jsc": 15.043470605120635,
+      "Voc": 2.232155491799559,
+      "FF": 79.57014109088813,
+      "PCE": 26.719148527215392,
+      "Vmp": 1.8553697454754672,
+      "Jmp": 14.400983196138188,
+      "Pmax": 26.719148527215392
+    },
+    "generation": {
+      "top": 15.516678538768312,
+      "bottom": 15.924189752698537,
+      "junction": 0.0,
+      "total": 31.440868291466842,
+      "remap_error": 0.10200564150297353
+    },
+    "continuity": 1.1691103214312914e-05,
+    "points": 2000,
+    "slices": 28,
+    "step": 0.005
+  },
+  "energy_linear_fine": {
+    "success": false,
+    "error": "底电池（尝试 1/3）失败：SimSS 未完成计算（退出码 217），未采用部分曲线。\n\n本次失败输入与完整日志已保存：\n<home>\\AppData\\Local\\PerovskiteDeviceStudio\\diagnostics\\simss_failure_20261116T042059Z_fc2fec47.zip\n\n本次错误输出：\nAn unhandled exception occurred at $0000000100018143:\r\nEZeroDivide: Floating point division by zero\r\n  $0000000100018143\r\n  $000000010002B9DB\r\n  $000000010002E945\r\n  $0000000100004813\r\n  $0000000100005046\r\n  $0000000100014D10\r\n  $0000000100001770\r\n  $00007FF80EB2DDA7\r\n  $00007FF810DB9C5C\r\n\r\n\n\n本次控制台输出：\nrom file layer_41.txt\r\nReading parameters of layer 42 from file layer_42.txt\r\nReading parameters of layer 43 from file layer_43.txt\r\nReading parameters of layer 44 from file layer_44.txt\r\nReading parameters of layer 45 from file layer_45.txt\r\nReading parameters of layer 46 from file layer_46.txt\r\nReading parameters of layer 47 from file layer_47.txt\r\nReading parameters of layer 48 from file layer_48.txt\r\nReading parameters of layer 49 from file layer_49.txt\r\nReading parameters of layer 50 from file layer_50.txt\r\nReading parameters of layer 51 from file layer_51.txt\r\nReading parameters of layer 52 from file layer_52.txt\r\nReading parameters of layer 53 from file layer_53.txt\r\nReading parameters of layer 54 from file layer_54.txt\r\nReading parameters of layer 55 from file layer_55.txt\r\nReading parameters of layer 56 from file layer_56.txt\r\nReading parameters of layer 57 from file layer_57.txt\r\nRead simulation setup from simulation_setup.txt\r\nReading generation profile from generation.txt\r\n\n\n本次计算日志：\n    TRUE\n538     1.085     TRUE      TRUE\n539     1.090     TRUE      TRUE\n540     1.095     TRUE      TRUE\n541     1.100     TRUE      TRUE\n542     1.105     TRUE      TRUE\n543     1.110     TRUE      TRUE\n544     1.115     TRUE      TRUE\n545     1.120     TRUE      TRUE\n546     1.125     TRUE      TRUE\n547     1.130     TRUE      TRUE\n548     1.135     TRUE      TRUE\n549     1.140     TRUE      TRUE\n550     1.145     TRUE      TRUE\n551     1.150     TRUE      TRUE\n552     1.155     TRUE      TRUE\n553     1.160     TRUE      TRUE\n554     1.165     TRUE      TRUE\n555     1.170     TRUE      TRUE\n556     1.175     TRUE      TRUE\n557     1.180     TRUE      TRUE\n558     1.185     TRUE      TRUE\n559     1.190     TRUE      TRUE\n560     1.195     TRUE      TRUE\n561     1.200     TRUE      TRUE\n562     1.205     TRUE      TRUE\n563     1.210     TRUE      TRUE\n564     1.215     TRUE      TRUE\n565     1.220     TRUE      TRUE\n566     1.225     TRUE      TRUE\n567     1.230     TRUE      TRUE\n\n"
+  }
+}

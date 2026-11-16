@@ -145,6 +145,12 @@ class TandemPage(PerformancePage):
         if self.ready:
             self.mode_badge.set('2T · 左入射/左阳极 · 等效连接')
 
+    def resize_right(self, event):
+        compact = self.compact
+        super().resize_right(event)
+        if self.ready and compact != self.compact:
+            self.after_idle(self.plot)
+
     def refresh_list(self):
         super().refresh_list()
         if hasattr(self, 'top_end'):
@@ -354,6 +360,18 @@ class TandemPage(PerformancePage):
             for key, var in self.metric_vars.items():var.set('—' if r is None else f"{r['metrics'][key]:.3f}")
             self.mpp_text.set('请运行叠层 J–V；结果保留到下次成功。' if r is None else
                               f"MPP：{r['metrics']['Vmp']:.3f} V · {r['metrics']['Jmp']:.3f} mA/cm² · {r['metrics']['Pmax']:.3f} mW/cm²")
+            if r is not None and self.previous_result is not None:
+                old = self.previous_result['metrics']; current = r['metrics']
+                units = ([('Jsc',''),('Voc',''),('FF','百分点'),('PCE','百分点')] if self.compact else
+                         [('Jsc','mA/cm²'),('Voc','V'),('FF','百分点'),('PCE','百分点')])
+                parts = [f"Δ{key} {current[key]-old[key]:+.3f} {unit}".rstrip()
+                         for key, unit in units
+                         if current[key] is not None and old[key] is not None]
+                self.comparison_text.set('相对上次：'+'  ·  '.join(parts))
+                self.comparison_label.configure(font=('Microsoft YaHei UI',9 if self.compact else 10))
+                self.comparison_label.pack(anchor='w', padx=8, before=self.plot_controls)
+                if self.compact:
+                    self.mpp_label.pack_forget()
         if r is None:
             ax.text(.5,.5,'运行叠层 EQE 后显示工作点响应' if view=='EQE' else '设置分界与连接参数后，运行叠层 J–V',
                     ha='center', va='center', transform=ax.transAxes, color='#6e6e73')
