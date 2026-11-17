@@ -36,9 +36,9 @@ Python / Windows 桌面工具，将能带分析和器件性能模拟整合到三
 
 Windows 打包版：双击 `dist/1.5.2/PerovskiteDeviceStudio.exe`，无需安装 Python 或 SimSS。可单独复制 EXE 到其他 Windows 64 位电脑运行。历史文件按版本目录归档，未标注版本的早期文件在 `dist/legacy-unversioned/`。
 
-[下载 Windows 1.5.2 单文件版](https://github.com/mumium/perovskite-device-studio/releases/download/v1.5.2/PerovskiteDeviceStudio.exe) · [版本发布页](https://github.com/mumium/perovskite-device-studio/releases/tag/v1.5.2)
+[下载 Windows 1.5.2 单文件版](https://github.com/mumium/perovskite-device-studio/releases/download/v1.5.2/PerovskiteDeviceStudio.exe) · [下载文件夹版 ZIP](https://github.com/mumium/perovskite-device-studio/releases/download/v1.5.2/PerovskiteDeviceStudio-1.5.2-portable.zip) · [版本发布页](https://github.com/mumium/perovskite-device-studio/releases/tag/v1.5.2)
 
-1.5.2文件夹版ZIP已在本地`dist/1.5.2/`生成；GitHub上传中断，当前发布页先提供已校验的单文件版。
+1.5.2文件夹版已补传并核验SHA256。下载ZIP后完整解压，运行其中的`PerovskiteDeviceStudio.exe`；独立校验文件为发布页的`PerovskiteDeviceStudio-1.5.2-portable.zip.sha256`。
 
 重新打包：安装项目依赖及 `pyinstaller`，再运行 `build_exe.bat`。程序为单文件无控制台版本，首次启动需要解压运行依赖，可能稍慢。
 
